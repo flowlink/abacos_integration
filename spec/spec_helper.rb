@@ -12,7 +12,10 @@ require 'spree/testing_support/controllers'
 Sinatra::Base.environment = 'test'
 
 ENV['ABACOS_KEY'] ||= 'key'
-ENV['ABACOS_PRODUCTS_WSDL'] ||= 'http://'
+ENV['ABACOS_PRODUCTS_WSDL'] ||= 'http://abacos'
+ENV['ABACOS_ORDERS_WSDL'] ||= 'http://abacos'
+ENV['ABACOS_CUSTOMERS_WSDL'] ||= 'http://abacos'
+ENV['ABACOS_BASE_URL'] ||= 'http://abacos'
 
 VCR.configure do |c|
   c.allow_http_connections_when_no_cassette = false
@@ -21,6 +24,9 @@ VCR.configure do |c|
 
   c.filter_sensitive_data("ABACOS_KEY") { ENV["ABACOS_KEY"] }
   c.filter_sensitive_data("ABACOS_PRODUCTS_WSDL") { ENV["ABACOS_PRODUCTS_WSDL"] }
+  c.filter_sensitive_data("ABACOS_ORDERS_WSDL") { ENV["ABACOS_ORDERS_WSDL"] }
+  c.filter_sensitive_data("ABACOS_CUSTOMERS_WSDL") { ENV["ABACOS_CUSTOMERS_WSDL"] }
+  c.filter_sensitive_data("ABACOS_BASE_URL") { ENV["ABACOS_BASE_URL"] }
 
   # c.preserve_exact_body_bytes do |http_message|
   #   binding.pry

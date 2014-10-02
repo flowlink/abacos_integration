@@ -3,9 +3,12 @@ require 'spec_helper'
 describe Abacos do
   subject { described_class }
 
+  before do
+    subject.key ENV['ABACOS_KEY']
+  end
+
   context "product services" do
     before do
-      subject.key ENV['ABACOS_KEY']
       subject.wsdl ENV['ABACOS_PRODUCTS_WSDL']
     end
 
@@ -34,6 +37,30 @@ describe Abacos do
       VCR.use_cassette "confirm_stock_received" do
         result = subject.confirm_stock_received "bdcec9fb-f0f5-4223-8fc6-f369cb19ab05"
         expect(result).to eq true
+      end
+    end
+  end
+
+  context "order services" do
+    before do
+      subject.wsdl ENV['ABACOS_ORDERS_WSDL']
+    end
+
+    it "adds order" do
+      VCR.use_cassette "orders/add_order1412283955" do
+        result = subject.add_order
+      end
+    end
+  end
+
+  context "customer services" do
+    before do
+      subject.wsdl ENV['ABACOS_CUSTOMERS_WSDL']
+    end
+
+    it "adds customer" do
+      VCR.use_cassette "add_customer_2014-10-02_17_25_31_-0300" do
+        result = subject.add_customer
       end
     end
   end
