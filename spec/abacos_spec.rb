@@ -4,12 +4,12 @@ describe Abacos do
   subject { described_class }
 
   before do
-    subject.key ENV['ABACOS_KEY']
+    subject.key = ENV['ABACOS_KEY']
   end
 
   context "product services" do
     before do
-      subject.wsdl ENV['ABACOS_PRODUCTS_WSDL']
+      subject.wsdl = ENV['ABACOS_PRODUCTS_WSDL']
     end
 
     it "fetches products available" do
@@ -43,7 +43,7 @@ describe Abacos do
 
   context "order services" do
     before do
-      subject.wsdl ENV['ABACOS_ORDERS_WSDL']
+      subject.wsdl = ENV['ABACOS_ORDERS_WSDL']
     end
 
     it "adds order" do
@@ -55,13 +55,29 @@ describe Abacos do
 
   context "customer services" do
     before do
-      subject.wsdl ENV['ABACOS_CUSTOMERS_WSDL']
+      subject.wsdl = ENV['ABACOS_CUSTOMERS_WSDL']
     end
 
     it "adds customer" do
       VCR.use_cassette "add_customer_2014-10-02_17_25_31_-0300" do
         result = subject.add_customer
       end
+    end
+  end
+
+  describe Abacos::Helper do
+    subject { Abacos }
+
+    before do
+      Abacos.des3_key = ENV['ABACOS_DES3_KEY']
+      Abacos.des3_iv = ENV['ABACOS_DES3_IV']
+    end
+
+    it "encrypts and decrypts a string" do
+      email = "washington@wombat.co"
+      encrypted = Abacos::Helper.encrypt email
+
+      expect(Abacos::Helper.decrypt encrypted).to eq email
     end
   end
 end

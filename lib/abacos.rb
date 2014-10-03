@@ -1,6 +1,29 @@
 class Abacos
   class ResponseError < StandardError; end
 
+  class Helper
+    class << self
+      def encrypt(data)
+        cipher = OpenSSL::Cipher.new('des3')
+        cipher.encrypt
+        cipher.key = Abacos.des3_key
+        cipher.iv = Abacos.des3_iv
+        Base64.strict_encode64 cipher.update(data) + cipher.final
+      end
+
+      def decrypt(data)
+        decoded_data = Base64.strict_decode64 data
+
+        decipher = OpenSSL::Cipher.new('des3')
+        decipher.decrypt
+        decipher.key = Abacos.des3_key
+        decipher.iv = Abacos.des3_iv
+
+        decipher.update(decoded_data) + decipher.final
+      end
+    end
+  end
+
   # Product Service
   #
   #   e.g. http://187.120.13.174:8045/AbacosWSProdutos.asmx
@@ -16,12 +39,28 @@ class Abacos
   # NOTE we could ask the base path as a config and figure the service name
   # based on the webhook call
   class << self
-    def key(key)
+    def key=(key)
       @@key = key
     end
 
-    def wsdl(wsdl)
+    def wsdl=(wsdl)
       @@wsdl = wsdl
+    end
+
+    def des3_key=(key)
+      @@des3_key = key
+    end
+
+    def des3_key
+      @@des3_key
+    end
+
+    def des3_iv=(iv)
+      @@des3_iv = iv
+    end
+
+    def des3_iv
+      @@des3_iv
     end
 
     # Return a list of products created / updated or deleted in Abacos
