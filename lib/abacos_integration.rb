@@ -3,6 +3,8 @@ $:.unshift File.dirname(__FILE__)
 require 'abacos'
 require 'abacos/address'
 require 'abacos/customer'
+require 'abacos/order'
+require 'abacos/line'
 
 module AbacosIntegration
   class Base
