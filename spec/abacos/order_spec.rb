@@ -1,4 +1,9 @@
-require 'spec_helper'
+require 'active_support/inflector'
+
+require_relative '../../lib/abacos'
+require_relative '../../lib/abacos/address'
+require_relative '../../lib/abacos/line'
+require_relative '../../lib/abacos/order'
 
 class Abacos
   describe Order do

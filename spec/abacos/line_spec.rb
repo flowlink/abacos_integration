@@ -1,4 +1,5 @@
-require 'spec_helper'
+require_relative '../../lib/abacos'
+require_relative '../../lib/abacos/line'
 
 class Abacos
   describe Line do

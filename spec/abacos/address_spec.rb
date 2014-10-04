@@ -1,4 +1,5 @@
-require 'spec_helper'
+require_relative '../../lib/abacos'
+require_relative '../../lib/abacos/address'
 
 class Abacos
   describe Address do
