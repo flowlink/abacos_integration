@@ -45,10 +45,12 @@ class Abacos
     }
 
     @@obj_mappings = {
-      "line_items" => "Abacos::Line Itens"
+      "line_items" => "Abacos::Line Itens",
+      "payments" => "Abacos::Payment FormasDePagamento"
     }
 
     attr_reader *@@mappings.keys
+    attr_reader *@@obj_mappings.keys
 
     def initialize(attributes = {})
       @attributes = attributes
@@ -61,11 +63,13 @@ class Abacos
       @@obj_mappings.each do |k, v|
         klass, translation = v.split
 
+        instance_variable_set("@#{k}", [])
+
         (attributes[k] || []).each do |line|
           instance = klass.constantize.new line
           translated[translation] ||= []
 
-          instance_variable_set("@#{k}", instance) 
+          instance_variable_get("@#{k}").push instance
           translated[translation].push instance.translated
         end
       end
