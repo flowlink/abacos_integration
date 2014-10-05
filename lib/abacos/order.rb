@@ -49,6 +49,12 @@ class Abacos
       "payments" => "Abacos::Payment FormasDePagamento"
     }
 
+    # NOTE Some setter methods might require custom logic
+    #
+    # e.g. placed_on date needs to follow the format 
+    #
+    #   "DataVenda" => "ddmmyyyy 00:12:00.000",
+
     attr_reader *@@mappings.keys
     attr_reader *@@obj_mappings.keys
 

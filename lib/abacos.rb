@@ -104,52 +104,21 @@ class Abacos
       confirm_service "estoque", protocol
     end
 
-    # Required attributes?
+    # Receives a collection of orders and send them to Abacos.
     #
+    # Notes:
     #
     #   - Some fields need to be encrypted: email, cpf_cnpj and cc info
-    #   - Order customer needs to exist in Abacos
+    #   - Customer referenced in the Order needs to exist in Abacos
+    #   - Products referenced in the Order needs to exist in Abacos
+    #   - Payment method id in the Order needs to exist in Abacos
     #
-    # NOTE Grab required fields and extract to a Order object
-    def add_order
+    def add_order(orders = [])
       response = client.call(
         :inserir_pedido,
         message: {
           "ChaveIdentificacao" => @@key,
-          "ListaDePedidos" => [
-            {
-              "DadosPedidos" => {
-                "NumeroDoPedido" => "R34545465465463",
-                "EMail" => "3JJiiLSOIJYAzifBXQbhY7T8aMPSc0G3ZXbXVUJUJt/HATZDaaHLXpTuWeBKxjjT",
-                "CPFouCNPJ" => "GRoxtlUMehBt7Y39nFhGXw==",
-                # "CodigoCliente" => nil,
-                "ValorPedido" => "100",
-                # "ValorFrete" => "5",
-                "DataVenda" => "02102014 00:12:00.000",
-                "RepresentanteVendas" => 1,
-                "Transportadora" => "Transp [Direct]",
-                "ServicoEntrega" => "Transp [Direct]",
-                "Itens" => [
-                  {
-                    "DadosPedidosItem" => {
-                      "CodigoProduto" => "3104376",
-                      "QuantidadeProduto" => 1,
-                      "PrecoUnitario" => 100
-                    }
-                  }
-                ],
-                "FormasDePagamento" => [
-                  {
-                    "DadosPedidosFormaPgto" => {
-                      "FormaPagamentoCodigo" => "25",
-                      "CartaoQtdeParcelas" => 1,
-                      "Valor" => 100
-                    }
-                  }
-                ]
-              }
-            }
-          ]
+          "ListaDePedidos" => orders
         }
       )
 
