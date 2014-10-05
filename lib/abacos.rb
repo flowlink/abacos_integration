@@ -113,7 +113,7 @@ class Abacos
     #   - Products referenced in the Order needs to exist in Abacos
     #   - Payment method id in the Order needs to exist in Abacos
     #
-    def add_order(orders = [])
+    def add_orders(orders = [])
       response = client.call(
         :inserir_pedido,
         message: {

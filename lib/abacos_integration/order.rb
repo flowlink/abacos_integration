@@ -14,7 +14,7 @@ module AbacosIntegration
       # NOTE Need to figure a way to check if the customer
       # exists. In case customer doesn't exist in Abacos we'll have to create
       # it first before creating the order
-      Abacos.add_order order.translated
+      Abacos.add_orders [order.translated]
     end
   end
 end
