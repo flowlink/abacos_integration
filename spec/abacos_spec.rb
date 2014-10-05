@@ -48,7 +48,7 @@ describe Abacos do
 
     it "adds order" do
       VCR.use_cassette "orders/add_order1412283955" do
-        result = subject.add_order
+        result = subject.add_orders [Factory.abacos_order]
       end
     end
   end

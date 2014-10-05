@@ -1,0 +1,34 @@
+{
+  "ListaDePedidos": [
+    {
+      "DadosPedidos": {
+        "NumeroDoPedido": "R34545465465463",
+        "EMail": "3JJiiLSOIJYAzifBXQbhY7T8aMPSc0G3ZXbXVUJUJt/HATZDaaHLXpTuWeBKxjjT",
+        "CPFouCNPJ": "GRoxtlUMehBt7Y39nFhGXw==",
+        "ValorPedido": "100",
+        "DataVenda": "02102014 00:12:00.000",
+        "RepresentanteVendas": 1,
+        "Transportadora": "Transp [Direct]",
+        "ServicoEntrega": "Transp [Direct]",
+        "Itens": [
+          {
+            "DadosPedidosItem": {
+              "CodigoProduto": "3104376",
+              "QuantidadeProduto": 1,
+              "PrecoUnitario": 100
+            }
+          }
+        ],
+        "FormasDePagamento": [
+          {
+            "DadosPedidosFormaPgto": {
+              "FormaPagamentoCodigo": "25",
+              "CartaoQtdeParcelas": 1,
+              "Valor": 100
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

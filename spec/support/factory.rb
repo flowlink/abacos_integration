@@ -4,7 +4,7 @@ module Factory
       next if file_name == '.' or file_name == '..'
       name, ext = file_name.split(".", 2)
 
-      define_method("#{name}_payload") do
+      define_method name do
         JSON.parse(IO.read("#{File.dirname(__FILE__)}/payloads/#{name}.json")).with_indifferent_access
       end
     end

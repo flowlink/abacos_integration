@@ -3,10 +3,7 @@ require 'spec_helper'
 module AbacosIntegration
   describe Order do
     include_examples "config"
-
-    let(:order_payload) do
-      Factory.order_payload
-    end
+    let(:order_payload) { Factory.order }
 
     it "creates order in abacos" do
       # NOTE need to encrypt stuff here in case it doesnt come encrypted already
