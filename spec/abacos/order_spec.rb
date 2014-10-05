@@ -66,9 +66,19 @@ class Abacos
       expect(payment.amount).to eq attributes['payments'][0]['amount']
     end
 
+    it "assigns values" do
+      subject = described_class.new
+
+      subject.total = 10
+      expect(subject.total).to eq 10
+
+      subject.email = "wombat.co"
+      expect(subject.email).to eq "wombat.co"
+    end
+
     it "translates properly" do
       subject = described_class.new attributes
-      translated = subject.translated
+      translated = subject.translated["DadosPedidos"]
 
       expect(translated).to include(
         "NumeroDoPedido" => attributes['id'],

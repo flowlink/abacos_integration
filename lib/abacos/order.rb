@@ -31,7 +31,7 @@ class Abacos
   #   }
   # 
   class Order
-    attr_reader :attributes, :translated
+    attr_reader :attributes
 
     @@mappings = {
       "id" => "NumeroDoPedido",
@@ -57,7 +57,11 @@ class Abacos
       @translated = {}
 
       @@mappings.each do |k, v|
-        instance_variable_set("@#{k}", translated[v] = attributes[k])
+        instance_variable_set("@#{k}", @translated[v] = attributes[k])
+
+        self.class.send(:define_method, "#{k}=") do |value|
+          instance_variable_set("@#{k}",  @translated[v] = value)
+        end
       end
 
       @@obj_mappings.each do |k, v|
@@ -67,12 +71,16 @@ class Abacos
 
         (attributes[k] || []).each do |line|
           instance = klass.constantize.new line
-          translated[translation] ||= []
+          @translated[translation] ||= []
 
           instance_variable_get("@#{k}").push instance
-          translated[translation].push instance.translated
+          @translated[translation].push instance.translated
         end
       end
+    end
+
+    def translated
+      { "DadosPedidos" => @translated }
     end
   end
 end
