@@ -30,4 +30,13 @@ class AbacosEndpoint < EndpointBase::Sinatra::Base
       result 200
     end
   end
+
+  post "/add_order" do
+    order = AbacosIntegration::Order.new(@config, @payload)
+    if order.create
+      result 200, "Order succesfully placed in Abacos"
+    else
+      result 500
+    end
+  end
 end
