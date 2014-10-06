@@ -5,7 +5,8 @@ module AbacosIntegration
     end
 
     def fetch
-      Abacos.products_available.map do |p|
+      # NOTE we could make products_available always return an array?
+      (Abacos.products_available || []).map do |p|
         { id: p[:codigo_produto], abacos: p }
       end
     end

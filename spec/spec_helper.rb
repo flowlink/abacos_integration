@@ -4,6 +4,7 @@ require 'bundler'
 Bundler.require(:default, :test)
 
 require File.join(File.dirname(__FILE__), '..', 'lib/abacos_integration')
+require File.join(File.dirname(__FILE__), '..', 'abacos_endpoint')
 
 Dir["./spec/support/**/*.rb"].each { |f| require f }
 
