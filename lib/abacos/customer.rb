@@ -18,8 +18,6 @@ class Abacos
   #   }
   #
   class Customer
-    attr_reader :translated
-
     @@mappings = {
       "email" => "EMail",
       "cpf_or_cnpj" => "CPFouCNPJ",
@@ -44,7 +42,7 @@ class Abacos
       @translated = {}
 
       @@mappings.each do |k, v|
-        instance_variable_set("@#{k}", translated[v] = attributes[k])
+        instance_variable_set("@#{k}", @translated[v] = attributes[k])
       end
 
       @@obj_mappings.each do |k, v|
@@ -53,12 +51,12 @@ class Abacos
           instance = klass.constantize.new attributes[k]
 
           instance_variable_set("@#{k}", instance) 
-          translated[translation] = instance.translated
+          @translated[translation] = instance.translated
         end
       end
 
       @@composed_mappings.each do |k, v|
-        translated[v] = k.split.inject("") do |string, part|
+        @translated[v] = k.split.inject("") do |string, part|
           if attributes[part]
             instance_variable_set("@#{part}", attributes[part]) 
             string << " " + attributes[part] 
@@ -76,25 +74,29 @@ class Abacos
     end
 
     def email=(value)
-      @email = translated["EMail"] = value
+      @email = @translated["EMail"] = value
     end
 
     def cpf_or_cnpj=(value)
-      @cpf_or_cnpj = translated["CPFouCNPJ"] = value
+      @cpf_or_cnpj = @translated["CPFouCNPJ"] = value
     end
 
     def kind=(value)
-      @kind = translated["TipoPessoa"] = value
+      @kind = @translated["TipoPessoa"] = value
     end
 
     def gender=(value)
-      @gender = translated["Sexo"] = value
+      @gender = @translated["Sexo"] = value
     end
 
     def billing_address=(address)
       @billing_address = Address.new(address)
-      translated["Endereco"] = @billing_address.translated
+      @translated["Endereco"] = @billing_address.translated
       @billing_address
+    end
+
+    def translated
+      { "DadosClientes" => @translated }
     end
   end
 end

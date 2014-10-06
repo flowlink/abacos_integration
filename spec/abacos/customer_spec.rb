@@ -53,7 +53,7 @@ class Abacos
     it "translates properly" do
       subject = described_class.new attributes
 
-      expect(subject.translated).to eq(
+      expect(subject.translated["DadosClientes"]).to eq(
         {
           "Nome" => "#{attributes['firstname']} #{attributes['lastname']}",
           "EMail" => attributes['email'],
