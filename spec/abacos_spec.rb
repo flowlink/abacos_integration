@@ -60,7 +60,7 @@ describe Abacos do
 
     it "adds customer" do
       VCR.use_cassette "add_customer_2014-10-02_17_25_31_-0300" do
-        result = subject.add_customer
+        result = subject.add_customers [Factory.abacos_customer]
       end
     end
   end

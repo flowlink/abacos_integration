@@ -130,29 +130,12 @@ class Abacos
       response
     end
 
-    # NOTE Grab basic / required fields here and move to a Customer object
-    def add_customer
+    def add_customers(customers = [])
       response = client.call(
         :cadastrar_cliente,
         message: {
           "ChaveIdentificacao" => @@key,
-          "ListaDeClientes" => [
-            {
-              "DadosClientes" => {
-                "EMail" => "3JJiiLSOIJYAzifBXQbhY7T8aMPSc0G3ZXbXVUJUJt/HATZDaaHLXpTuWeBKxjjT",
-                "CPFouCNPJ" => "GRoxtlUMehBt7Y39nFhGXw==",
-                "TipoPessoa" => "tpeFisica",
-                "Sexo" => "tseFeminino",
-                "Nome" => "Wombat Integration First Client",
-                "Endereco" => {
-                  "Logradouro" => "Santa Monica",
-                  "Estado" => "PI",
-                  "Municipio" => "Teresina",
-                  "Cep" => "64049905"
-                }
-              }
-            }
-          ]
+          "ListaDeClientes" => customers
         }
       )
 

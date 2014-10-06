@@ -1,0 +1,15 @@
+{
+  "DadosClientes": {
+    "EMail": "3JJiiLSOIJYAzifBXQbhY7T8aMPSc0G3ZXbXVUJUJt/HATZDaaHLXpTuWeBKxjjT",
+    "CPFouCNPJ": "GRoxtlUMehBt7Y39nFhGXw==",
+    "TipoPessoa": "tpeFisica",
+    "Sexo": "tseFeminino",
+    "Nome": "Wombat Integration First Client",
+    "Endereco": {
+      "Logradouro": "Santa Monica",
+      "Estado": "PI",
+      "Municipio": "Teresina",
+      "Cep": "64049905"
+    }
+  }
+}
