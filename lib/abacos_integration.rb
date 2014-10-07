@@ -11,7 +11,7 @@ module AbacosIntegration
   class Base
     def initialize(config = {})
       Abacos.key = config[:abacos_key]
-      Abacos.wsdl = config[:abacos_wsdl]
+      Abacos.base_path = config[:abacos_base_path]
     end
   end
 end

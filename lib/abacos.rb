@@ -43,9 +43,11 @@ class Abacos
       @@key = key
     end
 
-    def wsdl=(wsdl)
-      @@wsdl = wsdl
+    def base_path=(base_path)
+      @@base_path = base_path
     end
+
+    @@webservice = "AbacosWSProdutos"
 
     def des3_key=(key)
       @@des3_key = key
@@ -65,6 +67,8 @@ class Abacos
 
     # Return a list of products created / updated or deleted in Abacos
     def products_available
+      @@webservice = "AbacosWSProdutos"
+
       response = available_service :produtos_disponiveis
       result = response.body[:produtos_disponiveis_response][:produtos_disponiveis_result]
 
@@ -83,10 +87,13 @@ class Abacos
     # brought again
     #
     def confirm_product_received(protocol)
+      @@webservice = "AbacosWSProdutos"
       confirm_service "produto", protocol
     end
 
     def stocks_available
+      @@webservice = "AbacosWSProdutos"
+      
       response = available_service :estoques_disponiveis
       result = response.body[:estoques_disponiveis_response][:estoques_disponiveis_result]
 
@@ -101,6 +108,7 @@ class Abacos
 
     # Follows same logic as confirm_product_received
     def confirm_stock_received(protocol)
+      @@webservice = "AbacosWSProdutos"
       confirm_service "estoque", protocol
     end
 
@@ -114,6 +122,8 @@ class Abacos
     #   - Payment method id in the Order needs to exist in Abacos
     #
     def add_orders(orders = [])
+      @@webservice = "AbacosWSPedidos"
+
       response = client.call(
         :inserir_pedido,
         message: {
@@ -131,6 +141,8 @@ class Abacos
     end
 
     def add_customers(customers = [])
+      @@webservice = "AbacosWSClientes"
+
       response = client.call(
         :cadastrar_cliente,
         message: {
@@ -147,13 +159,16 @@ class Abacos
       response
     end
 
+    def wsdl_url
+      "#{@@base_path}/#{@@webservice}.asmx?wsdl"
+    end
+
     # NOTE Intended to be private api below here
 
     def client
       Savon.client(
-        # encoding: "ISO-8859-1",
         ssl_verify_mode: :none,
-        wsdl: @@wsdl,
+        wsdl: wsdl_url,
         log_level: :info,
         pretty_print_xml: true,
         log: true

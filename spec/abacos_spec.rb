@@ -5,13 +5,10 @@ describe Abacos do
 
   before do
     subject.key = ENV['ABACOS_KEY']
+    subject.base_path = ENV['ABACOS_BASE_URL']
   end
 
   context "product services" do
-    before do
-      subject.wsdl = ENV['ABACOS_PRODUCTS_WSDL']
-    end
-
     it "fetches products available" do
       VCR.use_cassette "products_available" do
         products = subject.products_available 
@@ -42,10 +39,6 @@ describe Abacos do
   end
 
   context "order services" do
-    before do
-      subject.wsdl = ENV['ABACOS_ORDERS_WSDL']
-    end
-
     it "adds order" do
       VCR.use_cassette "orders/add_order1412283955" do
         result = subject.add_orders [Factory.abacos_order]
@@ -54,10 +47,6 @@ describe Abacos do
   end
 
   context "customer services" do
-    before do
-      subject.wsdl = ENV['ABACOS_CUSTOMERS_WSDL']
-    end
-
     it "adds customer" do
       VCR.use_cassette "add_customer_2014-10-02_17_25_31_-0300" do
         result = subject.add_customers [Factory.abacos_customer]
