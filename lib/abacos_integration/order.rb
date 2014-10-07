@@ -11,9 +11,7 @@ module AbacosIntegration
     def create
       order.total = order_payload[:totals][:order]
 
-      # NOTE this wont work until the config takes a base path
-      # instead of the full wsdl url
-      # send_customer_info
+      send_customer_info
       Abacos.add_orders [order.translated]
     end
 
@@ -24,14 +22,14 @@ module AbacosIntegration
 
     def customer_payload
       {
-        firstname: order_payload[:billing_address][:firstname],
-        lastname: order_payload[:billing_address][:lastname],
-        email: order_payload[:email],
-        cpf_or_cnpj: order_payload[:cpf_or_cnpj],
+        'firstname' => order_payload[:billing_address][:firstname],
+        'lastname' => order_payload[:billing_address][:lastname],
+        'email' => order_payload[:email],
+        'cpf_or_cnpj' => order_payload[:cpf_or_cnpj],
         # NOTE Move defaults here to Abacos::Customer
-        kind: order_payload[:kind] || "tpeFisica",
-        gender: order_payload[:gender] || "tseIndefinido",
-        billing_address: order_payload[:billing_address]
+        'kind' => order_payload[:kind] || "tpeFisica",
+        'gender' => order_payload[:gender],
+        'billing_address' => order_payload[:billing_address]
       }
     end
   end

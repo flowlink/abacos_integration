@@ -6,11 +6,9 @@ module AbacosIntegration
     let(:order_payload) { Factory.order }
 
     it "creates order in abacos" do
-      # NOTE need to encrypt stuff here in case it doesnt come encrypted already
-      order_payload[:email] = "3JJiiLSOIJYAzifBXQbhY7T8aMPSc0G3ZXbXVUJUJt/HATZDaaHLXpTuWeBKxjjT"
-      order_payload[:cpf_or_cnpj] = "GRoxtlUMehBt7Y39nFhGXw=="
-
-      # NOTE Need to parse and format the date accoding to Abacos
+      # NOTE cpf can only have numbers
+      #
+      # NOTE Need to parse and format the date according to Abacos
       order_payload[:placed_on] = "02102014 00:12:00.000"
 
       subject = described_class.new(config, order: order_payload)

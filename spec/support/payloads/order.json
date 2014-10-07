@@ -1,14 +1,10 @@
 {
-  "id": "R15408534696790",
+  "id": "R435235345345235",
   "status": "complete",
   "channel": "spree",
-  "email": "spree@example.com",
+  "email": "rosa@wombat.co",
   "currency": "USD",
   "placed_on": "2014-02-03T17:29:15.219Z",
-  "cpf_or_cnpj": "000.000.000-00",
-  "seller_id": "1",
-  "ship_carrier": "Transp [Direct]",
-  "ship_service": "Transp [Direct]",
   "totals": {
     "item": 200,
     "adjustment": 20,
@@ -44,9 +40,9 @@
     "lastname": "Smith",
     "address1": "1234 Awesome Street",
     "address2": "",
-    "zipcode": "90210",
+    "zipcode": "64020410",
     "city": "Hollywood",
-    "state": "California",
+    "state": "PI",
     "country": "US",
     "phone": "0000000000"
   },
@@ -55,9 +51,9 @@
     "lastname": "Smith",
     "address1": "1234 Awesome Street",
     "address2": "",
-    "zipcode": "90210",
+    "zipcode": "64020410",
     "city": "Hollywood",
-    "state": "California",
+    "state": "PI",
     "country": "US",
     "phone": "0000000000"
   },
@@ -69,5 +65,10 @@
       "installment_plan_number": 1,
       "payment_method_id": "25"
     }
-  ]
+  ],
+  "cpf_or_cnpj": "00000000000",
+  "gender": "tseFeminino",
+  "seller_id": "1",
+  "ship_carrier": "Transp [Direct]",
+  "ship_service": "Transp [Direct]"
 }
