@@ -60,6 +60,12 @@ describe Abacos do
         result = subject.add_orders [Factory.abacos_order]
       end
     end
+
+    it "receives order updates from abacos" do
+      VCR.use_cassette "orders/orders_available" do
+        subject.orders_available
+      end
+    end
   end
 
   context "customer services" do

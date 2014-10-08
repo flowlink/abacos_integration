@@ -17,5 +17,14 @@ module AbacosIntegration
         subject.create
       end
     end
+
+    it "fetches order updates from abacos" do
+      subject = described_class.new(config)
+
+      VCR.use_cassette "orders/orders_available" do
+        orders = subject.fetch
+        expect(orders).to be_a Array
+      end
+    end
   end
 end

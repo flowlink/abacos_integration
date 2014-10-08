@@ -2,9 +2,9 @@ module AbacosIntegration
   class Order < Base
     attr_reader :order, :order_payload
 
-    def initialize(config, payload)
+    def initialize(config, payload = {})
       super config
-      @order_payload = payload[:order]
+      @order_payload = payload[:order] || {}
       @order = Abacos::Order.new order_payload
     end
 
@@ -31,6 +31,15 @@ module AbacosIntegration
         'gender' => order_payload[:gender],
         'billing_address' => order_payload[:billing_address]
       }
+    end
+
+    def fetch
+      Abacos.orders_available.map do |order|
+        {
+          id: order[:numero_pedido],
+          abacos: order
+        }
+      end
     end
   end
 end

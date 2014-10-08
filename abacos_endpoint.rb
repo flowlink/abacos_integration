@@ -20,6 +20,17 @@ class AbacosEndpoint < EndpointBase::Sinatra::Base
     end
   end
 
+  post "/get_orders" do
+    orders = AbacosIntegration::Order.new(@config).fetch
+    orders.each { |o| add_object "order", o }
+
+    if (count = orders.count) > 0
+      result 200, "Received #{count} #{"order".pluralize count} from Ábacos"
+    else
+      result 200
+    end
+  end
+
   post "/get_inventory" do
     stocks = AbacosIntegration::Stock.new(@config).fetch
     stocks.each { |s| add_object "inventory", s }

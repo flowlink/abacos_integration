@@ -116,10 +116,14 @@ class Abacos
     #
     # Notes:
     #
-    #   - Some fields need to be encrypted: email, cpf_cnpj and cc info
+    #   - Some fields need to be encrypted: email, cpf_cnpj and cc info (but
+    #   the encryption can be disabled in Abacos)
     #   - Customer referenced in the Order needs to exist in Abacos
     #   - Products referenced in the Order needs to exist in Abacos
     #   - Payment method id in the Order needs to exist in Abacos
+    #
+    #   - Orders CANNOT be updated via API. Once they're sent users can only
+    #   update it in Abacos itself.
     #
     def add_orders(orders = [])
       @@webservice = "AbacosWSPedidos"
@@ -133,11 +137,30 @@ class Abacos
       )
 
       result = response.body[:inserir_pedido_response][:inserir_pedido_result]
+
+      # NOTE think we will get a collection of :resultado_operacao when sending
+      # more than one order. TEST IT and update the code to handle it as well
       if result[:resultado_operacao][:tipo] != "tdreSucesso"
         raise ResponseError, "#{result[:rows]}"
       end
 
       response
+    end
+
+    # Receives Order updates from Abacos
+    def orders_available
+      @@webservice = "AbacosWSPedidosDisponiveis"
+      result = available_service :pedidos_disponiveis
+
+      if rows = result[:rows]
+        if rows[:dados_pedido_web].is_a?(Array)
+          rows[:dados_pedido_web]
+        else
+          [rows[:dados_pedido_web]]
+        end
+      else
+        []
+      end
     end
 
     def add_customers(customers = [])
