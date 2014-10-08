@@ -10,6 +10,7 @@ module AbacosIntegration
           id: s[:codigo_produto],
           product_id: s[:codigo_produto],
           quantity: s[:saldo_disponivel],
+          location: s[:nome_almoxarifado_origem],
           abacos: s
         }
       end
