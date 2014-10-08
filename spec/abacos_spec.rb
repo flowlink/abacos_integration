@@ -16,6 +16,22 @@ describe Abacos do
       end
     end
 
+    it "still returns an array when no product is returned" do
+      VCR.use_cassette "no_products_available" do
+        products = subject.products_available
+        expect(products).to be_a Array
+      end
+    end
+
+    it "raise custom exception on abacos response error" do
+      VCR.use_cassette "products/wrong_credentials" do
+        subject.key = 'wrong key'
+        expect {
+          products = subject.products_available
+        }.to raise_error Abacos::ResponseError
+      end
+    end
+
     it "confirms products was received" do
       VCR.use_cassette "confirm_product_received" do
         result = subject.confirm_product_received "1BAB4A04-1987-4C3C-A7F0-D310985942D7"

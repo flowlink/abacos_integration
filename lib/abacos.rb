@@ -68,9 +68,7 @@ class Abacos
     # Return a list of products created / updated or deleted in Abacos
     def products_available
       @@webservice = "AbacosWSProdutos"
-
-      response = available_service :produtos_disponiveis
-      result = response.body[:produtos_disponiveis_response][:produtos_disponiveis_result]
+      result = available_service :produtos_disponiveis
 
       if rows = result[:rows]
         if rows[:dados_produtos].is_a?(Array)
@@ -78,6 +76,8 @@ class Abacos
         else
           [rows[:dados_produtos]]
         end
+      else
+        []
       end
     end
 
@@ -93,9 +93,7 @@ class Abacos
 
     def stocks_available
       @@webservice = "AbacosWSProdutos"
-      
-      response = available_service :estoques_disponiveis
-      result = response.body[:estoques_disponiveis_response][:estoques_disponiveis_result]
+      result = available_service :estoques_disponiveis
 
       if rows = result[:rows]
         if rows[:dados_estoque].is_a?(Array)
@@ -103,6 +101,8 @@ class Abacos
         else
           [rows[:dados_estoque]]
         end
+      else
+        []
       end
     end
 
@@ -176,7 +176,14 @@ class Abacos
     end
 
     def available_service(endpoint)
-      client.call(endpoint, message: { "ChaveIdentificacao" => @@key })
+      response = client.call(endpoint, message: { "ChaveIdentificacao" => @@key })
+      result = response.body[:"#{endpoint}_response"][:"#{endpoint}_result"]
+
+      if error_message = result[:resultado_operacao][:exception_message]
+        raise ResponseError, "Error. Cod. #{result[:resultado_operacao][:codigo]}, #{error_message}"
+      end
+
+      result
     end
 
     def confirm_service(endpoint_key, protocol)
