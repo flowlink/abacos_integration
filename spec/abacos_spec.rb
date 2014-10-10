@@ -62,7 +62,7 @@ describe Abacos do
     end
 
     it "receives order updates from abacos" do
-      VCR.use_cassette "orders/orders_available#{Time.now.to_i}" do
+      VCR.use_cassette "orders/orders_available" do
         o = subject.orders_available
       end
     end

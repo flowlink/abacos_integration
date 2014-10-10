@@ -1,7 +1,10 @@
 module AbacosIntegration
   class Stock < Base
-    def initialize(config = {})
+    attr_reader :inventory_payload
+
+    def initialize(config = {}, payload = {})
       super config
+      @inventory_payload = payload[:inventory] || {}
     end
 
     def fetch
@@ -14,6 +17,11 @@ module AbacosIntegration
           abacos: s
         }
       end
+    end
+
+    def confirm!
+      protocol = inventory_payload[:abacos][:protocolo_estoque]
+      Abacos.confirm_stock_received protocol
     end
   end
 end

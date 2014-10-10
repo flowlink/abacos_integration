@@ -50,4 +50,14 @@ class AbacosEndpoint < EndpointBase::Sinatra::Base
       result 500
     end
   end
+
+  post "/confirm_stock" do
+    AbacosIntegration::Stock.new(@config, @payload).confirm!
+    result 200, "Inventory #{@payload[:inventory][:id]} integration confirmed"
+  end
+
+  post "/confirm_product" do
+    AbacosIntegration::Product.new(@config, @payload).confirm!
+    result 200, "Product #{@payload[:product][:id]} integration confirmed"
+  end
 end
