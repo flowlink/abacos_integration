@@ -37,11 +37,11 @@ class Abacos
     @@mappings = {
       "id" => "NumeroDoPedido",
       "email" => "EMail",
-      "status" => "codigo_status",
+      "status" => "CodigoStatus",
       "cpf_or_cnpj" => "CPFouCNPJ",
       "total" => "ValorPedido",
       "shipping" => "ValorFrete",
-      "discount" => "ValorDiscount",
+      "discount" => "ValorDesconto",
       "placed_on" => "DataVenda",
       "seller_id" => "RepresentanteVendas",
       "ship_carrier" => "Transportadora",
@@ -67,7 +67,9 @@ class Abacos
       @translated = {}
 
       @@mappings.each do |k, v|
-        instance_variable_set("@#{k}", @translated[v] = attributes[k])
+        if attributes[k]
+          instance_variable_set("@#{k}", @translated[v] = attributes[k])
+        end
 
         self.class.send(:define_method, "#{k}=") do |value|
           instance_variable_set("@#{k}",  @translated[v] = value)

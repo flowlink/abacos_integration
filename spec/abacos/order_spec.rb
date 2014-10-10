@@ -97,5 +97,11 @@ class Abacos
       payment = Payment.new attributes['payments'][1]
       expect(translated['FormasDePagamento'][1]).to eq payment.translated
     end
+
+    # Server was unable to read request. ---> There is an error in XML document (1, 1346). ---> Input string was not in a correct format.
+    it "doesnt set nil values for keys" do
+      subject = described_class.new attributes
+      expect(subject.translated["DadosPedidos"].keys).to_not include("ValorDesconto")
+    end
   end
 end
