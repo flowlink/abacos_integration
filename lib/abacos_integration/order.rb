@@ -9,6 +9,7 @@ module AbacosIntegration
     end
 
     def create
+      order.shipping = order_payload[:totals][:shipping]
       order.total = order_payload[:totals][:order]
 
       send_customer_info

@@ -8,8 +8,10 @@ module AbacosIntegration
     it "creates order in abacos" do
       # NOTE cpf can only have numbers
       #
+      # NOTE zipcode needs to be 8 chars long
+      #
       # NOTE Need to parse and format the date according to Abacos
-      order_payload[:placed_on] = "02102014 00:12:00.000"
+      order_payload[:placed_on] = "09102014 00:12:00.000"
 
       subject = described_class.new(config, order: order_payload)
 

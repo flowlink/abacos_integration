@@ -33,11 +33,15 @@ class Abacos
   class Order
     attr_reader :attributes
 
+    # NOTE There's a huge number of attributes still to be mapped here ..
     @@mappings = {
       "id" => "NumeroDoPedido",
       "email" => "EMail",
+      "status" => "codigo_status",
       "cpf_or_cnpj" => "CPFouCNPJ",
       "total" => "ValorPedido",
+      "shipping" => "ValorFrete",
+      "discount" => "ValorDiscount",
       "placed_on" => "DataVenda",
       "seller_id" => "RepresentanteVendas",
       "ship_carrier" => "Transportadora",
