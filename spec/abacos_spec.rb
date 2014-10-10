@@ -10,7 +10,7 @@ describe Abacos do
 
   context "product services" do
     it "fetches products available" do
-      VCR.use_cassette "products_available" do
+      VCR.use_cassette "products_available_1412880883" do
         products = subject.products_available 
         expect(products).to be_a Array
       end
@@ -62,8 +62,15 @@ describe Abacos do
     end
 
     it "receives order updates from abacos" do
-      VCR.use_cassette "orders/orders_available" do
-        subject.orders_available
+      VCR.use_cassette "orders/orders_available#{Time.now.to_i}" do
+        o = subject.orders_available
+      end
+    end
+
+    it "receives order status updates from abacos" do
+      VCR.use_cassette "orders/orders_available_status1412903800" do
+        result = subject.orders_available_status
+        expect(result).to be_a Array
       end
     end
   end

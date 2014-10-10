@@ -33,8 +33,12 @@ module AbacosIntegration
       }
     end
 
+    # NOTE Map Order statuses (codigo_status). e.g.
+    #
+    #   ENT => delivered ?
+    #
     def fetch
-      Abacos.orders_available.map do |order|
+      Abacos.orders_available_status.map do |order|
         {
           id: order[:numero_pedido],
           abacos: order

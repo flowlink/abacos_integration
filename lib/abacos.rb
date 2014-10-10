@@ -147,7 +147,8 @@ class Abacos
       response
     end
 
-    # Receives Order updates from Abacos
+    # Return general Order updates
+    # ps. don't know what we use this for ..
     def orders_available
       @@webservice = "AbacosWSPedidosDisponiveis"
       result = available_service :pedidos_disponiveis
@@ -157,6 +158,23 @@ class Abacos
           rows[:dados_pedido_web]
         else
           [rows[:dados_pedido_web]]
+        end
+      else
+        []
+      end
+    end
+
+    # Receives Order STATUS only updates from Abacos
+    # This call is part of the Order integration process
+    def orders_available_status
+      @@webservice = "AbacosWSPedidos"
+      result = available_service :status_pedido_disponiveis
+
+      if rows = result[:rows]
+        if rows[:dados_status_pedido].is_a?(Array)
+          rows[:dados_status_pedido]
+        else
+          [rows[:dados_status_pedido]]
         end
       else
         []

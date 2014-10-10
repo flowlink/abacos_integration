@@ -21,7 +21,7 @@ module AbacosIntegration
     it "fetches order updates from abacos" do
       subject = described_class.new(config)
 
-      VCR.use_cassette "orders/orders_available" do
+      VCR.use_cassette "orders/orders_available_status1412903800" do
         orders = subject.fetch
         expect(orders).to be_a Array
       end
