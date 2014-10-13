@@ -36,8 +36,6 @@ class Abacos
   #
   #   e.g. http://187.120.13.174:8045/AbacosWSClientes.asmx
   #
-  # NOTE we could ask the base path as a config and figure the service name
-  # based on the webhook call
   class << self
     def key=(key)
       @@key = key
@@ -237,6 +235,7 @@ class Abacos
       second_key = :"confirmar_recebimento_#{endpoint_key}_result"
       result = response.body[first_key][second_key]
 
+      # NOTE Check if there's a exception_message key here
       if result[:tipo] != "tdreSucesso"
         raise ResponseError, "Could not confirm record was received. Cod. #{result[:codigo]}, #{result[:descricao]}"
       end
