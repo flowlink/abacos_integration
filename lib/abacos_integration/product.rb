@@ -33,7 +33,7 @@ module AbacosIntegration
         {
           id: p[:codigo_produto],
           name: p[:nome_produto],
-          sky: p[:codigo_produto],
+          sku: p[:codigo_produto],
           description: p[:descricao],
           price: p[:preco_tabela1],
           variants: build_variants(p[:codigo_produto]),
