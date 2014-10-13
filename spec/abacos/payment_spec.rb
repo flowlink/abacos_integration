@@ -20,6 +20,14 @@ class Abacos
       expect(subject.payment_method_id).to eq attributes['payment_method_id']
     end
 
+    it "assigns values" do
+      subject = described_class.new
+      subject.amount = 333
+      subject.installment_plan_number = 1
+      subject.payment_method_id ||= 25
+      expect(subject.payment_method_id).to eq 25
+    end
+
     it "translates properly" do
       subject = described_class.new attributes
 
@@ -32,6 +40,13 @@ class Abacos
           }
         }
       )
+    end
+
+    # Server was unable to read request. ---> There is an error in XML document (1, 1346). ---> Input string was not in a correct format.
+    it "doesnt set nil values for keys" do
+      attributes.delete "payment_method_id"
+      subject = described_class.new attributes
+      expect(subject.translated["DadosPedidosFormaPgto"].keys).to_not include("FormaPagamentoCodigo")
     end
   end
 end

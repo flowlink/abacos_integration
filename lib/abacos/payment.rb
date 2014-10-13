@@ -25,7 +25,13 @@ class Abacos
       @translated = {}
 
       @@mappings.each do |k, v|
-        instance_variable_set("@#{k}", @translated[v] = attributes[k])
+        if attributes[k]
+          instance_variable_set("@#{k}", @translated[v] = attributes[k])
+        end
+
+        self.class.send(:define_method, "#{k}=") do |value|
+          instance_variable_set("@#{k}",  @translated[v] = value)
+        end
       end
     end
 

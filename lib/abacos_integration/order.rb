@@ -60,6 +60,17 @@ module AbacosIntegration
       order.shipping_state = shipping_address_payload[:state]
       order.shipping_zipcode = shipping_address_payload[:zipcode]
 
+      # MOAR Defaults. These are preconfigured on Abacos
+      #
+      order.seller_id ||= 1
+      order.ship_carrier ||= "Transp [Direct]"
+      order.ship_service ||= "Transp [Direct]"
+
+      unless order.payments.empty?
+        order.payments.first.payment_method_id ||= 25
+        order.payments.first.installment_plan_number ||= 1
+      end
+
       order
     end
 
@@ -74,9 +85,8 @@ module AbacosIntegration
         'lastname' => order_payload[:billing_address][:lastname],
         'email' => order_payload[:email],
         'cpf_or_cnpj' => order_payload[:cpf_or_cnpj],
-        # NOTE Move defaults here to Abacos::Customer
         'kind' => order_payload[:kind] || "tpeFisica",
-        'gender' => order_payload[:gender],
+        'gender' => order_payload[:gender] || "tseFeminino",
         'billing_address' => order_payload[:billing_address]
       }
     end
