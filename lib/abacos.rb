@@ -158,6 +158,12 @@ class Abacos
       end
     end
 
+    # Follows same logic as confirm_product_received
+    def confirm_order_status_received(protocol)
+      @@webservice = "AbacosWSPedidos"
+      confirm_service "status_pedido", protocol
+    end
+
     def add_customers(customers = [])
       @@webservice = "AbacosWSClientes"
 
@@ -209,7 +215,7 @@ class Abacos
     def confirm_service(endpoint_key, protocol)
       endpoint = "confirmar_recebimento_#{endpoint_key}"
       response = client.call(
-        endpoint.to_sym, message: { "Protocolo#{endpoint_key.capitalize}" => protocol }
+        endpoint.to_sym, message: { "Protocolo#{endpoint_key.camelize}" => protocol }
       )
 
       first_key = :"confirmar_recebimento_#{endpoint_key}_response"

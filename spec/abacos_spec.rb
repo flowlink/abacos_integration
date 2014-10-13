@@ -81,6 +81,13 @@ describe Abacos do
         expect(result).to be_a Array
       end
     end
+
+    it "confirm order status received" do
+      VCR.use_cassette "orders/confirm_order_status_received" do
+        result = subject.confirm_order_status_received "C85869D8-1B01-4ECB-A3E9-E782E562CD75"
+        expect(result).to eq true
+      end
+    end
   end
 
   context "customer services" do

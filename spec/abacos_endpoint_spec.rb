@@ -40,4 +40,18 @@ describe AbacosEndpoint do
       expect(last_response.status).to eq 200
     end
   end
+
+  it "confirms order update received" do
+    request = {
+      parameters: config,
+      order: {
+        abacos: { protocolo_status_pedido: "C85869D8-1B01-4ECB-A3E9-E782E562CD75" }
+      }
+    }
+
+    VCR.use_cassette "orders/confirm_order_status_received" do
+      post "/confirm_order_status", request.to_json, auth
+      expect(last_response.status).to eq 200
+    end
+  end
 end

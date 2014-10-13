@@ -13,6 +13,24 @@ module AbacosIntegration
       Abacos.add_orders [build_order.translated]
     end
 
+    # NOTE Map Order statuses (codigo_status). e.g.
+    #
+    #   ENT => delivered ?
+    #
+    def fetch
+      Abacos.orders_available_status.map do |order|
+        {
+          id: order[:numero_pedido],
+          abacos: order
+        }
+      end
+    end
+
+    def confirm!
+      protocol = order_payload[:abacos][:protocolo_status_pedido]
+      Abacos.confirm_order_status_received protocol
+    end
+
     def build_order
       order = Abacos::Order.new order_payload
       order.shipping = order_payload[:totals][:shipping]
@@ -61,19 +79,6 @@ module AbacosIntegration
         'gender' => order_payload[:gender],
         'billing_address' => order_payload[:billing_address]
       }
-    end
-
-    # NOTE Map Order statuses (codigo_status). e.g.
-    #
-    #   ENT => delivered ?
-    #
-    def fetch
-      Abacos.orders_available_status.map do |order|
-        {
-          id: order[:numero_pedido],
-          abacos: order
-        }
-      end
     end
   end
 end
