@@ -11,6 +11,7 @@ module AbacosIntegration
     def create
       order.shipping = order_payload[:totals][:shipping]
       order.total = order_payload[:totals][:order]
+      order.paid = order_payload[:paid] || true
 
       send_customer_info
       Abacos.add_orders [order.translated]

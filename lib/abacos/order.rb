@@ -29,6 +29,8 @@ class Abacos
   #       }
   #     ]
   #   }
+  #
+  # See pre configured payment methods in Abacos to grab a valid ID for FormaPagamentoCodigo
   # 
   class Order
     attr_reader :attributes
@@ -46,6 +48,8 @@ class Abacos
       "seller_id" => "RepresentanteVendas",
       "ship_carrier" => "Transportadora",
       "ship_service" => "ServicoEntrega",
+      "paid" => "PedidoJaPago",
+      "paid_at" => "DataDoPagamento"
     }
 
     @@obj_mappings = {
