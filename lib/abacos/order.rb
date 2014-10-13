@@ -30,6 +30,8 @@ class Abacos
   #     ]
   #   }
   #
+  # CPFouCNPJ can only have numbers
+  #
   # See pre configured payment methods in Abacos to grab a valid ID for FormaPagamentoCodigo
   # 
   class Order

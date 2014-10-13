@@ -82,20 +82,4 @@ describe Abacos do
       end
     end
   end
-
-  describe Abacos::Helper do
-    subject { Abacos }
-
-    before do
-      Abacos.des3_key = ENV['ABACOS_DES3_KEY']
-      Abacos.des3_iv = ENV['ABACOS_DES3_IV']
-    end
-
-    it "encrypts and decrypts a string" do
-      email = "washington@wombat.co"
-      encrypted = Abacos::Helper.encrypt email
-
-      expect(Abacos::Helper.decrypt encrypted).to eq email
-    end
-  end
 end

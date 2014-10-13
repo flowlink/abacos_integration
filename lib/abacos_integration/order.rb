@@ -1,20 +1,35 @@
 module AbacosIntegration
   class Order < Base
-    attr_reader :order, :order_payload
+    attr_reader :order_payload
 
     def initialize(config, payload = {})
       super config
       @order_payload = payload[:order] || {}
-      @order = Abacos::Order.new order_payload
     end
 
     def create
+      send_customer_info
+      Abacos.add_orders [build_order.translated]
+    end
+
+    def build_order
+      order = Abacos::Order.new order_payload
       order.shipping = order_payload[:totals][:shipping]
       order.total = order_payload[:totals][:order]
+
+      placed_on = Abacos::Helper.parse_timestamp order_payload[:placed_on]
+      order.placed_on = placed_on
       order.paid = order_payload[:paid] || true
 
-      send_customer_info
-      Abacos.add_orders [order.translated]
+      if order.paid
+        order.paid_at = if order_payload[:paid_at]
+                          Abacos::Helper.parse_timestamp order_payload[:paid_at]
+                        else
+                          placed_on
+                        end
+      end
+
+      order
     end
 
     def send_customer_info

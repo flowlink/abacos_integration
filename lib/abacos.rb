@@ -1,29 +1,6 @@
 class Abacos
   class ResponseError < StandardError; end
 
-  class Helper
-    class << self
-      def encrypt(data)
-        cipher = OpenSSL::Cipher.new('des3')
-        cipher.encrypt
-        cipher.key = Abacos.des3_key
-        cipher.iv = Abacos.des3_iv
-        Base64.strict_encode64 cipher.update(data) + cipher.final
-      end
-
-      def decrypt(data)
-        decoded_data = Base64.strict_decode64 data
-
-        decipher = OpenSSL::Cipher.new('des3')
-        decipher.decrypt
-        decipher.key = Abacos.des3_key
-        decipher.iv = Abacos.des3_iv
-
-        decipher.update(decoded_data) + decipher.final
-      end
-    end
-  end
-
   # Product Service
   #
   #   e.g. http://187.120.13.174:8045/AbacosWSProdutos.asmx

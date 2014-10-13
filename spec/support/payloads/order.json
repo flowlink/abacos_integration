@@ -3,7 +3,7 @@
   "status": "complete",
   "channel": "spree",
   "email": "bob@example.com",
-  "placed_on": "09102014 00:12:00.000",
+  "placed_on": "2014-10-13T07:29:15.219Z",
   "totals": {
     "item": 200,
     "adjustment": 10,
@@ -62,6 +62,5 @@
   "gender": "tseFeminino",
   "seller_id": "1",
   "ship_carrier": "Transp [Direct]",
-  "ship_service": "Transp [Direct]",
-  "paid_at": "09102014 00:12:00.000"
+  "ship_service": "Transp [Direct]"
 }

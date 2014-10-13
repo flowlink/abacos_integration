@@ -1,6 +1,7 @@
 $:.unshift File.dirname(__FILE__)
 
 require 'abacos'
+require 'abacos/helper'
 require 'abacos/address'
 require 'abacos/customer'
 require 'abacos/line'

@@ -22,6 +22,8 @@ class Abacos
   #     "phone": "0000000000"
   #   }
   #
+  # Cep needs to be 8 chars long
+  #
   class Address
     attr_reader :attributes, :translated
 
