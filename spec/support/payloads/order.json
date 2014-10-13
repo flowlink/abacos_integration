@@ -7,6 +7,7 @@
   "totals": {
     "item": 200,
     "adjustment": 10,
+    "discount": 10,
     "tax": 10,
     "shipping": 0,
     "payment": 210,

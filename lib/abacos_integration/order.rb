@@ -50,7 +50,7 @@ module AbacosIntegration
 
 
       if order_payload[:totals][:discount]
-        order.dicount = order_payload[:totals][:discount]
+        order.discount = order_payload[:totals][:discount]
       end
 
       order.shipping_name = "#{shipping_address_payload[:firstname]} #{shipping_address_payload[:lastname]}"
