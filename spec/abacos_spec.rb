@@ -61,6 +61,14 @@ describe Abacos do
       end
     end
 
+    it "raises if can't create order" do
+      VCR.use_cassette "orders/add_order1413223734" do
+        expect {
+          subject.add_orders [Factory.abacos_order]
+        }.to raise_error Abacos::ResponseError
+      end
+    end
+
     it "receives order updates from abacos" do
       VCR.use_cassette "orders/orders_available" do
         o = subject.orders_available
@@ -79,6 +87,14 @@ describe Abacos do
     it "adds customer" do
       VCR.use_cassette "add_customer_2014-10-02_17_25_31_-0300" do
         result = subject.add_customers [Factory.abacos_customer]
+      end
+    end
+
+    it "raises if can save customer" do
+      VCR.use_cassette "customers/add_customer1413224851" do
+        expect {
+          subject.add_customers [Factory.abacos_customer]
+        }.to raise_error Abacos::ResponseError
       end
     end
   end

@@ -116,7 +116,9 @@ class Abacos
       # NOTE think we will get a collection of :resultado_operacao when sending
       # more than one order. TEST IT and update the code to handle it as well
       if result[:resultado_operacao][:tipo] != "tdreSucesso"
-        raise ResponseError, "#{result[:rows]}"
+        error = result[:rows][:dados_pedidos_resultado][:resultado]
+        message = "#{error[:codigo]}. #{error[:exception_message]}. \n#{error[:descricao]}"
+        raise ResponseError, message
       end
 
       response
@@ -169,7 +171,9 @@ class Abacos
 
       result = response.body[:cadastrar_cliente_response][:cadastrar_cliente_result]
       if result[:resultado_operacao][:tipo] != "tdreSucesso"
-        raise ResponseError, "#{result[:rows]}"
+        error = result[:rows][:dados_clientes_resultado][:resultado]
+        message = "#{error[:codigo]}. #{error[:exception_message]}. \n#{error[:descricao]}"
+        raise ResponseError, message
       end
 
       response
