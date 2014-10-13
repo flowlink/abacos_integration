@@ -64,5 +64,12 @@ class Abacos
         }
       )
     end
+
+    # Server was unable to read request. ---> There is an error in XML document (1, 1346). ---> Input string was not in a correct format.
+    it "doesnt set nil values for keys" do
+      attributes.delete "gender"
+      subject = described_class.new attributes
+      expect(subject.translated["DadosClientes"].keys).to_not include("Sexo")
+    end
   end
 end

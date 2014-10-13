@@ -42,7 +42,13 @@ class Abacos
       @translated = {}
 
       @@mappings.each do |k, v|
-        instance_variable_set("@#{k}", @translated[v] = attributes[k])
+        if attributes[k]
+          instance_variable_set("@#{k}", @translated[v] = attributes[k])
+        end
+
+        self.class.send(:define_method, "#{k}=") do |value|
+          instance_variable_set("@#{k}",  @translated[v] = value)
+        end
       end
 
       @@obj_mappings.each do |k, v|
@@ -67,26 +73,8 @@ class Abacos
       end
     end
 
-    # NOTE Define this on the fly based on mappings
-
     def firstname=(value)
       @firstname = value
-    end
-
-    def email=(value)
-      @email = @translated["EMail"] = value
-    end
-
-    def cpf_or_cnpj=(value)
-      @cpf_or_cnpj = @translated["CPFouCNPJ"] = value
-    end
-
-    def kind=(value)
-      @kind = @translated["TipoPessoa"] = value
-    end
-
-    def gender=(value)
-      @gender = @translated["Sexo"] = value
     end
 
     def billing_address=(address)
