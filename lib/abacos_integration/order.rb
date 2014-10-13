@@ -1,10 +1,11 @@
 module AbacosIntegration
   class Order < Base
-    attr_reader :order_payload
+    attr_reader :order_payload, :shipping_address_payload
 
     def initialize(config, payload = {})
       super config
       @order_payload = payload[:order] || {}
+      @shipping_address_payload = order_payload[:shipping_address] || {}
     end
 
     def create
@@ -28,6 +29,18 @@ module AbacosIntegration
                           placed_on
                         end
       end
+
+
+      if order_payload[:totals][:discount]
+        order.dicount = order_payload[:totals][:discount]
+      end
+
+      order.shipping_name = "#{shipping_address_payload[:firstname]} #{shipping_address_payload[:lastname]}"
+      order.shipping_address1 = shipping_address_payload[:address1]
+      order.shipping_address2 = shipping_address_payload[:address2]
+      order.shipping_city = shipping_address_payload[:city]
+      order.shipping_state = shipping_address_payload[:state]
+      order.shipping_zipcode = shipping_address_payload[:zipcode]
 
       order
     end

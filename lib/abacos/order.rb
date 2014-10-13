@@ -51,7 +51,16 @@ class Abacos
       "ship_carrier" => "Transportadora",
       "ship_service" => "ServicoEntrega",
       "paid" => "PedidoJaPago",
-      "paid_at" => "DataDoPagamento"
+      "paid_at" => "DataDoPagamento",
+      "shipping_name" => "DestNome",
+      "shipping_phone" => "DestTelefone",
+      "shipping_email" => "DestEmail",
+      "shipping_address1" => "DestLogradouro",
+      "shipping_address2" => "DestComplementoEndereco",
+      "shipping_city" => "DestMunicipio",
+      "shipping_state" => "DestEstado",
+      "shipping_zipcode" => "DestCep",
+      "shipping_country" => "DestPais"
     }
 
     @@obj_mappings = {
