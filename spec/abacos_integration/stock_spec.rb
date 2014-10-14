@@ -10,7 +10,7 @@ module AbacosIntegration
       VCR.use_cassette "stocks_available" do
         inventories = subject.fetch
 
-        expected_keys = [:id, :product_id, :quantity, :location, :abacos]
+        expected_keys = [:id, :product_id, :quantity, :location, :abacos, :abacos_id]
         expect(inventories.first.keys).to match_array expected_keys
       end
     end
