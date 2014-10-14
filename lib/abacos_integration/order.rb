@@ -34,7 +34,7 @@ module AbacosIntegration
     def build_order
       order = Abacos::Order.new order_payload
       order.shipping = order_payload[:totals][:shipping]
-      order.total = order_payload[:totals][:items]
+      order.total = order_payload[:totals][:item]
 
       placed_on = Abacos::Helper.parse_timestamp order_payload[:placed_on]
       order.placed_on = placed_on
