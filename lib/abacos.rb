@@ -66,6 +66,24 @@ class Abacos
       confirm_service "produto", protocol
     end
 
+    def price_online(product_ids = [])
+      @@webservice = "AbacosWSProdutos"
+      response = client.call(
+        :preco_on_line,
+        message: {
+          "ChaveIdentificacao" => @@key,
+          "ListaDeCodigosProdutos" => {
+            "string" => product_ids
+          }
+        }
+      )
+    end
+
+    def prices_available
+      @@webservice = "AbacosWSProdutos"
+      result = available_service :precos_disponiveis
+    end
+
     def stocks_available
       @@webservice = "AbacosWSProdutos"
       result = available_service :estoques_disponiveis

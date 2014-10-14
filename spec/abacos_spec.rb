@@ -39,6 +39,18 @@ describe Abacos do
       end
     end
 
+    it "fetches product prices" do
+      VCR.use_cassette "price_online" do
+        result = subject.price_online ["3104654"]
+      end
+    end
+
+    it "fetches prices available" do
+      VCR.use_cassette "prices_available" do
+        result = subject.prices_available
+      end
+    end
+
     it "fetches stocks available" do
       VCR.use_cassette "stocks_available" do
         stocks = subject.stocks_available 
