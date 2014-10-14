@@ -41,7 +41,13 @@ describe Abacos do
 
     it "fetches product prices" do
       VCR.use_cassette "price_online" do
-        result = subject.price_online ["3104654"]
+        prices = subject.price_online ["3104654"]
+        expect(prices).to be_a Array
+      end
+
+      VCR.use_cassette "price_online_multiple" do
+        prices = subject.price_online ["3104654", "3103099-2"]
+        expect(prices).to be_a Array
       end
     end
 

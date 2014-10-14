@@ -77,6 +77,24 @@ class Abacos
           }
         }
       )
+
+      # NOTE We repeat this pattern too much, could be abstracted
+      result = response.body[:preco_on_line_response][:preco_on_line_result]
+      if result[:resultado_operacao][:tipo] != "tdreSucesso"
+        error = result[:rows][:dados_preco_resultado][:resultado]
+        message = "#{error[:codigo]}. #{error[:exception_message]}. \n#{error[:descricao]}"
+        raise ResponseError, message
+      end
+
+      if rows = result[:rows]
+        if rows[:dados_preco_resultado].is_a?(Array)
+          rows[:dados_preco_resultado]
+        else
+          [rows[:dados_preco_resultado]]
+        end
+      else
+        []
+      end
     end
 
     def prices_available
