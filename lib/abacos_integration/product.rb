@@ -16,8 +16,6 @@ module AbacosIntegration
 
     # NOTE What about Marcas and Familia? (Web services related to products)
     #
-    # NOTE Do we need to fetch prices via another webservice?
-    #
     # Abacos return product children (variants) as regular product records
     # so here we need to make sure only parents products are returned with
     # their variants nested in the object
@@ -35,10 +33,9 @@ module AbacosIntegration
           name: p[:nome_produto],
           sku: p[:codigo_produto],
           description: p[:descricao],
-          price: p[:preco_tabela1],
           variants: build_variants(p[:codigo_produto]),
           abacos: p
-        }
+        }.merge fetch_price(p[:codigo_produto])
       end
     end
 
@@ -65,6 +62,14 @@ module AbacosIntegration
       @variants ||= collection.select { |p| p[:codigo_produto_pai] }
     end
 
+    def fetch_price(product_id)
+      if price = prices.find { |p| p[:codigo_produto] == product_id }
+        { price: price[:preco_tabela], promotional_price: price[:preco_promocional] }
+      else
+        { price: 0 }
+      end
+    end
+
     def build_variants(product_id)
       variants = variants_by_product_id product_id
 
@@ -72,9 +77,8 @@ module AbacosIntegration
         {
           sku: v[:codigo_produto],
           description: v[:descricao],
-          price: v[:preco_tabela1],
           abacos: v
-        }
+        }.merge fetch_price(v[:codigo_produto])
       end
     end
 
@@ -82,8 +86,16 @@ module AbacosIntegration
       variants.select { |v| v[:codigo_produto_pai] == product_id }
     end
 
+    def prices
+      @prices ||= Abacos.price_online abacos_ids
+    end
+
     def collection
       @collection ||= Abacos.products_available
+    end
+
+    def abacos_ids
+      @abacos_ids ||= collection.map { |p| p[:codigo_produto] }
     end
   end
 end
