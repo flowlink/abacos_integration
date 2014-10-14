@@ -14,8 +14,6 @@ module AbacosIntegration
       Abacos.confirm_product_received protocol
     end
 
-    # NOTE What about Marcas and Familia? (Web services related to products)
-    #
     # Abacos return product children (variants) as regular product records
     # so here we need to make sure only parents products are returned with
     # their variants nested in the object
@@ -33,7 +31,15 @@ module AbacosIntegration
           name: p[:nome_produto],
           sku: p[:codigo_produto],
           description: p[:descricao],
+          class: strip(p[:descricao_classe]),
+          brand: strip(p[:descricao_marca]),
+          family: strip(p[:descricao_familia]),
+          taxons: build_taxons(p),
           variants: build_variants(p[:codigo_produto]),
+          weight: p[:peso],
+          height: p[:altura],
+          width: p[:largura],
+          length: p[:comprimento],
           abacos: p
         }.merge fetch_price(p[:codigo_produto])
       end
@@ -82,6 +88,14 @@ module AbacosIntegration
       end
     end
 
+    def build_taxons(product)
+      taxons = [
+        strip(product[:descricao_grupo]), strip(product[:descricao_subgrupo])
+      ].compact
+
+      [taxons]
+    end
+
     def variants_by_product_id(product_id)
       variants.select { |v| v[:codigo_produto_pai] == product_id }
     end
@@ -97,5 +111,10 @@ module AbacosIntegration
     def abacos_ids
       @abacos_ids ||= collection.map { |p| p[:codigo_produto] }
     end
+
+    private
+      def strip(string)
+        string.to_s.strip! || string
+      end
   end
 end
