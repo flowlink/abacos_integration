@@ -97,6 +97,36 @@ class Abacos
       end
     end
 
+    def families_available
+      @@webservice = "AbacosWSProdutos"
+      result = available_service :familias_disponiveis
+
+      if rows = result[:rows]
+        if rows[:dados_familias_produtos].is_a?(Array)
+          rows[:dados_familias_produtos]
+        else
+          [rows[:dados_familias_produtos]]
+        end
+      else
+        []
+      end
+    end
+
+    def branding_available
+      @@webservice = "AbacosWSProdutos"
+      result = available_service :marcas_disponiveis
+
+      if rows = result[:rows]
+        if rows[:dados_marcas_produtos].is_a?(Array)
+          rows[:dados_marcas_produtos]
+        else
+          [rows[:dados_marcas_produtos]]
+        end
+      else
+        []
+      end
+    end
+
     def prices_available
       @@webservice = "AbacosWSProdutos"
       result = available_service :precos_disponiveis
@@ -242,7 +272,7 @@ class Abacos
       result = response.body[:"#{endpoint}_response"][:"#{endpoint}_result"]
 
       if error_message = result[:resultado_operacao][:exception_message]
-        raise ResponseError, "Error. Cod. #{result[:resultado_operacao][:codigo]}, #{error_message}"
+        raise ResponseError, "#{result[:resultado_operacao][:codigo]}, #{error_message}"
       end
 
       result

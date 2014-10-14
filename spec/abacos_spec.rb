@@ -70,6 +70,20 @@ describe Abacos do
         expect(result).to eq true
       end
     end
+
+    it "fetches families available" do
+      VCR.use_cassette "families_available" do
+        families = subject.families_available 
+        expect(families).to be_a Array
+      end
+    end
+
+    it "fetches branding available" do
+      VCR.use_cassette "branding_available" do
+        brandings = subject.branding_available 
+        expect(brandings).to be_a Array
+      end
+    end
   end
 
   context "order services" do
