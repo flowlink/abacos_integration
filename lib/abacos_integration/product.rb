@@ -1,17 +1,19 @@
 module AbacosIntegration
   class Product < Base
-    attr_reader :product_payload
+    attr_reader :product_payload, :variants_payload
 
     def initialize(config = {}, payload = {})
       super config
       @product_payload  = payload[:product] || {}
+      @variants_payload  = payload[:variants] || []
     end
 
-    # NOTE We need to loop through the product.variants and confirm
-    # them as well?
+    # Confirm product (if product.abacos info exists) and its variants. A
+    # product payload might not be completely present because Abacos might
+    # return the variant but not its master product via Abacos.products_available
     def confirm!
-      protocol = product_payload[:abacos][:protocolo_produto]
-      Abacos.confirm_product_received protocol
+      confirm_integration product_payload if product_payload[:abacos]
+      variants_payload.each { |v| confirm_integration v }
     end
 
     # Abacos return product children (variants) as regular product records
@@ -115,6 +117,11 @@ module AbacosIntegration
     private
       def strip(string)
         string.to_s.strip! || string
+      end
+
+      def confirm_integration(payload)
+        protocol = payload[:abacos][:protocolo_produto]
+        Abacos.confirm_product_received protocol
       end
   end
 end
