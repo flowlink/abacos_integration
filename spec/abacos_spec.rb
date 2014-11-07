@@ -137,4 +137,13 @@ describe Abacos do
       end
     end
   end
+
+  context "invoices" do
+    it "invoices available" do
+      VCR.use_cassette "invoices/1415329420" do
+        result = subject.invoices_available
+        expect(result).to be_a Array
+      end
+    end
+  end
 end

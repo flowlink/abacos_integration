@@ -51,6 +51,22 @@ class AbacosEndpoint < EndpointBase::Sinatra::Base
     end
   end
 
+  post "/get_shipments" do
+    shipments = AbacosIntegration::Shipment.new(@config).fetch
+
+    if (count = shipments.count) > 0
+      add_value 'shipments', shipments
+      result 200, "Received #{count} #{"shipment".pluralize count} (notas fiscais) from Ábacos"
+    else
+      result 200
+    end
+  end
+
+  post "/confirm_shipment" do
+    AbacosIntegration::Shipment.new(@config, @payload).confirm!
+    result 200, "Shipment #{@payload[:shipment][:id]} integration confirmed"
+  end
+
   post "/confirm_stock" do
     AbacosIntegration::Stock.new(@config, @payload).confirm!
     result 200, "Inventory #{@payload[:inventory][:id]} integration confirmed"

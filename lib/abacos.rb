@@ -230,6 +230,26 @@ class Abacos
       confirm_service "status_pedido", protocol
     end
 
+    def invoices_available
+      @@webservice = "AbacosWSNotasFiscais"
+      result = available_service :notas_fiscais_disponiveis
+
+      if rows = result[:rows]
+        if rows[:dados_notas_fiscais_disponiveis_web].is_a?(Array)
+          rows[:dados_notas_fiscais_disponiveis_web]
+        else
+          [rows[:dados_notas_fiscais_disponiveis_web]]
+        end
+      else
+        []
+      end
+    end
+
+    def confirm_invoice_received(protocol)
+      @@webservice = "AbacosWSNotasFiscais"
+      confirm_service "nota_fiscal", protocol
+    end
+
     def add_customers(customers = [])
       @@webservice = "AbacosWSClientes"
 
@@ -255,8 +275,12 @@ class Abacos
       "#{@@base_path}/#{@@webservice}.asmx?wsdl"
     end
 
-    # NOTE Intended to be private api below here
+    private
 
+    # TODO Look into how httpi could be updated to support socket proxies.
+    #   
+    #   e.g. proxy: 'socks5h://localhost:2222',
+    #
     def client
       Savon.client(
         ssl_verify_mode: :none,

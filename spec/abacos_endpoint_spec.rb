@@ -54,4 +54,30 @@ describe AbacosEndpoint do
       expect(last_response.status).to eq 200
     end
   end
+
+  it "gets invoices (notas fiscais) info as shipments" do
+    request = { parameters: config }
+
+    VCR.use_cassette "invoices/1415329420" do
+      post "/get_shipments", request.to_json, auth
+      expect(json_response[:summary]).to match /from Ábacos/
+      expect(last_response.status).to eq 200
+      expect(json_response[:shipments].count).to be >= 1
+    end
+  end
+
+  it "confirms shipment received" do
+    request = {
+      parameters: config,
+      shipment: {
+        abacos: { :protocolo_nota_fiscal=>"1a94f1d2-7ef2-420f-bd51-67a409414da1" }
+      }
+    }
+
+    VCR.use_cassette "invoices/4354353425" do
+      post "/confirm_shipment", request.to_json, auth
+      expect(json_response[:summary]).to match /integration confirmed/
+      expect(last_response.status).to eq 200
+    end
+  end
 end
