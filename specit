@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+# https://github.com/astro/socksify-ruby
+#
+# gem install socksify
+#
+# hack to proxy all http requests from httpi lib to a sock proxy
+# run like this:
+#
+#   socksify_ruby localhost 2222 specit
+# 
+require 'rubygems'
+require 'bundler'
+
+Bundler.require(:default, :test)
+
+RSpec::Core::Runner.run(['spec/abacos_spec.rb'])
