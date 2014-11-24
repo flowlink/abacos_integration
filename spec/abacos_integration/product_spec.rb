@@ -37,7 +37,19 @@ module AbacosIntegration
       }
 
       subject = described_class.new config, payload
-      expect(subject).to receive(:confirm_integration).with(protocol).once
+      expect(Abacos).to receive(:confirm_product_received).with("F123").once
+      subject.confirm!
+    end
+
+    it "dont confirm variants if abacos.protocolo_produto is no available" do
+      payload = {
+        product: {
+          variants: [{}]
+        }
+      }
+
+      subject = described_class.new config, payload
+      expect(Abacos).not_to receive(:confirm_product_received)
       subject.confirm!
     end
   end

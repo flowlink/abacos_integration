@@ -12,7 +12,7 @@ module AbacosIntegration
     # product payload might not be completely present because Abacos might
     # return the variant but not its master product via Abacos.products_available
     def confirm!
-      confirm_integration product_payload if product_payload[:abacos]
+      confirm_integration product_payload
       variants_payload.each { |v| confirm_integration v }
     end
 
@@ -120,8 +120,10 @@ module AbacosIntegration
       end
 
       def confirm_integration(payload)
-        protocol = payload[:abacos][:protocolo_produto]
-        Abacos.confirm_product_received protocol
+        if payload[:abacos]
+          protocol = payload[:abacos][:protocolo_produto]
+          Abacos.confirm_product_received protocol
+        end
       end
   end
 end
