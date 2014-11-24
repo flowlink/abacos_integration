@@ -4,8 +4,8 @@ module AbacosIntegration
 
     def initialize(config = {}, payload = {})
       super config
-      @product_payload  = payload[:product] || {}
-      @variants_payload  = payload[:variants] || []
+      @product_payload = payload[:product] || {}
+      @variants_payload = product_payload[:variants] || []
     end
 
     # Confirm product (if product.abacos info exists) and its variants. A

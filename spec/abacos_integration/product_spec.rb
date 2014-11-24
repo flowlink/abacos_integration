@@ -24,5 +24,21 @@ module AbacosIntegration
       taxons = subject.build_taxons descricao_grupo: " A", descricao_subgrupo: "D "
       expect(taxons).to eq [["A", "D"]]
     end
+
+    it "also confirm variants received back to abacos" do
+      protocol = {
+        abacos: { protocolo_produto: "F123" }
+      }
+
+      payload = {
+        product: {
+          variants: [protocol]
+        }
+      }
+
+      subject = described_class.new config, payload
+      expect(subject).to receive(:confirm_integration).with(protocol).once
+      subject.confirm!
+    end
   end
 end
