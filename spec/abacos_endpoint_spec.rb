@@ -9,6 +9,7 @@ describe AbacosEndpoint do
 
     VCR.use_cassette "orders/#{order[:id]}" do
       post "/add_order", request.to_json, auth
+      expect(json_response[:summary]).to match "succesfully placed in Abacos"
       expect(last_response.status).to eq 200
     end
   end

@@ -263,7 +263,12 @@ class Abacos
 
       result = response.body[:cadastrar_cliente_response][:cadastrar_cliente_result]
       if result[:resultado_operacao][:tipo] != "tdreSucesso"
-        error = result[:rows][:dados_clientes_resultado][:resultado]
+        if result[:rows]
+          error = result[:rows][:dados_clientes_resultado][:resultado]
+        else
+          error = result[:resultado_operacao]
+        end
+
         message = "#{error[:codigo]}. #{error[:exception_message]}. \n#{error[:descricao]}"
         raise ResponseError, message
       end
