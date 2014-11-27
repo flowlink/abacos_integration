@@ -42,7 +42,7 @@ module AbacosIntegration
           height: p[:altura],
           width: p[:largura],
           length: p[:comprimento],
-          abacos: p
+          abacos: clean_up_keys(p)
         }.merge fetch_price(p[:codigo_produto])
       end
     end
@@ -87,7 +87,7 @@ module AbacosIntegration
         items[sku] = {
           sku: sku,
           description: v[:descricao],
-          abacos: v
+          abacos: clean_up_keys(v)
         }.merge fetch_price(v[:codigo_produto])
 
         items
@@ -119,6 +119,16 @@ module AbacosIntegration
     end
 
     private
+      def clean_up_keys(hash)
+        hash.keys.each do |k|
+          if k =~ /campo_cfg/ || useless_keys.include?(k)
+            hash.delete k
+          end
+        end
+
+        hash
+      end
+
       def strip(string)
         string.to_s.strip! || string
       end
@@ -128,6 +138,14 @@ module AbacosIntegration
           protocol = payload[:abacos][:protocolo_produto]
           Abacos.confirm_product_received protocol
         end
+      end
+
+      def useless_keys
+        [
+          :dados_livros, :descritor_simples, :descritor_pre_definido,
+          :atributos_estendidos, :produtos_personalizacao, :categorias_do_site,
+          :componentes_kit, :produtos_associados
+        ]
       end
   end
 end
