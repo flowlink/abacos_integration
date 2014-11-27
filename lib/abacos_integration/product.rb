@@ -4,8 +4,8 @@ module AbacosIntegration
 
     def initialize(config = {}, payload = {})
       super config
-      @product_payload = payload[:product] || {}
-      @variants_payload = product_payload[:variants] || []
+      @product_payload = payload[:product_abacos] || {}
+      @variants_payload = product_payload[:variants] || {}
     end
 
     # Confirm product (if product.abacos info exists) and its variants. A
@@ -13,7 +13,7 @@ module AbacosIntegration
     # return the variant but not its master product via Abacos.products_available
     def confirm!
       confirm_integration product_payload
-      variants_payload.each { |v| confirm_integration v }
+      variants_payload.each { |key, v| confirm_integration v }
     end
 
     # Abacos return product children (variants) as regular product records
@@ -81,12 +81,16 @@ module AbacosIntegration
     def build_variants(product_id)
       variants = variants_by_product_id product_id
 
-      variants.map do |v|
-        {
-          sku: v[:codigo_produto],
+      variants.inject({}) do |items, v|
+        sku = v[:codigo_produto]
+
+        items[sku] = {
+          sku: sku,
           description: v[:descricao],
           abacos: v
         }.merge fetch_price(v[:codigo_produto])
+
+        items
       end
     end
 
