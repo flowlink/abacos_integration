@@ -74,7 +74,7 @@ class AbacosEndpoint < EndpointBase::Sinatra::Base
 
   post "/confirm_product" do
     AbacosIntegration::Product.new(@config, @payload).confirm!
-    result 200, "Product #{@payload[:product][:id]} integration confirmed"
+    result 200, "Product #{@payload[:abacos_product][:id]} integration confirmed"
   end
 
   post "/confirm_order_status" do
