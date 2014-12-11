@@ -4,7 +4,7 @@ module AbacosIntegration
 
     def initialize(config = {}, payload = {})
       super config
-      @product_payload = payload[:product_abacos] || {}
+      @product_payload = payload[:abacos_product] || {}
       @variants_payload = product_payload[:variants] || {}
     end
 
