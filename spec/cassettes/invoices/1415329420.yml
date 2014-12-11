@@ -1,0 +1,657 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: ABACOS_BASE_URL/AbacosWSNotasFiscais.asmx?wsdl
+    body:
+      encoding: utf-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, max-age=0
+      Content-Type:
+      - text/xml; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Server:
+      - Microsoft-IIS/7.5
+      X-Aspnet-Version:
+      - 2.0.50727
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Fri, 07 Nov 2014 03:02:32 GMT
+      Content-Length:
+      - '5073'
+    body:
+      encoding: utf-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<wsdl:definitions xmlns:soap=\"http://schemas.xmlsoap.org/wsdl/soap/\"
+        xmlns:tm=\"http://microsoft.com/wsdl/mime/textMatching/\" xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"
+        xmlns:mime=\"http://schemas.xmlsoap.org/wsdl/mime/\" xmlns:tns=\"http://www.kplsolucoes.com.br/ABACOSWebService\"
+        xmlns:s=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://schemas.xmlsoap.org/wsdl/soap12/\"
+        xmlns:http=\"http://schemas.xmlsoap.org/wsdl/http/\" targetNamespace=\"http://www.kplsolucoes.com.br/ABACOSWebService\"
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">\r\n  <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Este WebService destina-se
+        a integração de Notas Fiscais com o sistema ÁBACOS.&lt;br&gt;&lt;br&gt;&lt;b&gt;Versão
+        5.0B.0079&lt;/b&gt;</wsdl:documentation>\r\n  <wsdl:types>\r\n    <s:schema
+        elementFormDefault=\"qualified\" targetNamespace=\"http://www.kplsolucoes.com.br/ABACOSWebService\">\r\n
+        \     <s:element name=\"NotasFiscaisDisponiveis\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ChaveIdentificacao\" type=\"s:string\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"NotasFiscaisDisponiveisResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"NotasFiscaisDisponiveisResult\" type=\"tns:DadosNotasFiscaisDisponiveisWebRows\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:complexType name=\"DadosNotasFiscaisDisponiveisWebRows\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosNotasFiscaisDisponiveisWeb\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"TDadosRows\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"VersaoWebService\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"ResultadoOperacao\" type=\"tns:DadosResultadoOperacao\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosResultadoOperacao\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"Codigo\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"Descricao\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"Tipo\" type=\"tns:TipoDeResultadoEnum\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ExceptionMessage\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ExceptionClassName\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"ExceptionStackTrace\" type=\"s:string\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:simpleType name=\"TipoDeResultadoEnum\">\r\n
+        \       <s:restriction base=\"s:string\">\r\n          <s:enumeration value=\"tdreIndefinido\"
+        />\r\n          <s:enumeration value=\"tdreSucesso\" />\r\n          <s:enumeration
+        value=\"tdreSucessoSemDados\" />\r\n          <s:enumeration value=\"tdreAlerta\"
+        />\r\n          <s:enumeration value=\"tdreErroAplicacao\" />\r\n          <s:enumeration
+        value=\"tdreErroDataBase\" />\r\n          <s:enumeration value=\"tdreErroDados\"
+        />\r\n          <s:enumeration value=\"tdreErroGeral\" />\r\n          <s:enumeration
+        value=\"tdreMensagem\" />\r\n        </s:restriction>\r\n      </s:simpleType>\r\n
+        \     <s:complexType name=\"DadosProcessoTrocaWebRows\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosProcessoTrocaWeb\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosProcessoTrocaWeb\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosProcessoTrocaWeb\" type=\"tns:DadosProcessoTrocaWeb\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosProcessoTrocaWeb\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"CodigoInternoNotaOrigem\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"CodigoInternoPedidoOrigem\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoExternoPedidoOrigem\"
+        type=\"s:string\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"DadosPedidoCompraWebRows\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosPedidoCompraWeb\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosPedidoCompraWeb\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosPedidoCompraWeb\" type=\"tns:DadosPedidoCompraWeb\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosPedidoCompraWeb\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"CodigoInternoPedidoCompra\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoExternoPedidoCompra\" type=\"s:string\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"DadosPagamentoBoletoRows\">\r\n        <s:complexContent mixed=\"false\">\r\n
+        \         <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosPagamentoBoleto\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosPagamentoBoleto\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosPagamentoBoleto\" type=\"tns:DadosPagamentoBoleto\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosPagamentoBoleto\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DataOcorrencia\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"ValorPago\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DataEmissao\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NumeroPedido\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Datapagamento\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"DataCredito\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DataProcessamento\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ValorUnitario\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CNPJCPF\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"RazaoSocial\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoPedido\" type=\"s:string\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType name=\"DadosPedidoPagamentoParcelasWebRows\">\r\n
+        \       <s:complexContent mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n
+        \           <s:sequence>\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Rows\" type=\"tns:ArrayOfDadosPedidoPagamentoParcelasWeb\" />\r\n            </s:sequence>\r\n
+        \         </s:extension>\r\n        </s:complexContent>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"ArrayOfDadosPedidoPagamentoParcelasWeb\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosPedidoPagamentoParcelasWeb\" type=\"tns:DadosPedidoPagamentoParcelasWeb\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"DadosPedidoPagamentoParcelasWeb\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DataAprovacao\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DataProvisaoPagamento\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"ValorBruto\" type=\"s:double\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"NumeroParcela\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"QuantidadeParcelas\" type=\"s:int\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"DadosPedidoPagamentoWebRows\">\r\n        <s:complexContent mixed=\"false\">\r\n
+        \         <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosPedidoPagamentoWeb\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosPedidoPagamentoWeb\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosPedidoPagamentoWeb\" type=\"tns:DadosPedidoPagamentoWeb\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType name=\"DadosPedidoPagamentoWeb\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"CodigoPagamentoAbacos\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"FormaPagamentoCodigo\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"FormaPagamento\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"TipoFormaPagamentoSigla\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"Valor\" type=\"s:double\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"ValorPago\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"TIDGateway\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Autorizacao\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"NSU\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"DataPagamento\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DataVencimentoBoleto\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CondicaoPagamento\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CodigoAutorizacao\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"Parcelas\" type=\"tns:DadosPedidoPagamentoParcelasWebRows\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"PagamentoBoleto\"
+        type=\"tns:DadosPagamentoBoletoRows\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"DadosItensNotaFiscalDisponiveisWebRows\">\r\n
+        \       <s:complexContent mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n
+        \           <s:sequence>\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Rows\" type=\"tns:ArrayOfDadosItensNotaFiscalDisponiveisWeb\" />\r\n
+        \           </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosItensNotaFiscalDisponiveisWeb\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosItensNotaFiscalDisponiveisWeb\" type=\"tns:DadosItensNotaFiscalDisponiveisWeb\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"DadosItensNotaFiscalDisponiveisWeb\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"Sequencial\" type=\"s:int\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoProdutoAbacos\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CodigoProduto\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"CodigoBarrasProduto\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"NomeProduto\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CategoriaFiscal\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ClassificacaoFiscal\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DescritorSimples1\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DescritorSimples2\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DescritorSimples3\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"DescritorPreDefinido1\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DescritorPreDefinido2\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DescritorPreDefinido3\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"QuantidadeFiscal\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"QuantidadeFisica\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"PrecoBruto\" type=\"s:double\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"PrecoLiquido\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"TotalBruto\" type=\"s:double\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"TotalLiquido\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CFOPItem\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"SituacaoTributaria\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"ValorFrete\" type=\"s:double\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"ValorEncargos\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorBaseDescontoZonaFranca\" type=\"s:double\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorDescontoZonaFranca\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"AliquotaICMS\" type=\"s:double\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"ValorBaseICMS\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorICMS\" type=\"s:double\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorICMSSobreFrete\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"ValorICMSSobreEncargos\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorBaseICMSSubstitutivo\" type=\"s:double\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorICMSSusbtitutivo\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"AliquotaIPI\" type=\"s:double\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"BaseIPI\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorIPI\" type=\"s:double\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorIPISobreFrete\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"ValorIPISobreEncargos\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoAlmoxarifado\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Almoxarifado\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"AliquotaGNRE\" type=\"s:double\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"ValorGNRE\" type=\"s:double\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosNotasFiscaisDisponiveisWeb\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosNotasFiscaisDisponiveisWeb\" type=\"tns:DadosNotasFiscaisDisponiveisWeb\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"DadosNotasFiscaisDisponiveisWeb\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ProtocoloNotaFiscal\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"EmissorCNPJ\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"CodigoNotaFiscal\" type=\"s:int\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"NumeroNotaFiscal\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"SerieNotaFiscal\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"EntradaSaida\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CFOPNota\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"DataCadastro\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DataEmissao\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NaturezaOperacao\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"StatusNota\" type=\"s:string\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"ValorMercadorias\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorServicos\" type=\"s:double\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorMercadoriasServicos\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"ValorFrete\" type=\"s:double\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"ValorEncargos\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorNota\" type=\"s:double\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"VolumesQuantidade\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"VolumesEspecie\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"VolumesNumero\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"VolumesMarca\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"VolumesPesoLiquido\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"VolumesPesoBruto\" type=\"s:double\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"CodigoInternoCliFor\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoExternoCliFor\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CPFouCNPJCliFor\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DestinatarioNome\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"DestinatarioTipoPessoa\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DestinatarioCPFouCNPJ\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DestinatarioTelefone\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DestinatarioCelular\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DestinatarioFax\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DestinatarioEmail\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DestinatarioLogradouro\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DestinatarioBairro\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DestinatarioCEP\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DestinatarioMunicipio\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DestinatarioEstado\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DestinatarioPontoReferencia\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DestinatarioInscEstadual\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"TransportadoraNome\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"TransportadoraCNPJ\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"TransportadoraLogradouro\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"TransportadoraBairro\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"TransportadoraCEP\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"TransportadoraMunicipio\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"TransportadoraEstado\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"TransportadoraTelefone\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"TransportadoraInscEstadual\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoPedidoAbacos\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NumeroPedido\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"SequencialNumeroPedido\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoNotaEntradaTroca\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NumeroNotaEntradaTroca\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"SerieNotaEntradaTroca\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"GrupoComercializacao\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NFeChave\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"NFeCodStatusSefaz\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"NFeStatusSefaz\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"NFeDataAutorizacao\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NFeCodigoTipoIntegracao\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"NFeDescricaoTipoIntegracao\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"NFeProtocoloAutorizacao\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NFeProtocoloCancelamento\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CodigoUnidadeNegocio\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorICMS\" type=\"s:double\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorICMSSub\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"ValorIPI\" type=\"s:double\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"ValorBaseICMS\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorBaseICMSSub\" type=\"s:double\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorBaseIPI\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"ValorPISFaturamento\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorCOFINSFaturamento\" type=\"s:double\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorSeguro\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"ValorDesconto\" type=\"s:double\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"ValorGNRE\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Comercializacao\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoRepresentante\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"NomeRepresentante\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"SerieNotaVendaOriginal\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"NumeroNotaVendaOriginal\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Itens\"
+        type=\"tns:DadosItensNotaFiscalDisponiveisWebRows\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Pagamentos\" type=\"tns:DadosPedidoPagamentoWebRows\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"PedidosCompra\"
+        type=\"tns:DadosPedidoCompraWebRows\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"ProcessoTroca\" type=\"tns:DadosProcessoTrocaWebRows\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:element
+        name=\"ConfirmarRecebimentoNotaFiscal\">\r\n        <s:complexType>\r\n          <s:sequence>\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ProtocoloNotaFiscal\"
+        type=\"s:string\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"ConfirmarRecebimentoNotaFiscalResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"ConfirmarRecebimentoNotaFiscalResult\"
+        type=\"tns:DadosResultadoOperacao\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"DadosNotasFiscaisDisponiveisWebRows\"
+        nillable=\"true\" type=\"tns:DadosNotasFiscaisDisponiveisWebRows\" />\r\n
+        \     <s:element name=\"DadosResultadoOperacao\" type=\"tns:DadosResultadoOperacao\"
+        />\r\n    </s:schema>\r\n  </wsdl:types>\r\n  <wsdl:message name=\"NotasFiscaisDisponiveisSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:NotasFiscaisDisponiveis\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"NotasFiscaisDisponiveisSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:NotasFiscaisDisponiveisResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"ConfirmarRecebimentoNotaFiscalSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:ConfirmarRecebimentoNotaFiscal\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"ConfirmarRecebimentoNotaFiscalSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:ConfirmarRecebimentoNotaFiscalResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"NotasFiscaisDisponiveisHttpGetIn\">\r\n
+        \   <wsdl:part name=\"ChaveIdentificacao\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"NotasFiscaisDisponiveisHttpGetOut\">\r\n    <wsdl:part
+        name=\"Body\" element=\"tns:DadosNotasFiscaisDisponiveisWebRows\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"ConfirmarRecebimentoNotaFiscalHttpGetIn\">\r\n    <wsdl:part
+        name=\"ProtocoloNotaFiscal\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"ConfirmarRecebimentoNotaFiscalHttpGetOut\">\r\n    <wsdl:part
+        name=\"Body\" element=\"tns:DadosResultadoOperacao\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"NotasFiscaisDisponiveisHttpPostIn\">\r\n    <wsdl:part
+        name=\"ChaveIdentificacao\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"NotasFiscaisDisponiveisHttpPostOut\">\r\n    <wsdl:part
+        name=\"Body\" element=\"tns:DadosNotasFiscaisDisponiveisWebRows\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"ConfirmarRecebimentoNotaFiscalHttpPostIn\">\r\n    <wsdl:part
+        name=\"ProtocoloNotaFiscal\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"ConfirmarRecebimentoNotaFiscalHttpPostOut\">\r\n    <wsdl:part
+        name=\"Body\" element=\"tns:DadosResultadoOperacao\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:portType name=\"AbacosWSNotasFiscaisSoap\">\r\n    <wsdl:operation
+        name=\"NotasFiscaisDisponiveis\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Este
+        método deve ser usado para Listar Todas as Notas Ficais Disponiveis para Integração.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:NotasFiscaisDisponiveisSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:NotasFiscaisDisponiveisSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"ConfirmarRecebimentoNotaFiscal\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Este método deve ser usado
+        para Marcar como lida uma respectiva Nota Fiscal</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:ConfirmarRecebimentoNotaFiscalSoapIn\" />\r\n
+        \     <wsdl:output message=\"tns:ConfirmarRecebimentoNotaFiscalSoapOut\" />\r\n
+        \   </wsdl:operation>\r\n  </wsdl:portType>\r\n  <wsdl:portType name=\"AbacosWSNotasFiscaisHttpGet\">\r\n
+        \   <wsdl:operation name=\"NotasFiscaisDisponiveis\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Este método deve ser usado
+        para Listar Todas as Notas Ficais Disponiveis para Integração.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:NotasFiscaisDisponiveisHttpGetIn\" />\r\n
+        \     <wsdl:output message=\"tns:NotasFiscaisDisponiveisHttpGetOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"ConfirmarRecebimentoNotaFiscal\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Este
+        método deve ser usado para Marcar como lida uma respectiva Nota Fiscal</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:ConfirmarRecebimentoNotaFiscalHttpGetIn\"
+        />\r\n      <wsdl:output message=\"tns:ConfirmarRecebimentoNotaFiscalHttpGetOut\"
+        />\r\n    </wsdl:operation>\r\n  </wsdl:portType>\r\n  <wsdl:portType name=\"AbacosWSNotasFiscaisHttpPost\">\r\n
+        \   <wsdl:operation name=\"NotasFiscaisDisponiveis\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Este método deve ser usado
+        para Listar Todas as Notas Ficais Disponiveis para Integração.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:NotasFiscaisDisponiveisHttpPostIn\" />\r\n
+        \     <wsdl:output message=\"tns:NotasFiscaisDisponiveisHttpPostOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"ConfirmarRecebimentoNotaFiscal\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Este
+        método deve ser usado para Marcar como lida uma respectiva Nota Fiscal</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:ConfirmarRecebimentoNotaFiscalHttpPostIn\"
+        />\r\n      <wsdl:output message=\"tns:ConfirmarRecebimentoNotaFiscalHttpPostOut\"
+        />\r\n    </wsdl:operation>\r\n  </wsdl:portType>\r\n  <wsdl:binding name=\"AbacosWSNotasFiscaisSoap\"
+        type=\"tns:AbacosWSNotasFiscaisSoap\">\r\n    <soap:binding transport=\"http://schemas.xmlsoap.org/soap/http\"
+        />\r\n    <wsdl:operation name=\"NotasFiscaisDisponiveis\">\r\n      <soap:operation
+        soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/NotasFiscaisDisponiveis\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"ConfirmarRecebimentoNotaFiscal\">\r\n      <soap:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/ConfirmarRecebimentoNotaFiscal\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n  </wsdl:binding>\r\n
+        \ <wsdl:binding name=\"AbacosWSNotasFiscaisSoap12\" type=\"tns:AbacosWSNotasFiscaisSoap\">\r\n
+        \   <soap12:binding transport=\"http://schemas.xmlsoap.org/soap/http\" />\r\n
+        \   <wsdl:operation name=\"NotasFiscaisDisponiveis\">\r\n      <soap12:operation
+        soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/NotasFiscaisDisponiveis\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"ConfirmarRecebimentoNotaFiscal\">\r\n      <soap12:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/ConfirmarRecebimentoNotaFiscal\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n  </wsdl:binding>\r\n
+        \ <wsdl:binding name=\"AbacosWSNotasFiscaisHttpGet\" type=\"tns:AbacosWSNotasFiscaisHttpGet\">\r\n
+        \   <http:binding verb=\"GET\" />\r\n    <wsdl:operation name=\"NotasFiscaisDisponiveis\">\r\n
+        \     <http:operation location=\"/NotasFiscaisDisponiveis\" />\r\n      <wsdl:input>\r\n
+        \       <http:urlEncoded />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"ConfirmarRecebimentoNotaFiscal\">\r\n      <http:operation
+        location=\"/ConfirmarRecebimentoNotaFiscal\" />\r\n      <wsdl:input>\r\n
+        \       <http:urlEncoded />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \ </wsdl:binding>\r\n  <wsdl:binding name=\"AbacosWSNotasFiscaisHttpPost\"
+        type=\"tns:AbacosWSNotasFiscaisHttpPost\">\r\n    <http:binding verb=\"POST\"
+        />\r\n    <wsdl:operation name=\"NotasFiscaisDisponiveis\">\r\n      <http:operation
+        location=\"/NotasFiscaisDisponiveis\" />\r\n      <wsdl:input>\r\n        <mime:content
+        type=\"application/x-www-form-urlencoded\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \       <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"ConfirmarRecebimentoNotaFiscal\">\r\n      <http:operation
+        location=\"/ConfirmarRecebimentoNotaFiscal\" />\r\n      <wsdl:input>\r\n
+        \       <mime:content type=\"application/x-www-form-urlencoded\" />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n  </wsdl:binding>\r\n  <wsdl:service name=\"AbacosWSNotasFiscais\">\r\n
+        \   <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Este
+        WebService destina-se a integração de Notas Fiscais com o sistema ÁBACOS.&lt;br&gt;&lt;br&gt;&lt;b&gt;Versão
+        5.0B.0079&lt;/b&gt;</wsdl:documentation>\r\n    <wsdl:port name=\"AbacosWSNotasFiscaisSoap\"
+        binding=\"tns:AbacosWSNotasFiscaisSoap\">\r\n      <soap:address location=\"ABACOS_BASE_URL/AbacosWSNotasFiscais.asmx\"
+        />\r\n    </wsdl:port>\r\n    <wsdl:port name=\"AbacosWSNotasFiscaisSoap12\"
+        binding=\"tns:AbacosWSNotasFiscaisSoap12\">\r\n      <soap12:address location=\"ABACOS_BASE_URL/AbacosWSNotasFiscais.asmx\"
+        />\r\n    </wsdl:port>\r\n    <wsdl:port name=\"AbacosWSNotasFiscaisHttpGet\"
+        binding=\"tns:AbacosWSNotasFiscaisHttpGet\">\r\n      <http:address location=\"ABACOS_BASE_URL/AbacosWSNotasFiscais.asmx\"
+        />\r\n    </wsdl:port>\r\n    <wsdl:port name=\"AbacosWSNotasFiscaisHttpPost\"
+        binding=\"tns:AbacosWSNotasFiscaisHttpPost\">\r\n      <http:address location=\"ABACOS_BASE_URL/AbacosWSNotasFiscais.asmx\"
+        />\r\n    </wsdl:port>\r\n  </wsdl:service>\r\n</wsdl:definitions>"
+    http_version: 
+  recorded_at: Fri, 07 Nov 2014 03:03:43 GMT
+- request:
+    method: post
+    uri: ABACOS_BASE_URL/AbacosWSNotasFiscais.asmx
+    body:
+      encoding: utf-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://www.kplsolucoes.com.br/ABACOSWebService"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><tns:NotasFiscaisDisponiveis><tns:ChaveIdentificacao>ABACOS_KEY</tns:ChaveIdentificacao></tns:NotasFiscaisDisponiveis></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"http://www.kplsolucoes.com.br/ABACOSWebService/NotasFiscaisDisponiveis"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '444'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, max-age=0
+      Content-Type:
+      - text/xml; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Server:
+      - Microsoft-IIS/7.5
+      X-Aspnet-Version:
+      - 2.0.50727
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Fri, 07 Nov 2014 03:02:45 GMT
+      Content-Length:
+      - '7612'
+    body:
+      encoding: utf-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><NotasFiscaisDisponiveisResponse
+        xmlns=\"http://www.kplsolucoes.com.br/ABACOSWebService\"><NotasFiscaisDisponiveisResult><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>100001</Codigo><Descricao>Ocorreram
+        erros durante a obtenção das informações pertinentes a lista de itens. Verifique
+        o retorno em cada item para maiores detalhes.</Descricao><Tipo>tdreAlerta</Tipo></ResultadoOperacao><Rows><DadosNotasFiscaisDisponiveisWeb><ProtocoloNotaFiscal>1a94f1d2-7ef2-420f-bd51-67a409414da1</ProtocoloNotaFiscal><EmissorCNPJ>10864846000204</EmissorCNPJ><CodigoNotaFiscal>460990</CodigoNotaFiscal><NumeroNotaFiscal>121</NumeroNotaFiscal><SerieNotaFiscal>1
+        \ </SerieNotaFiscal><EntradaSaida>E</EntradaSaida><CFOPNota>1405</CFOPNota><DataCadastro>14/08/2014
+        19:57:47</DataCadastro><DataEmissao>13/08/2014 19:57:47</DataEmissao><NaturezaOperacao>ENTRADA
+        \                                          </NaturezaOperacao><StatusNota>AGUARDANDO
+        RECEBIMENTO DE MERCADORIA              </StatusNota><ValorMercadorias>20228.23</ValorMercadorias><ValorServicos>20228.23</ValorServicos><ValorMercadoriasServicos>20228.23</ValorMercadoriasServicos><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorNota>20228.23</ValorNota><VolumesQuantidade>0</VolumesQuantidade><VolumesEspecie
+        /><VolumesNumero /><VolumesMarca /><VolumesPesoLiquido>0</VolumesPesoLiquido><VolumesPesoBruto>0</VolumesPesoBruto><CodigoInternoCliFor>189822</CodigoInternoCliFor><CodigoExternoCliFor>190704</CodigoExternoCliFor><CPFouCNPJCliFor>19070486000162</CPFouCNPJCliFor><DestinatarioNome>Pet
+        Professional Suppliers Comercio de Produtos Veterinarios LTDA</DestinatarioNome><DestinatarioTipoPessoa>J</DestinatarioTipoPessoa><DestinatarioCPFouCNPJ>19070486000162</DestinatarioCPFouCNPJ><DestinatarioTelefone>47770011</DestinatarioTelefone><DestinatarioCelular
+        /><DestinatarioFax /><DestinatarioEmail /><DestinatarioLogradouro>Rua Elizeu
+        de Jose de Paula, 100</DestinatarioLogradouro><DestinatarioBairro>Parque Alexandre</DestinatarioBairro><DestinatarioCEP>06714180</DestinatarioCEP><DestinatarioMunicipio>COTIA</DestinatarioMunicipio><DestinatarioEstado>SP</DestinatarioEstado><DestinatarioPontoReferencia
+        /><DestinatarioInscEstadual>278203791114</DestinatarioInscEstadual><TransportadoraNome
+        /><TransportadoraCNPJ /><TransportadoraLogradouro /><TransportadoraBairro
+        /><TransportadoraCEP /><TransportadoraMunicipio /><TransportadoraEstado /><TransportadoraTelefone
+        /><TransportadoraInscEstadual /><CodigoPedidoAbacos>0</CodigoPedidoAbacos><NumeroPedido
+        /><SequencialNumeroPedido /><CodigoNotaEntradaTroca /><NumeroNotaEntradaTroca
+        /><SerieNotaEntradaTroca /><GrupoComercializacao>11</GrupoComercializacao><NFeChave>35140819070486000162550010000001211000000008</NFeChave><NFeCodStatusSefaz
+        /><NFeStatusSefaz /><NFeDataAutorizacao /><NFeCodigoTipoIntegracao /><NFeDescricaoTipoIntegracao
+        /><NFeProtocoloAutorizacao>135140499821380</NFeProtocoloAutorizacao><NFeProtocoloCancelamento
+        /><CodigoUnidadeNegocio>5</CodigoUnidadeNegocio><ValorICMS>0</ValorICMS><ValorICMSSub>0</ValorICMSSub><ValorIPI>0</ValorIPI><ValorBaseICMS>0</ValorBaseICMS><ValorBaseICMSSub>0</ValorBaseICMSSub><ValorBaseIPI>0</ValorBaseIPI><ValorPISFaturamento>131.48</ValorPISFaturamento><ValorCOFINSFaturamento>606.85</ValorCOFINSFaturamento><ValorSeguro>0</ValorSeguro><ValorDesconto>0</ValorDesconto><ValorGNRE>0</ValorGNRE><Comercializacao>COMPRA
+        OSASCO                                     </Comercializacao><CodigoRepresentante
+        /><NomeRepresentante /><SerieNotaVendaOriginal /><NumeroNotaVendaOriginal
+        /><Itens><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200001</Codigo><Descricao>Operação
+        \"Itens das notas disponíveis\" efetuada com sucesso.</Descricao><Tipo>tdreSucesso</Tipo></ResultadoOperacao><Rows><DadosItensNotaFiscalDisponiveisWeb><Sequencial>1</Sequencial><CodigoProdutoAbacos>43502</CodigoProdutoAbacos><CodigoProduto>3107879-4</CodigoProduto><CodigoBarrasProduto>052742948607</CodigoBarrasProduto><NomeProduto>Ração
+        Hills Science Diet Crescimento Saudável Pedaços Pequenos - 15kg</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.10.00</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>25</QuantidadeFiscal><QuantidadeFisica>25</QuantidadeFisica><PrecoBruto>164.6012</PrecoBruto><PrecoLiquido>164.6012</PrecoLiquido><TotalBruto>4115.03</TotalBruto><TotalLiquido>4115.03</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>060</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>4115.03</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>2</Sequencial><CodigoProdutoAbacos>43473</CodigoProdutoAbacos><CodigoProduto>3107808-2</CodigoProduto><CodigoBarrasProduto>052742952505</CodigoBarrasProduto><NomeProduto>Ração
+        Hills Science Diet Adulto Manutenção Saudável Raças Grandes - 7,5kg</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.10.00</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>4</QuantidadeFiscal><QuantidadeFisica>4</QuantidadeFisica><PrecoBruto>118.25</PrecoBruto><PrecoLiquido>118.25</PrecoLiquido><TotalBruto>473</TotalBruto><TotalLiquido>473</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>060</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>473</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>3</Sequencial><CodigoProdutoAbacos>43475</CodigoProdutoAbacos><CodigoProduto>3107880-2</CodigoProduto><CodigoBarrasProduto>052742949703</CodigoBarrasProduto><NomeProduto>Ração
+        Hills Science Diet Maduro Longevidade Ativa Pedaços Pequenos - 1kg</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.10.00</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>10</QuantidadeFiscal><QuantidadeFisica>10</QuantidadeFisica><PrecoBruto>25.354</PrecoBruto><PrecoLiquido>25.354</PrecoLiquido><TotalBruto>253.54</TotalBruto><TotalLiquido>253.54</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>060</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>253.54</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>4</Sequencial><CodigoProdutoAbacos>40794</CodigoProdutoAbacos><CodigoProduto>3101486-1</CodigoProduto><CodigoBarrasProduto>052742168401</CodigoBarrasProduto><NomeProduto>Ração
+        Hills Science Diet Canino Filhote Raças Pequenas e Miniatura - 1kg</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.10.00</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>10</QuantidadeFiscal><QuantidadeFisica>10</QuantidadeFisica><PrecoBruto>25.033</PrecoBruto><PrecoLiquido>25.033</PrecoLiquido><TotalBruto>250.33</TotalBruto><TotalLiquido>250.33</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>060</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>250.33</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>5</Sequencial><CodigoProdutoAbacos>40795</CodigoProdutoAbacos><CodigoProduto>3101486-2</CodigoProduto><CodigoBarrasProduto>052742168609</CodigoBarrasProduto><NomeProduto>Ração
+        Hills Science Diet Canino Filhote Raças Pequenas e Miniatura - 3kg</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.10.00</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>36</QuantidadeFiscal><QuantidadeFisica>36</QuantidadeFisica><PrecoBruto>63.3625</PrecoBruto><PrecoLiquido>63.3625</PrecoLiquido><TotalBruto>2281.05</TotalBruto><TotalLiquido>2281.05</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>060</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>2281.05</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>6</Sequencial><CodigoProdutoAbacos>40798</CodigoProdutoAbacos><CodigoProduto>3101487-2</CodigoProduto><CodigoBarrasProduto>052742168906</CodigoBarrasProduto><NomeProduto>Ração
+        Hills Science Diet Canino Adulto Raças Pequenas e Miniaturas - 3kg</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.10.00</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>54</QuantidadeFiscal><QuantidadeFisica>54</QuantidadeFisica><PrecoBruto>57.6905555555556</PrecoBruto><PrecoLiquido>57.6905555555556</PrecoLiquido><TotalBruto>3115.29</TotalBruto><TotalLiquido>3115.29</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>060</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>3115.29</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>7</Sequencial><CodigoProdutoAbacos>40795</CodigoProdutoAbacos><CodigoProduto>3101486-2</CodigoProduto><CodigoBarrasProduto>052742168609</CodigoBarrasProduto><NomeProduto>Ração
+        Hills Science Diet Canino Filhote Raças Pequenas e Miniatura - 3kg</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.10.00</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>12</QuantidadeFiscal><QuantidadeFisica>12</QuantidadeFisica><PrecoBruto>59.965</PrecoBruto><PrecoLiquido>59.965</PrecoLiquido><TotalBruto>719.58</TotalBruto><TotalLiquido>719.58</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>060</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>719.58</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>8</Sequencial><CodigoProdutoAbacos>40804</CodigoProdutoAbacos><CodigoProduto>3101490-2</CodigoProduto><CodigoBarrasProduto>9900000440305</CodigoBarrasProduto><NomeProduto>Ração
+        Hills Science Diet Canino Light Raças Pequenas e Miniatura - 3Kg</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.10.00</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>6</QuantidadeFiscal><QuantidadeFisica>6</QuantidadeFisica><PrecoBruto>67.705</PrecoBruto><PrecoLiquido>67.705</PrecoLiquido><TotalBruto>406.23</TotalBruto><TotalLiquido>406.23</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>060</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>406.23</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>9</Sequencial><CodigoProdutoAbacos>40354</CodigoProdutoAbacos><CodigoProduto>3101019-2</CodigoProduto><CodigoBarrasProduto>052742951607</CodigoBarrasProduto><NomeProduto>Ração
+        Hills Science Diet Feline Adulto Maduro Longevidade Ativa - 3kg</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.09.10</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>18</QuantidadeFiscal><QuantidadeFisica>18</QuantidadeFisica><PrecoBruto>76.115</PrecoBruto><PrecoLiquido>76.115</PrecoLiquido><TotalBruto>1370.07</TotalBruto><TotalLiquido>1370.07</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>060</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>1370.07</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>10</Sequencial><CodigoProdutoAbacos>39515</CodigoProdutoAbacos><CodigoProduto>3100620-1</CodigoProduto><CodigoBarrasProduto>052742215907</CodigoBarrasProduto><NomeProduto>Ração
+        Hills Science Diet Feline Adulto Maduro Controle de Bolas de Pelo - 400gr</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.09.10</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>20</QuantidadeFiscal><QuantidadeFisica>20</QuantidadeFisica><PrecoBruto>14.6525</PrecoBruto><PrecoLiquido>14.6525</PrecoLiquido><TotalBruto>293.05</TotalBruto><TotalLiquido>293.05</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>060</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>293.05</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>11</Sequencial><CodigoProdutoAbacos>39516</CodigoProdutoAbacos><CodigoProduto>3100620-2</CodigoProduto><CodigoBarrasProduto>052742215808</CodigoBarrasProduto><NomeProduto>Ração
+        Hills Science Diet Feline Adulto Maduro Controle de Bolas de Pelo - 1,5kg</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.09.10</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>6</QuantidadeFiscal><QuantidadeFisica>6</QuantidadeFisica><PrecoBruto>46.4633333333333</PrecoBruto><PrecoLiquido>46.4633333333333</PrecoLiquido><TotalBruto>278.78</TotalBruto><TotalLiquido>278.78</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>060</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>278.78</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>12</Sequencial><CodigoProdutoAbacos>39509</CodigoProdutoAbacos><CodigoProduto>3100618-2</CodigoProduto><CodigoBarrasProduto>052742216201</CodigoBarrasProduto><NomeProduto>Ração
+        Hills Science Diet Canino Pele Sensível - 12kg</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.09.10</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>10</QuantidadeFiscal><QuantidadeFisica>10</QuantidadeFisica><PrecoBruto>166.662</PrecoBruto><PrecoLiquido>166.662</PrecoLiquido><TotalBruto>1666.62</TotalBruto><TotalLiquido>1666.62</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>060</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>1666.62</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>13</Sequencial><CodigoProdutoAbacos>40355</CodigoProdutoAbacos><CodigoProduto>3101020</CodigoProduto><CodigoBarrasProduto>052742183206</CodigoBarrasProduto><NomeProduto>Petisco
+        Hills para Cães  Mini Bones - 113gr</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.10.00</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>40</QuantidadeFiscal><QuantidadeFisica>40</QuantidadeFisica><PrecoBruto>5.738</PrecoBruto><PrecoLiquido>5.738</PrecoLiquido><TotalBruto>229.52</TotalBruto><TotalLiquido>229.52</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>060</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>229.52</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>14</Sequencial><CodigoProdutoAbacos>40356</CodigoProdutoAbacos><CodigoProduto>3101021</CodigoProduto><CodigoBarrasProduto>052742186405</CodigoBarrasProduto><NomeProduto>Petisco
+        Hills para Cães Green Twist - 21gr</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.10.00</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>112</QuantidadeFiscal><QuantidadeFisica>112</QuantidadeFisica><PrecoBruto>2.66</PrecoBruto><PrecoLiquido>2.66</PrecoLiquido><TotalBruto>297.92</TotalBruto><TotalLiquido>297.92</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>060</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>297.92</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>15</Sequencial><CodigoProdutoAbacos>40358</CodigoProdutoAbacos><CodigoProduto>3101022</CodigoProduto><CodigoBarrasProduto>52742220413</CodigoBarrasProduto><NomeProduto>Petisco
+        Hills para Cães Delicious Hearts - 113gr</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.10.00</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>100</QuantidadeFiscal><QuantidadeFisica>100</QuantidadeFisica><PrecoBruto>5.738</PrecoBruto><PrecoLiquido>5.738</PrecoLiquido><TotalBruto>573.8</TotalBruto><TotalLiquido>573.8</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>060</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>573.8</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>16</Sequencial><CodigoProdutoAbacos>40357</CodigoProdutoAbacos><CodigoProduto>3101023</CodigoProduto><CodigoBarrasProduto>052742183107</CodigoBarrasProduto><NomeProduto>Petisco
+        Hills para Gatos Hairball Control - 80gr</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.10.00</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>28</QuantidadeFiscal><QuantidadeFisica>28</QuantidadeFisica><PrecoBruto>5.92785714285714</PrecoBruto><PrecoLiquido>5.92785714285714</PrecoLiquido><TotalBruto>165.98</TotalBruto><TotalLiquido>165.98</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>060</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>165.98</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>17</Sequencial><CodigoProdutoAbacos>43478</CodigoProdutoAbacos><CodigoProduto>3107859-1</CodigoProduto><CodigoBarrasProduto>052742862408</CodigoBarrasProduto><NomeProduto>Ração
+        Hills Canine Prescription Diet R/D Perda de Peso - 3,8kg</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.10.00</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>5</QuantidadeFiscal><QuantidadeFisica>5</QuantidadeFisica><PrecoBruto>90.046</PrecoBruto><PrecoLiquido>90.046</PrecoLiquido><TotalBruto>450.23</TotalBruto><TotalLiquido>450.23</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>260</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>450.23</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>18</Sequencial><CodigoProdutoAbacos>43479</CodigoProdutoAbacos><CodigoProduto>3107859-2</CodigoProduto><CodigoBarrasProduto>052742862507</CodigoBarrasProduto><NomeProduto>Ração
+        Hills Canine Prescription Diet R/D Perda de Peso - 8kg</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.10.00</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>16</QuantidadeFiscal><QuantidadeFisica>16</QuantidadeFisica><PrecoBruto>151.60125</PrecoBruto><PrecoLiquido>151.60125</PrecoLiquido><TotalBruto>2425.62</TotalBruto><TotalLiquido>2425.62</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>260</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>2425.62</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>19</Sequencial><CodigoProdutoAbacos>25532</CodigoProdutoAbacos><CodigoProduto>3107860</CodigoProduto><CodigoBarrasProduto>052742867106</CodigoBarrasProduto><NomeProduto>Ração
+        Hills Canine Prescription Diet W/D Controle da Glicemia - 3,8kg</NomeProduto><CategoriaFiscal>VENDA
+        DE PRODUTOS                                 </CategoriaFiscal><ClassificacaoFiscal>2309.10.00</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>4</QuantidadeFiscal><QuantidadeFisica>4</QuantidadeFisica><PrecoBruto>94.6725</PrecoBruto><PrecoLiquido>94.6725</PrecoLiquido><TotalBruto>378.69</TotalBruto><TotalLiquido>378.69</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>260</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>378.69</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>20</Sequencial><CodigoProdutoAbacos>43499</CodigoProdutoAbacos><CodigoProduto>3102773</CodigoProduto><CodigoBarrasProduto>052742615806</CodigoBarrasProduto><NomeProduto>Ração
+        Hills Feline Prescription Diet R/D Perda de Peso - 1,81kg</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.10.00</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>5</QuantidadeFiscal><QuantidadeFisica>5</QuantidadeFisica><PrecoBruto>64.758</PrecoBruto><PrecoLiquido>64.758</PrecoLiquido><TotalBruto>323.79</TotalBruto><TotalLiquido>323.79</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>260</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>323.79</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb><DadosItensNotaFiscalDisponiveisWeb><Sequencial>21</Sequencial><CodigoProdutoAbacos>43500</CodigoProdutoAbacos><CodigoProduto>3102774</CodigoProduto><CodigoBarrasProduto>052742588803</CodigoBarrasProduto><NomeProduto>Ração
+        Hills Feline Prescription Diet S/D Saúde Trato Urinário - 1,81kg</NomeProduto><CategoriaFiscal>PRODUTOS
+        NAC C/ ICMS RECOLHIDO ANTERIORMENTE      </CategoriaFiscal><ClassificacaoFiscal>2309.10.00</ClassificacaoFiscal><DescritorSimples1
+        /><DescritorSimples2 /><DescritorSimples3 /><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><QuantidadeFiscal>3</QuantidadeFiscal><QuantidadeFisica>3</QuantidadeFisica><PrecoBruto>53.37</PrecoBruto><PrecoLiquido>53.37</PrecoLiquido><TotalBruto>160.11</TotalBruto><TotalLiquido>160.11</TotalLiquido><CFOPItem>1405</CFOPItem><SituacaoTributaria>260</SituacaoTributaria><ValorFrete>0</ValorFrete><ValorEncargos>0</ValorEncargos><ValorBaseDescontoZonaFranca>0</ValorBaseDescontoZonaFranca><ValorDescontoZonaFranca>0</ValorDescontoZonaFranca><AliquotaICMS>0</AliquotaICMS><ValorBaseICMS>0</ValorBaseICMS><ValorICMS>0</ValorICMS><ValorICMSSobreFrete>0</ValorICMSSobreFrete><ValorICMSSobreEncargos>0</ValorICMSSobreEncargos><ValorBaseICMSSubstitutivo>0</ValorBaseICMSSubstitutivo><ValorICMSSusbtitutivo>0</ValorICMSSusbtitutivo><AliquotaIPI>0</AliquotaIPI><BaseIPI>160.11</BaseIPI><ValorIPI>0</ValorIPI><ValorIPISobreFrete>0</ValorIPISobreFrete><ValorIPISobreEncargos>0</ValorIPISobreEncargos><CodigoAlmoxarifado>12</CodigoAlmoxarifado><Almoxarifado>ESTOQUE
+        VENDAVEL OSASCO                           </Almoxarifado><AliquotaGNRE>0</AliquotaGNRE><ValorGNRE>0</ValorGNRE></DadosItensNotaFiscalDisponiveisWeb></Rows></Itens><Pagamentos><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>300002</Codigo><Descricao>Erro
+        na obtenção dos dados para a integração. Origem \"Selecionar os dados dos
+        pagamentos do pedido que está disponivel na integração\".</Descricao><Tipo>tdreErroDataBase</Tipo><ExceptionMessage>Interface
+        = 11 Msg = Interface nao habilitada para a disponibilização de dados do pedido\r\nErro
+        ao buscar informações de forma de pagamento de pedidos</ExceptionMessage></ResultadoOperacao></Pagamentos><PedidosCompra><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200001</Codigo><Descricao>Operação
+        \"Pedidos de compra referentes as notas fiscais disponíveis de entrada\" efetuada
+        com sucesso.</Descricao><Tipo>tdreSucesso</Tipo></ResultadoOperacao><Rows><DadosPedidoCompraWeb><CodigoInternoPedidoCompra>44287</CodigoInternoPedidoCompra><CodigoExternoPedidoCompra>44287</CodigoExternoPedidoCompra></DadosPedidoCompraWeb></Rows></PedidosCompra><ProcessoTroca><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosProcessoTrocaWeb><CodigoInternoNotaOrigem>0</CodigoInternoNotaOrigem><CodigoInternoPedidoOrigem>0</CodigoInternoPedidoOrigem><CodigoExternoPedidoOrigem
+        /></DadosProcessoTrocaWeb></Rows></ProcessoTroca></DadosNotasFiscaisDisponiveisWeb></Rows></NotasFiscaisDisponiveisResult></NotasFiscaisDisponiveisResponse></soap:Body></soap:Envelope>"
+    http_version: 
+  recorded_at: Fri, 07 Nov 2014 03:03:56 GMT
+recorded_with: VCR 2.9.3

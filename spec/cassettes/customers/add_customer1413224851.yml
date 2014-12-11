@@ -1,0 +1,307 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: ABACOS_BASE_URL/AbacosWSClientes.asmx?wsdl
+    body:
+      encoding: utf-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, max-age=0
+      Content-Type:
+      - text/xml; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Server:
+      - Microsoft-IIS/7.5
+      X-Aspnet-Version:
+      - 2.0.50727
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Mon, 13 Oct 2014 18:25:21 GMT
+      Content-Length:
+      - '3419'
+    body:
+      encoding: utf-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<wsdl:definitions xmlns:soap=\"http://schemas.xmlsoap.org/wsdl/soap/\"
+        xmlns:tm=\"http://microsoft.com/wsdl/mime/textMatching/\" xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\"
+        xmlns:mime=\"http://schemas.xmlsoap.org/wsdl/mime/\" xmlns:tns=\"http://www.kplsolucoes.com.br/ABACOSWebService\"
+        xmlns:s=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://schemas.xmlsoap.org/wsdl/soap12/\"
+        xmlns:http=\"http://schemas.xmlsoap.org/wsdl/http/\" targetNamespace=\"http://www.kplsolucoes.com.br/ABACOSWebService\"
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">\r\n  <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Este WebService destina-se
+        a integração de clientes com o sistema ÁBACOS. Um exemplo seria a captação
+        de pedidos por um site de e-commerce. O cliente se cadastraria para a compra
+        e posteriormente seria feita a integração dos seus dados no sistema ÁBACOS
+        para que fosse possível a emissão da nota fiscal, por exemplo.&lt;br&gt;&lt;br&gt;&lt;b&gt;Versão
+        5.0B.0079&lt;/b&gt;</wsdl:documentation>\r\n  <wsdl:types>\r\n    <s:schema
+        elementFormDefault=\"qualified\" targetNamespace=\"http://www.kplsolucoes.com.br/ABACOSWebService\">\r\n
+        \     <s:element name=\"CadastrarCliente\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ChaveIdentificacao\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ListaDeClientes\" type=\"tns:ArrayOfDadosClientes\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:complexType name=\"ArrayOfDadosClientes\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"DadosClientes\"
+        nillable=\"true\" type=\"tns:DadosClientes\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosClientes\">\r\n
+        \       <s:complexContent mixed=\"false\">\r\n          <s:extension base=\"tns:DadosEntidade\">\r\n
+        \           <s:sequence>\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"GrupoCliente\" type=\"s:string\" />\r\n              <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"ClientesAtributosEstendidos\" type=\"tns:DadosProdutosAtributosEstendidosRows\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosEntidade\">\r\n
+        \       <s:complexContent mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n
+        \           <s:sequence>\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"EMail\" type=\"s:string\" />\r\n              <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"CPFouCNPJ\" type=\"s:string\" />\r\n              <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Codigo\" type=\"s:string\" />\r\n              <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"TipoPessoa\" type=\"tns:TipoPessoaEnum\"
+        />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Documento\"
+        type=\"s:string\" />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"InscricaoEstadual\" type=\"s:string\" />\r\n              <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"InscricaoMunicipal\" type=\"s:string\"
+        />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Classificacao\"
+        type=\"s:string\" />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Nome\" type=\"s:string\" />\r\n              <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"NomeReduzido\" type=\"s:string\" />\r\n              <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ContatoNome\" type=\"s:string\" />\r\n
+        \             <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"Sexo\" type=\"tns:TipoSexoEnum\"
+        />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DataNascimento\"
+        type=\"s:string\" />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Profissao\" type=\"s:string\" />\r\n              <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"Site\" type=\"s:string\" />\r\n              <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Telefone\" type=\"s:string\" />\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Fax\" type=\"s:string\"
+        />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Celular\"
+        type=\"s:string\" />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DataCadastro\" type=\"s:string\" />\r\n              <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"Endereco\" type=\"tns:DadosEndereco\" />\r\n              <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"EndCobranca\" type=\"tns:DadosEndereco\"
+        />\r\n              <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"EndEntrega\"
+        type=\"tns:DadosEndereco\" />\r\n              <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"SubRegiao\" type=\"s:string\" />\r\n              <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ClienteEstrangeiro\" type=\"s:string\"
+        />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CategoriaFiscal\"
+        type=\"s:string\" />\r\n            </s:sequence>\r\n          </s:extension>\r\n
+        \       </s:complexContent>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"TDadosRows\">\r\n        <s:sequence>\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"VersaoWebService\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"ResultadoOperacao\" type=\"tns:DadosResultadoOperacao\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"DadosResultadoOperacao\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"Codigo\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Descricao\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"Tipo\" type=\"tns:TipoDeResultadoEnum\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ExceptionMessage\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ExceptionClassName\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"ExceptionStackTrace\" type=\"s:string\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:simpleType name=\"TipoDeResultadoEnum\">\r\n
+        \       <s:restriction base=\"s:string\">\r\n          <s:enumeration value=\"tdreIndefinido\"
+        />\r\n          <s:enumeration value=\"tdreSucesso\" />\r\n          <s:enumeration
+        value=\"tdreSucessoSemDados\" />\r\n          <s:enumeration value=\"tdreAlerta\"
+        />\r\n          <s:enumeration value=\"tdreErroAplicacao\" />\r\n          <s:enumeration
+        value=\"tdreErroDataBase\" />\r\n          <s:enumeration value=\"tdreErroDados\"
+        />\r\n          <s:enumeration value=\"tdreErroGeral\" />\r\n          <s:enumeration
+        value=\"tdreMensagem\" />\r\n        </s:restriction>\r\n      </s:simpleType>\r\n
+        \     <s:complexType name=\"DadosClientesResultadoRows\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosClientesResultado\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosClientesResultado\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosClientesResultado\" type=\"tns:DadosClientesResultado\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType name=\"DadosClientesResultado\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"EMail\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"CPFouCNPJ\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"TipoPessoa\" type=\"tns:TipoPessoaEnum\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Codigo\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"Resultado\" type=\"tns:DadosResultadoOperacao\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:simpleType name=\"TipoPessoaEnum\">\r\n
+        \       <s:restriction base=\"s:string\">\r\n          <s:enumeration value=\"tpeIndefinido\"
+        />\r\n          <s:enumeration value=\"tpeFisica\" />\r\n          <s:enumeration
+        value=\"tpeJuridica\" />\r\n        </s:restriction>\r\n      </s:simpleType>\r\n
+        \     <s:complexType name=\"DadosProdutosAtributosEstendidosRows\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosProdutosAtributosEstendidos\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosProdutosAtributosEstendidos\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosProdutosAtributosEstendidos\" type=\"tns:DadosProdutosAtributosEstendidos\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"DadosProdutosAtributosEstendidos\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Acao\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"NomeAtributo\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ValorAtributo\"
+        type=\"s:string\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:simpleType name=\"TipoSexoEnum\">\r\n        <s:restriction base=\"s:string\">\r\n
+        \         <s:enumeration value=\"tseIndefinido\" />\r\n          <s:enumeration
+        value=\"tseFeminino\" />\r\n          <s:enumeration value=\"tseMasculino\"
+        />\r\n          <s:enumeration value=\"tseEmpresa\" />\r\n        </s:restriction>\r\n
+        \     </s:simpleType>\r\n      <s:complexType name=\"DadosEndereco\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Logradouro\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"NumeroLogradouro\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ComplementoEndereco\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Bairro\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Municipio\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"Estado\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Cep\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"TipoLocalEntrega\" type=\"tns:TTipoLocalEntregaEnum\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ReferenciaEndereco\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Pais\" type=\"s:string\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:simpleType name=\"TTipoLocalEntregaEnum\">\r\n        <s:restriction
+        base=\"s:string\">\r\n          <s:enumeration value=\"tleeDesconhecido\"
+        />\r\n          <s:enumeration value=\"tleeResidencial\" />\r\n          <s:enumeration
+        value=\"tleeComercial\" />\r\n        </s:restriction>\r\n      </s:simpleType>\r\n
+        \     <s:element name=\"CadastrarClienteResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CadastrarClienteResult\" type=\"tns:DadosClientesResultadoRows\" />\r\n
+        \         </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"CadastrarFornecedor\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ChaveIdentificacao\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ListaDeClientes\" type=\"tns:ArrayOfDadosClientes\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"CadastrarFornecedorResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CadastrarFornecedorResult\" type=\"tns:DadosClientesResultadoRows\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \   </s:schema>\r\n  </wsdl:types>\r\n  <wsdl:message name=\"CadastrarClienteSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:CadastrarCliente\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"CadastrarClienteSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:CadastrarClienteResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"CadastrarFornecedorSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:CadastrarFornecedor\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"CadastrarFornecedorSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:CadastrarFornecedorResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:portType name=\"AbacosWSClientesSoap\">\r\n
+        \   <wsdl:operation name=\"CadastrarCliente\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Permite a inclusão dos clientes
+        diretamente no sistema ÁBACOS. Podem ser enviados vários clientes de uma única
+        vez se assim for desejado.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:CadastrarClienteSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:CadastrarClienteSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"CadastrarFornecedor\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Permite a inclusão dos fornecedores
+        diretamente no sistema ÁBACOS. Podem ser enviados vários fornecedores de uma
+        única vez se assim for desejado.</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:CadastrarFornecedorSoapIn\" />\r\n      <wsdl:output message=\"tns:CadastrarFornecedorSoapOut\"
+        />\r\n    </wsdl:operation>\r\n  </wsdl:portType>\r\n  <wsdl:portType name=\"AbacosWSClientesHttpGet\"
+        />\r\n  <wsdl:portType name=\"AbacosWSClientesHttpPost\" />\r\n  <wsdl:binding
+        name=\"AbacosWSClientesSoap\" type=\"tns:AbacosWSClientesSoap\">\r\n    <soap:binding
+        transport=\"http://schemas.xmlsoap.org/soap/http\" />\r\n    <wsdl:operation
+        name=\"CadastrarCliente\">\r\n      <soap:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/CadastrarCliente\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"CadastrarFornecedor\">\r\n      <soap:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/CadastrarFornecedor\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n  </wsdl:binding>\r\n
+        \ <wsdl:binding name=\"AbacosWSClientesSoap12\" type=\"tns:AbacosWSClientesSoap\">\r\n
+        \   <soap12:binding transport=\"http://schemas.xmlsoap.org/soap/http\" />\r\n
+        \   <wsdl:operation name=\"CadastrarCliente\">\r\n      <soap12:operation
+        soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/CadastrarCliente\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"CadastrarFornecedor\">\r\n      <soap12:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/CadastrarFornecedor\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n  </wsdl:binding>\r\n
+        \ <wsdl:binding name=\"AbacosWSClientesHttpGet\" type=\"tns:AbacosWSClientesHttpGet\">\r\n
+        \   <http:binding verb=\"GET\" />\r\n  </wsdl:binding>\r\n  <wsdl:binding
+        name=\"AbacosWSClientesHttpPost\" type=\"tns:AbacosWSClientesHttpPost\">\r\n
+        \   <http:binding verb=\"POST\" />\r\n  </wsdl:binding>\r\n  <wsdl:service
+        name=\"AbacosWSClientes\">\r\n    <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Este
+        WebService destina-se a integração de clientes com o sistema ÁBACOS. Um exemplo
+        seria a captação de pedidos por um site de e-commerce. O cliente se cadastraria
+        para a compra e posteriormente seria feita a integração dos seus dados no
+        sistema ÁBACOS para que fosse possível a emissão da nota fiscal, por exemplo.&lt;br&gt;&lt;br&gt;&lt;b&gt;Versão
+        5.0B.0079&lt;/b&gt;</wsdl:documentation>\r\n    <wsdl:port name=\"AbacosWSClientesSoap\"
+        binding=\"tns:AbacosWSClientesSoap\">\r\n      <soap:address location=\"ABACOS_BASE_URL/AbacosWSClientes.asmx\"
+        />\r\n    </wsdl:port>\r\n    <wsdl:port name=\"AbacosWSClientesSoap12\" binding=\"tns:AbacosWSClientesSoap12\">\r\n
+        \     <soap12:address location=\"ABACOS_BASE_URL/AbacosWSClientes.asmx\" />\r\n
+        \   </wsdl:port>\r\n    <wsdl:port name=\"AbacosWSClientesHttpGet\" binding=\"tns:AbacosWSClientesHttpGet\">\r\n
+        \     <http:address location=\"ABACOS_BASE_URL/AbacosWSClientes.asmx\" />\r\n
+        \   </wsdl:port>\r\n    <wsdl:port name=\"AbacosWSClientesHttpPost\" binding=\"tns:AbacosWSClientesHttpPost\">\r\n
+        \     <http:address location=\"ABACOS_BASE_URL/AbacosWSClientes.asmx\" />\r\n
+        \   </wsdl:port>\r\n  </wsdl:service>\r\n</wsdl:definitions>"
+    http_version: 
+  recorded_at: Mon, 13 Oct 2014 18:27:32 GMT
+- request:
+    method: post
+    uri: ABACOS_BASE_URL/AbacosWSClientes.asmx
+    body:
+      encoding: utf-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://www.kplsolucoes.com.br/ABACOSWebService"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><tns:CadastrarCliente><tns:ChaveIdentificacao>ABACOS_KEY</tns:ChaveIdentificacao><tns:ListaDeClientes><tns:DadosClientes><tns:EMail>3JJiiLSOIJYAzifBXQbhY7T8aMPSc0G3ZXbXVUJUJt/HATZDaaHLXpTuWeBKxjjT</tns:EMail><tns:CPFouCNPJ>GRoxtlUMehBt7Y39nFhGXw==</tns:CPFouCNPJ><tns:TipoPessoa>tpeFisica</tns:TipoPessoa><tns:Sexo>tseFeminino</tns:Sexo><tns:Nome>Wombat
+        Integration First Client</tns:Nome><tns:Endereco><tns:Logradouro>Santa Monica</tns:Logradouro><tns:Estado>PI</tns:Estado><tns:Municipio>Teresina</tns:Municipio><tns:Cep>64049905</tns:Cep></tns:Endereco></tns:DadosClientes></tns:ListaDeClientes></tns:CadastrarCliente></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"http://www.kplsolucoes.com.br/ABACOSWebService/CadastrarCliente"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '947'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, max-age=0
+      Content-Type:
+      - text/xml; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Server:
+      - Microsoft-IIS/7.5
+      X-Aspnet-Version:
+      - 2.0.50727
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Mon, 13 Oct 2014 18:25:21 GMT
+      Content-Length:
+      - '953'
+    body:
+      encoding: utf-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><CadastrarClienteResponse
+        xmlns=\"http://www.kplsolucoes.com.br/ABACOSWebService\"><CadastrarClienteResult><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>100001</Codigo><Descricao>Ocorreram
+        erros durante a obtenção das informações pertinentes a lista de itens. Verifique
+        o retorno em cada item para maiores detalhes.</Descricao><Tipo>tdreAlerta</Tipo></ResultadoOperacao><Rows><DadosClientesResultado><EMail>3JJiiLSOIJYAzifBXQbhY7T8aMPSc0G3ZXbXVUJUJt/HATZDaaHLXpTuWeBKxjjT</EMail><CPFouCNPJ>GRoxtlUMehBt7Y39nFhGXw==</CPFouCNPJ><TipoPessoa>tpeFisica</TipoPessoa><Resultado><Codigo>300005</Codigo><Descricao>A
+        execução da rotina gerou uma crítica. Detalhes: * Origem: Incluir clientes
+        * Linha em que ocorreu o erro: 36 * Nome do objeto onde ocorreu o erro: PGEN_P_RAISERROR
+        * Código de erro do banco de dados: 88104</Descricao><Tipo>tdreErroDataBase</Tipo><ExceptionMessage>Interface
+        = 11 Msg = o campo CPF/CNPJ (GRoxtlUMehBt7Y) tem que conter apenas números\r\nErro
+        ao cadastrar cliente</ExceptionMessage></Resultado></DadosClientesResultado></Rows></CadastrarClienteResult></CadastrarClienteResponse></soap:Body></soap:Envelope>\r\n"
+    http_version: 
+  recorded_at: Mon, 13 Oct 2014 18:27:32 GMT
+recorded_with: VCR 2.9.3
