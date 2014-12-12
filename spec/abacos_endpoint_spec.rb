@@ -14,6 +14,17 @@ describe AbacosEndpoint do
     end
   end
 
+  it "receive products" do
+    request = { parameters: config }
+
+    VCR.use_cassette "get_products" do
+      post "/get_products", request.to_json, auth
+      expect(json_response[:summary]).to match "products from Ábacos"
+      expect(json_response[:abacos_products].count).to be >= 1
+      expect(last_response.status).to eq 200
+    end
+  end
+
   it "confirms stock received" do
     request = {
       parameters: config,

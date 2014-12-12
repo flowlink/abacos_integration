@@ -80,7 +80,9 @@ class Abacos
 
       # NOTE We repeat this pattern too much, could be abstracted
       result = response.body[:preco_on_line_response][:preco_on_line_result]
-      if result[:resultado_operacao][:tipo] != "tdreSucesso"
+      response_type = result[:resultado_operacao][:tipo]
+
+      unless ["tdreSucesso", "tdreAlerta"].include? response_type
         error = result[:rows][:dados_preco_resultado][:resultado]
         message = "#{error[:codigo]}. #{error[:exception_message]}. \n#{error[:descricao]}"
         raise ResponseError, message
