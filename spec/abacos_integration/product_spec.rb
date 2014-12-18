@@ -31,8 +31,10 @@ module AbacosIntegration
       }
 
       payload = {
-        abacos_product: {
-          variants: { sku1: protocol }
+        product: {
+          abacos: {
+            variants: { sku1: protocol }
+          }
         }
       }
 
@@ -41,10 +43,12 @@ module AbacosIntegration
       subject.confirm!
     end
 
-    it "dont confirm variants if abacos.protocolo_produto is no available" do
+    it "dont confirm variants if abacos.protocolo_produto is not available" do
       payload = {
-        abacos_product: {
-          variants: {}
+        product: {
+          abacos: {
+            variants: {}
+          }
         }
       }
 

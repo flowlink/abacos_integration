@@ -11,7 +11,10 @@ class AbacosEndpoint < EndpointBase::Sinatra::Base
 
   post "/get_products" do
     products = AbacosIntegration::Product.new(@config).fetch
-    products.each { |p| add_object "abacos_product", p }
+
+    products.each do |p|
+      add_object("product", { id: p[:id], abacos: p })
+    end
 
     if (count = products.count) > 0
       result 200, "Received #{count} #{"product".pluralize count} from Ábacos"
@@ -74,7 +77,7 @@ class AbacosEndpoint < EndpointBase::Sinatra::Base
 
   post "/confirm_product" do
     AbacosIntegration::Product.new(@config, @payload).confirm!
-    result 200, "Product #{@payload[:abacos_product][:id]} integration confirmed"
+    result 200, "Product #{@payload[:product][:id]} integration confirmed"
   end
 
   post "/confirm_order_status" do

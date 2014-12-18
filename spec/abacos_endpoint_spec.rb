@@ -17,10 +17,10 @@ describe AbacosEndpoint do
   it "receive products" do
     request = { parameters: config }
 
-    VCR.use_cassette "get_products" do
+    VCR.use_cassette "435324532345" do
       post "/get_products", request.to_json, auth
       expect(json_response[:summary]).to match "products from Ábacos"
-      expect(json_response[:abacos_products].count).to be >= 1
+      expect(json_response[:products].count).to be >= 1
       expect(last_response.status).to eq 200
     end
   end
@@ -42,8 +42,12 @@ describe AbacosEndpoint do
   it "confirms product received" do
     request = {
       parameters: config,
-      abacos_product: {
-        abacos: { protocolo_produto: "B9A0CB3D-9B05-4251-9310-E265D66E3663" }
+      product: {
+        abacos: {
+          abacos: {
+            protocolo_produto: "B9A0CB3D-9B05-4251-9310-E265D66E3663"
+          }
+        }
       }
     }
 
