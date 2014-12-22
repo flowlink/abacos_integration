@@ -2,9 +2,9 @@ module AbacosIntegration
   class Product < Base
     attr_reader :product_payload, :variants_payload
 
-    def initialize(config = {}, payload = { product: {} })
+    def initialize(config = {}, payload = {})
       super config
-      @product_payload = payload[:product].fetch(:abacos, {})
+      @product_payload = payload[:product] || {}
       @variants_payload = product_payload[:variants] || {}
     end
 

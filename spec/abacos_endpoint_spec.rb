@@ -44,9 +44,7 @@ describe AbacosEndpoint do
       parameters: config,
       product: {
         abacos: {
-          abacos: {
-            protocolo_produto: "B9A0CB3D-9B05-4251-9310-E265D66E3663"
-          }
+          protocolo_produto: "B9A0CB3D-9B05-4251-9310-E265D66E3663"
         }
       }
     }

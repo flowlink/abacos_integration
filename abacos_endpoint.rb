@@ -11,10 +11,7 @@ class AbacosEndpoint < EndpointBase::Sinatra::Base
 
   post "/get_products" do
     products = AbacosIntegration::Product.new(@config).fetch
-
-    products.each do |p|
-      add_object("product", { id: p[:id], abacos: p })
-    end
+    add_value "products", products
 
     if (count = products.count) > 0
       result 200, "Received #{count} #{"product".pluralize count} from Ábacos"
