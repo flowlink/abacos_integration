@@ -121,7 +121,7 @@ module AbacosIntegration
     private
       def clean_up_keys(hash)
         hash.keys.each do |k|
-          if k =~ /campo_cfg/ || useless_keys.include?(k)
+          if k =~ /campo_cfg/
             hash.delete k
           end
         end
