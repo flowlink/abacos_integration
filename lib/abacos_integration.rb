@@ -10,7 +10,11 @@ require 'abacos/order'
 
 module AbacosIntegration
   class Base
+    attr_reader :config
+
     def initialize(config = {})
+      @config = config
+
       Abacos.key = config[:abacos_key]
       Abacos.base_path = config[:abacos_base_path]
     end

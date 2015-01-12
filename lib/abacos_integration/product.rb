@@ -42,9 +42,8 @@ module AbacosIntegration
           height: p[:altura],
           width: p[:largura],
           length: p[:comprimento],
-          abacos: clean_up_keys(p),
-          price: 0
-        }
+          abacos: clean_up_keys(p)
+        }.merge fetch_price(p[:codigo_produto])
       end
     end
 
@@ -72,8 +71,12 @@ module AbacosIntegration
     end
 
     def fetch_price(product_id)
-      if price = prices.find { |p| p[:codigo_produto] == product_id }
-        { price: price[:preco_tabela], promotional_price: price[:preco_promocional] }
+      if ["1", "true", 1].include? config[:abacos_fetch_price].to_s
+        if price = prices.find { |p| p[:codigo_produto] == product_id }
+          { price: price[:preco_tabela], promotional_price: price[:preco_promocional] }
+        else
+          { price: 0 }
+        end
       else
         { price: 0 }
       end
@@ -88,9 +91,8 @@ module AbacosIntegration
         items[sku] = {
           sku: sku,
           description: v[:descricao],
-          abacos: clean_up_keys(v),
-          price: 0
-        }
+          abacos: clean_up_keys(v)
+        }.merge fetch_price(v[:codigo_produto])
 
         items
       end
