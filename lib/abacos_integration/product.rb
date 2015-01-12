@@ -42,8 +42,9 @@ module AbacosIntegration
           height: p[:altura],
           width: p[:largura],
           length: p[:comprimento],
-          abacos: clean_up_keys(p)
-        }.merge fetch_price(p[:codigo_produto])
+          abacos: clean_up_keys(p),
+          price: 0
+        }
       end
     end
 
@@ -87,8 +88,9 @@ module AbacosIntegration
         items[sku] = {
           sku: sku,
           description: v[:descricao],
-          abacos: clean_up_keys(v)
-        }.merge fetch_price(v[:codigo_produto])
+          abacos: clean_up_keys(v),
+          price: 0
+        }
 
         items
       end
