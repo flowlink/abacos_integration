@@ -1,5 +1,5 @@
 worker_processes ENV.fetch('WORKER_PROCESSES', 3).to_i
-timeout 180
+timeout ENV.fetch('TIMEOUT', 240).to_i
 preload_app true
 
 GC.respond_to?(:copy_on_write_friendly=) and  GC.copy_on_write_friendly = true

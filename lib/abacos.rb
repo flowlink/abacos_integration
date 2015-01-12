@@ -294,6 +294,7 @@ class Abacos
         wsdl: wsdl_url,
         log_level: :info,
         pretty_print_xml: true,
+        read_timeout: 230,
         log: true
       )
     end
