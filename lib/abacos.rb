@@ -295,7 +295,7 @@ class Abacos
         log_level: :info,
         pretty_print_xml: true,
         read_timeout: 200,
-        log: true
+        log: false
       )
     end
 
