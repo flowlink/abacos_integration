@@ -17,6 +17,7 @@ module AbacosIntegration
 
       Abacos.key = config[:abacos_key]
       Abacos.base_path = config[:abacos_base_path]
+      Abacos.base_path_only = config[:abacos_base_path_only].to_s == "true" || config[:abacos_base_path_only].to_s == "1"
     end
   end
 end

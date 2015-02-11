@@ -23,6 +23,15 @@ class Abacos
     end
 
     @@webservice = "AbacosWSProdutos"
+    @@base_path_only = false
+
+    def base_path_only=(flag)
+      @@base_path_only = flag
+    end
+
+    def base_path_only
+      @@base_path_only
+    end
 
     def des3_key=(key)
       @@des3_key = key
@@ -279,7 +288,11 @@ class Abacos
     end
 
     def wsdl_url
-      "#{@@base_path}/#{@@webservice}.asmx?wsdl"
+      if base_path_only
+        "#{@@base_path}.asmx?wsdl"
+      else
+        "#{@@base_path}/#{@@webservice}.asmx?wsdl"
+      end
     end
 
     private
