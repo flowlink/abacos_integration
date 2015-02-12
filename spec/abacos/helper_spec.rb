@@ -21,7 +21,7 @@ class Abacos
         Abacos.des3_iv = ENV['ABACOS_DES3_IV']
       end
 
-      it "encrypts and decrypts a string" do
+      pending "encrypts and decrypts a string" do
         email = "washington@wombat.co"
         encrypted = Abacos::Helper.encrypt email
 

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: ABACOS_PRODUCTS_WSDL
+    uri: ABACOS_BASE_URL/AbacosWSProdutos.asmx?wsdl
     body:
       encoding: utf-8
       string: ''
@@ -31,7 +31,7 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Thu, 11 Dec 2014 15:57:16 GMT
+      - Thu, 12 Feb 2015 14:41:58 GMT
       Content-Length:
       - '19474'
     body:
@@ -2218,7 +2218,7 @@ http_interactions:
         \     <http:address location=\"ABACOS_BASE_URL/AbacosWSProdutos.asmx\" />\r\n
         \   </wsdl:port>\r\n  </wsdl:service>\r\n</wsdl:definitions>"
     http_version: 
-  recorded_at: Thu, 11 Dec 2014 16:16:45 GMT
+  recorded_at: Thu, 12 Feb 2015 14:41:58 GMT
 - request:
     method: post
     uri: ABACOS_BASE_URL/AbacosWSProdutos.asmx
@@ -2258,15 +2258,18 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Thu, 11 Dec 2014 15:57:20 GMT
+      - Thu, 12 Feb 2015 14:42:00 GMT
       Content-Length:
-      - '432'
+      - '591'
     body:
       encoding: utf-8
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><ConfirmarRecebimentoProdutoResponse
-        xmlns=\"http://www.kplsolucoes.com.br/ABACOSWebService\"><ConfirmarRecebimentoProdutoResult><Codigo>200001</Codigo><Descricao>Operação
-        \"Confirmar a inclusão do produto\" efetuada com sucesso.</Descricao><Tipo>tdreSucesso</Tipo></ConfirmarRecebimentoProdutoResult></ConfirmarRecebimentoProdutoResponse></soap:Body></soap:Envelope>\r\n"
+        xmlns=\"http://www.kplsolucoes.com.br/ABACOSWebService\"><ConfirmarRecebimentoProdutoResult><Codigo>300005</Codigo><Descricao>A
+        execução da rotina gerou uma crítica. Detalhes: * Origem: Confirmar a inclusão
+        do produto * Linha em que ocorreu o erro: 53 * Nome do objeto onde ocorreu
+        o erro: PGEN_P_RAISERROR * Código de erro do banco de dados: 50000</Descricao><Tipo>tdreErroDataBase</Tipo><ExceptionMessage>Protocolo
+        inexistente</ExceptionMessage></ConfirmarRecebimentoProdutoResult></ConfirmarRecebimentoProdutoResponse></soap:Body></soap:Envelope>\r\n"
     http_version: 
-  recorded_at: Thu, 11 Dec 2014 16:16:49 GMT
+  recorded_at: Thu, 12 Feb 2015 14:42:00 GMT
 recorded_with: VCR 2.9.3

@@ -18,6 +18,7 @@ group :test do
   gem 'rspec'
   gem 'webmock'
   gem 'rack-test'
+  gem 'dotenv'
 end
 
 group :production do

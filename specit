@@ -14,4 +14,4 @@ require 'bundler'
 
 Bundler.require(:default, :test)
 
-RSpec::Core::Runner.run(['spec/abacos_spec.rb'])
+RSpec::Core::Runner.run([ARGV[0]])

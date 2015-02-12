@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Abacos do
+describe Abacos, broken: true do
   subject { described_class }
 
   before do

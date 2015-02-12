@@ -4,7 +4,7 @@ module AbacosIntegration
   describe Stock do
     include_examples "config"
 
-    it "builds inventories collection" do
+    it "builds inventories collection", broken: true do
       subject = described_class.new config
 
       VCR.use_cassette "stocks_available" do

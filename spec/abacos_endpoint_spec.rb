@@ -25,7 +25,19 @@ describe AbacosEndpoint do
     end
   end
 
-  it "confirms stock received" do
+  it "receive products base path only config" do
+    request = {
+      parameters: config.merge(abacos_base_path_only: 1)
+    }
+
+    VCR.use_cassette "base_path_only_true" do
+      post "/get_products", request.to_json, auth
+      expect(json_response[:summary]).to eq nil
+      expect(last_response.status).to eq 200
+    end
+  end
+
+  pending "confirms stock received" do
     request = {
       parameters: config,
       inventory: {
@@ -39,7 +51,7 @@ describe AbacosEndpoint do
     end
   end
 
-  it "confirms product received" do
+  pending "confirms product received" do
     request = {
       parameters: config,
       product: {

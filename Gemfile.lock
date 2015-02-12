@@ -116,6 +116,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   endpoint_base!
   foreman
   honeybadger

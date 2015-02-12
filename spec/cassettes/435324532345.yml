@@ -31,7 +31,7 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Thu, 12 Feb 2015 14:36:20 GMT
+      - Thu, 12 Feb 2015 14:16:08 GMT
       Content-Length:
       - '19474'
     body:
@@ -2218,7 +2218,7 @@ http_interactions:
         \     <http:address location=\"ABACOS_BASE_URL/AbacosWSProdutos.asmx\" />\r\n
         \   </wsdl:port>\r\n  </wsdl:service>\r\n</wsdl:definitions>"
     http_version: 
-  recorded_at: Thu, 12 Feb 2015 14:36:23 GMT
+  recorded_at: Thu, 12 Feb 2015 14:16:10 GMT
 - request:
     method: post
     uri: ABACOS_BASE_URL/AbacosWSProdutos.asmx
@@ -2226,14 +2226,14 @@ http_interactions:
       encoding: utf-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://www.kplsolucoes.com.br/ABACOSWebService"
-        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ins0="http://www.kplsolucoes.com.br/ABACOSWebService/AbstractTypes"><env:Body><tns:ConfirmarRecebimentoEstoque><tns:ProtocoloEstoque>bdcec9fb-f0f5-4223-8fc6-f369cb19ab05</tns:ProtocoloEstoque></tns:ConfirmarRecebimentoEstoque></env:Body></env:Envelope>
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ins0="http://www.kplsolucoes.com.br/ABACOSWebService/AbstractTypes"><env:Body><tns:ProdutosDisponiveis><tns:ChaveIdentificacao>ABACOS_KEY</tns:ChaveIdentificacao></tns:ProdutosDisponiveis></env:Body></env:Envelope>
     headers:
       Soapaction:
-      - '"http://www.kplsolucoes.com.br/ABACOSWebService/ConfirmarRecebimentoEstoque"'
+      - '"http://www.kplsolucoes.com.br/ABACOSWebService/ProdutosDisponiveis"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '522'
+      - '510'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -2258,18 +2258,196 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Thu, 12 Feb 2015 14:36:43 GMT
+      - Thu, 12 Feb 2015 14:16:10 GMT
       Content-Length:
-      - '594'
+      - '7535'
     body:
       encoding: utf-8
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"
-        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><ConfirmarRecebimentoEstoqueResponse
-        xmlns=\"http://www.kplsolucoes.com.br/ABACOSWebService\"><ConfirmarRecebimentoEstoqueResult><Codigo>300005</Codigo><Descricao>A
-        execução da rotina gerou uma crítica. Detalhes: * Origem: Confirmar a inclusão
-        dos dados de estoque * Linha em que ocorreu o erro: 53 * Nome do objeto onde
-        ocorreu o erro: PGEN_P_RAISERROR * Código de erro do banco de dados: 50000</Descricao><Tipo>tdreErroDataBase</Tipo><ExceptionMessage>Protocolo
-        inexistente</ExceptionMessage></ConfirmarRecebimentoEstoqueResult></ConfirmarRecebimentoEstoqueResponse></soap:Body></soap:Envelope>\r\n"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><ProdutosDisponiveisResponse
+        xmlns=\"http://www.kplsolucoes.com.br/ABACOSWebService\"><ProdutosDisponiveisResult><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200001</Codigo><Descricao>Operação
+        \"Listar os produtos disponíveis\" efetuada com sucesso.</Descricao><Tipo>tdreSucesso</Tipo></ResultadoOperacao><Rows><DadosProdutos><ProtocoloProduto>E16236C5-1CD5-4F8D-BF30-AF8C6033A3E9</ProtocoloProduto><Acao>aieExclusao</Acao><CodigoProdutoAbacos>36074</CodigoProdutoAbacos><CodigoProduto>3107151</CodigoProduto><CodigoProdutoPai
+        /><CodigoBarras>7896792600244</CodigoBarras><TipoProduto>tpreProduto</TipoProduto><NomeProduto>Mistura
+        Canário Sempre Vita - 500gr#</NomeProduto><NomeProdutoReduzido>Mistura Canário
+        Sempre Vita - 500gr</NomeProdutoReduzido><Descricao>Mistura Canário Sempre
+        Vita - 500gr</Descricao><CodigoMarca>392</CodigoMarca><CodigoFabricante>1272</CodigoFabricante><CodigoClasse>704</CodigoClasse><CodigoFamilia>26</CodigoFamilia><CodigoGrupo>7</CodigoGrupo><CodigoSubGrupo>299</CodigoSubGrupo><Peso>0.5</Peso><Largura>18</Largura><Comprimento>18</Comprimento><Profundidade>18</Profundidade><Espessura>5</Espessura><Altura>5</Altura><QtdePorEmbalagem>1</QtdePorEmbalagem><QtdeMinimaEstoque>0</QtdeMinimaEstoque><QtdeMaximaEstoque>0</QtdeMaximaEstoque><UnidadeMedidaNome>UNIDADE
+        \                                          </UnidadeMedidaNome><UnidadeMedidaAbrev>UN
+        </UnidadeMedidaAbrev><UnidadeMedidaQuilo>false</UnidadeMedidaQuilo><ProdutoTemFilhos>false</ProdutoTemFilhos><PrazoEntregaDias>4</PrazoEntregaDias><CampoCfg001
+        /><CampoCfg002 /><CampoCfg003 /><CampoCfg004 /><CampoCfg005 /><CampoCfg006
+        /><CampoCfg007 /><CampoCfg008 /><CampoCfg009 /><CampoCfg010 /><CampoCfg011
+        /><CampoCfg012 /><CampoCfg013 /><CampoCfg014 /><CampoCfg015 /><CampoCfg016
+        /><CampoCfg017 /><CampoCfg018 /><CampoCfg019 /><CampoCfg020 /><CampoCfgInt001
+        /><CampoCfgInt002 /><CampoCfgInt003 /><CampoCfgInt004 /><CampoCfgInt005 /><CampoCfgInt006
+        /><CampoCfgInt007 /><CampoCfgInt008 /><CampoCfgInt009 /><CampoCfgInt010 /><CampoCfgInt011
+        /><CampoCfgInt012 /><CampoCfgInt013 /><CampoCfgInt014 /><CampoCfgInt015 /><CampoCfgInt016
+        /><CampoCfgInt017 /><CampoCfgInt018 /><CampoCfgInt019 /><CampoCfgInt020 /><CampoCfgInt021
+        /><CampoCfgInt022 /><CampoCfgInt023 /><CampoCfgInt024 /><CampoCfgInt025 /><CampoCfgInt026
+        /><CampoCfgInt027 /><CampoCfgInt028 /><CampoCfgInt029 /><CampoCfgInt030 /><CFOPNaoContribuinte>0</CFOPNaoContribuinte><CFOPContribuinte>0</CFOPContribuinte><UnidadeTributavel>0</UnidadeTributavel><CustoDoProduto>0</CustoDoProduto><CodigoExternoFornecedor>550103</CodigoExternoFornecedor><DescontoMaxProduto>0</DescontoMaxProduto><PreVenda>Não</PreVenda><PreVenda_DataInicio
+        /><PreVenda_DataFinal /><CodigoProdutoParceiro /><CodigoProdutoPaiParceiro
+        /><DescritorSimples><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><rows><DadosDescritorSimples><CodigoInterno>0</CodigoInterno><Numero>0</Numero><Descricao
+        /></DadosDescritorSimples></rows></DescritorSimples><DescritorPreDefinido><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosDescritorPreDefinido><CodigoInterno>0</CodigoInterno><Numero>0</Numero><Descricao
+        /><GrupoCodigo>0</GrupoCodigo><GrupoNome /></DadosDescritorPreDefinido></Rows></DescritorPreDefinido><AtributosEstendidos><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosAtributosEstendidos><CodigoAtributo>0</CodigoAtributo><NomeAtributo
+        /><NomeElemento /><TipoDado /><CampoValor /><Ordenacao>0</Ordenacao></DadosAtributosEstendidos></Rows></AtributosEstendidos><CaracteristicasComplementares><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosCaracteristicasComplementares><CodigoInterno>0</CodigoInterno><TipoCodigo>0</TipoCodigo><TipoNome
+        /><TipoGrupoCodigo>0</TipoGrupoCodigo><TipoGrupoNome /><Texto /><NrConfigInterface>0</NrConfigInterface></DadosCaracteristicasComplementares></Rows></CaracteristicasComplementares><ProdutosSubstitutos><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosProdutosSubstitutos><CodigoSubstituto
+        /></DadosProdutosSubstitutos></Rows></ProdutosSubstitutos><CategoriasDoSite><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosCategoriasDoSite><CodigoCategoria>0</CodigoCategoria><CodigoCategoriaPai>0</CodigoCategoriaPai><CodigoExternoCategoria
+        /></DadosCategoriasDoSite></Rows></CategoriasDoSite><ProdutosPersonalizacao><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosProdutosPersonalizacao><ClassificacaoPersonalizacao>tpceNenhuma</ClassificacaoPersonalizacao><CodigoProdutoPersonalizacao
+        /><CodigoProdutoPersonalizacaoPai /><ProdutoPersonalizacaoLigacao>tptleIndefinido</ProdutoPersonalizacaoLigacao></DadosProdutosPersonalizacao></Rows></ProdutosPersonalizacao><ComponentesKit><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosComponentesKit><CodigoProdutoComponente
+        /><Quantidade>0</Quantidade><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><CodigoDescritorPreDefinido1 /><CodigoDescritorPreDefinido2
+        /><CodigoDescritorPreDefinido3 /><DescritorSimples1 /><DescritorSimples2 /><DescritorSimples3
+        /><Preco>0</Preco><PrecoPromocional>0</PrecoPromocional><DataInicioPromocao
+        /><DataTerminoPromocao /></DadosComponentesKit></Rows></ComponentesKit><ProdutosAssociados><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>0</Codigo><Tipo>tdreIndefinido</Tipo></ResultadoOperacao></ProdutosAssociados><DescricaoClasse>Fora
+        de Linha                                     </DescricaoClasse><DescricaoMarca>Sempre
+        Vita                                       </DescricaoMarca><DescricaoFamilia>Pássaros
+        \                                         </DescricaoFamilia><DescricaoGrupo>Alimentos
+        \                                        </DescricaoGrupo><DescricaoSubgrupo>Sementes
+        \                                         </DescricaoSubgrupo><CodigoCategoriaFiscal>3</CodigoCategoriaFiscal><CodigoClassificacaoFiscal>36</CodigoClassificacaoFiscal><ClassificacaoFiscal>2309.90.10</ClassificacaoFiscal><DiasGarantia>0</DiasGarantia><PodeSerBrinde>false</PodeSerBrinde><TipoRastreabilidade>0</TipoRastreabilidade><TipoControleEstoque>tceeControla</TipoControleEstoque><ProdutoKit>false</ProdutoKit><EfetuarCheckOut>true</EfetuarCheckOut><DescricaoNotaFiscal>false</DescricaoNotaFiscal><ClassificacaoPersonalizacao>tpceNenhuma</ClassificacaoPersonalizacao><NaoImprimirEtqEntrada>false</NaoImprimirEtqEntrada><DadosLivros><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>0</Codigo><Tipo>tdreIndefinido</Tipo></ResultadoOperacao><Rows><DadosLivros><NomeIdioma
+        /><NomePais /><DataPublicacao /><NumeroPaginas>0</NumeroPaginas><Anopublicacao>0</Anopublicacao><ISBN10
+        /><NumeroVolume>0</NumeroVolume><ImpressaoSobDemanda /><ComplementoEdicao
+        /><NomeEncadernacao /><NumeroEdicao>0</NumeroEdicao><CodigoEdicaoAnterior>0</CodigoEdicaoAnterior><EdicaoAnterior
+        /><DadosColecao><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>0</Codigo><Tipo>tdreIndefinido</Tipo></ResultadoOperacao><Rows><DadosColecao><NomeColecao
+        /></DadosColecao></Rows></DadosColecao><DadosContribuidor><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>0</Codigo><Tipo>tdreIndefinido</Tipo></ResultadoOperacao><Rows><DadosContribuidor><NomeContribuidor
+        /><NomeFuncao /><PrincipalFuncao /></DadosContribuidor></Rows></DadosContribuidor><DadosAcompanhamento><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>0</Codigo><Tipo>tdreIndefinido</Tipo></ResultadoOperacao><Rows><DadosAcompanhamento><NomeAcompanhamento
+        /></DadosAcompanhamento></Rows></DadosAcompanhamento></DadosLivros></Rows></DadosLivros><PrecoTabela1>0</PrecoTabela1><PrecoPromocao1>0</PrecoPromocao1><PrecoTabela2>0</PrecoTabela2><PrecoPromocao2>0</PrecoPromocao2></DadosProdutos><DadosProdutos><ProtocoloProduto>B54F2FCD-F358-47AB-A8DD-076456A1C720</ProtocoloProduto><Acao>aieManutencao</Acao><CodigoProdutoAbacos>36075</CodigoProdutoAbacos><CodigoProduto>3107152</CodigoProduto><CodigoProdutoPai
+        /><CodigoBarras>7896792600404</CodigoBarras><TipoProduto>tpreProduto</TipoProduto><NomeProduto>Mistura
+        Coleirinha Sempre Vita - 500gr#</NomeProduto><NomeProdutoReduzido>Mistura
+        Coleirinha Sempre Vita - 500gr</NomeProdutoReduzido><Descricao>Mistura Coleirinha
+        Sempre Vita - 500gr</Descricao><CodigoMarca>392</CodigoMarca><CodigoFabricante>1247</CodigoFabricante><CodigoClasse>704</CodigoClasse><CodigoFamilia>26</CodigoFamilia><CodigoGrupo>7</CodigoGrupo><CodigoSubGrupo>299</CodigoSubGrupo><Peso>0.5</Peso><Largura>18</Largura><Comprimento>18</Comprimento><Profundidade>18</Profundidade><Espessura>5</Espessura><Altura>5</Altura><QtdePorEmbalagem>1</QtdePorEmbalagem><QtdeMinimaEstoque>0</QtdeMinimaEstoque><QtdeMaximaEstoque>0</QtdeMaximaEstoque><UnidadeMedidaNome>UNIDADE
+        \                                          </UnidadeMedidaNome><UnidadeMedidaAbrev>UN
+        </UnidadeMedidaAbrev><UnidadeMedidaQuilo>false</UnidadeMedidaQuilo><ProdutoTemFilhos>false</ProdutoTemFilhos><PrazoEntregaDias>4</PrazoEntregaDias><CampoCfg001
+        /><CampoCfg002 /><CampoCfg003 /><CampoCfg004 /><CampoCfg005 /><CampoCfg006
+        /><CampoCfg007 /><CampoCfg008 /><CampoCfg009 /><CampoCfg010 /><CampoCfg011
+        /><CampoCfg012 /><CampoCfg013 /><CampoCfg014 /><CampoCfg015 /><CampoCfg016
+        /><CampoCfg017 /><CampoCfg018 /><CampoCfg019 /><CampoCfg020 /><CampoCfgInt001
+        /><CampoCfgInt002 /><CampoCfgInt003 /><CampoCfgInt004 /><CampoCfgInt005 /><CampoCfgInt006
+        /><CampoCfgInt007 /><CampoCfgInt008 /><CampoCfgInt009 /><CampoCfgInt010 /><CampoCfgInt011
+        /><CampoCfgInt012 /><CampoCfgInt013 /><CampoCfgInt014 /><CampoCfgInt015 /><CampoCfgInt016
+        /><CampoCfgInt017 /><CampoCfgInt018 /><CampoCfgInt019 /><CampoCfgInt020 /><CampoCfgInt021
+        /><CampoCfgInt022 /><CampoCfgInt023 /><CampoCfgInt024 /><CampoCfgInt025 /><CampoCfgInt026
+        /><CampoCfgInt027 /><CampoCfgInt028 /><CampoCfgInt029 /><CampoCfgInt030 /><CFOPNaoContribuinte>0</CFOPNaoContribuinte><CFOPContribuinte>0</CFOPContribuinte><UnidadeTributavel>0</UnidadeTributavel><CustoDoProduto>0</CustoDoProduto><CodigoExternoFornecedor>550103</CodigoExternoFornecedor><DescontoMaxProduto>0</DescontoMaxProduto><PreVenda>Não</PreVenda><PreVenda_DataInicio
+        /><PreVenda_DataFinal /><CodigoProdutoParceiro /><CodigoProdutoPaiParceiro
+        /><DescritorSimples><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><rows><DadosDescritorSimples><CodigoInterno>0</CodigoInterno><Numero>0</Numero><Descricao
+        /></DadosDescritorSimples></rows></DescritorSimples><DescritorPreDefinido><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosDescritorPreDefinido><CodigoInterno>0</CodigoInterno><Numero>0</Numero><Descricao
+        /><GrupoCodigo>0</GrupoCodigo><GrupoNome /></DadosDescritorPreDefinido></Rows></DescritorPreDefinido><AtributosEstendidos><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosAtributosEstendidos><CodigoAtributo>0</CodigoAtributo><NomeAtributo
+        /><NomeElemento /><TipoDado /><CampoValor /><Ordenacao>0</Ordenacao></DadosAtributosEstendidos></Rows></AtributosEstendidos><CaracteristicasComplementares><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200001</Codigo><Descricao>Operação
+        \"Listar as caracteristicas complementares associadas ao produto\" efetuada
+        com sucesso.</Descricao><Tipo>tdreSucesso</Tipo></ResultadoOperacao><Rows><DadosCaracteristicasComplementares><CodigoInterno>21997</CodigoInterno><TipoCodigo>1</TipoCodigo><TipoNome>DESCRIÇÃO
+        LONGA                                   </TipoNome><TipoGrupoCodigo>1</TipoGrupoCodigo><TipoGrupoNome>DESCRIÇÕES
+        PARA O SITE                            </TipoGrupoNome><Texto>A Mistura Coleirinha
+        é uma incrível &lt;a href=\"http://www.petlove.com.br/passaros/alimentacao\"
+        target=\"blank\" &gt;ração&lt;/a&gt; é balanceada e rica em &lt;a href=\"http://www.petlove.com.br/passaros/medicina-e-saude/suplementos-e-vitaminas\"
+        target=\"blank\" &gt;vitaminas&lt;/a&gt; e minerais, apresenta proteínas naturalmente
+        saudáveis de frutas e sementes selecionadas, fundamentais para a vida e &lt;a
+        href=\"http://www.petlove.com.br/passaros/medicina-e-saude\" target=\"blank\"
+        &gt;saúde&lt;/a&gt; dos pássaros, além de ser uma fonte rica em proteínas
+        e nutrientes.&lt;BR&gt;&lt;BR&gt;&lt;a href=\"http://www.petlove.com.br/passaros/alimentacao/canario/sempre-vita\"
+        target=\"blank\" &gt;Sempre Vita&lt;/a&gt;&lt;BR&gt;Em 1985 a Danreal inicia
+        sua caminhada, na época situada em um galpão alugado no bairro de Vila Alpina,
+        administrada por dois sócios para comercialização de farinha de rosca e condimentos
+        em geral. Em 1986 a empresa muda o foco de atuação e convida Wilson Roberto
+        de Souza amante  desses animais e gerente nacional da gigante e extinta Casa
+        das Sementes carlos Coradini S/A, para a produção de &lt;a href=\"http://www.petlove.com.br/passaros/alimentacao\"
+        target=\"blank\" &gt;rações&lt;/a&gt; para pássaros, nascendo assim as &lt;a
+        href=\"http://www.petlove.com.br/passaros/alimentacao\" target=\"blank\" &gt;rações&lt;/a&gt;
+        &lt;a href=\"http://www.petlove.com.br/passaros/alimentacao/canario/sempre-vita\"
+        target=\"blank\" &gt;Sempre Vita&lt;/a&gt;.&lt;BR&gt;A empresa ampliou a carteira
+        de clientes buscando um movo nicho de mercado, conhecido como auto-serviços
+        passa a partir daí a atender grandes grupos como: Carrefour, Pão de Açúcar
+        e Wal Mart, juntamente com as lojas de departamento, petshops, atacados, etc.&lt;BR&gt;Tudo
+        isso para chegar nos dias de hoje e ser uma das empresas lideres de mercado
+        do segmento em que atua, totalmente informatizada, com capital próprio, gerando
+        empregos diretos e indiretos, produzindo e distribuindo produtos com qualidade.&lt;BR&gt;</Texto><NrConfigInterface>0</NrConfigInterface></DadosCaracteristicasComplementares></Rows></CaracteristicasComplementares><ProdutosSubstitutos><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosProdutosSubstitutos><CodigoSubstituto
+        /></DadosProdutosSubstitutos></Rows></ProdutosSubstitutos><CategoriasDoSite><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200001</Codigo><Descricao>Operação
+        \"Listar as categorias do site associadas ao produto\" efetuada com sucesso.</Descricao><Tipo>tdreSucesso</Tipo></ResultadoOperacao><Rows><DadosCategoriasDoSite><CodigoCategoria>111</CodigoCategoria><CodigoCategoriaPai>0</CodigoCategoriaPai><CodigoExternoCategoria
+        /></DadosCategoriasDoSite><DadosCategoriasDoSite><CodigoCategoria>157</CodigoCategoria><CodigoCategoriaPai>111</CodigoCategoriaPai><CodigoExternoCategoria
+        /></DadosCategoriasDoSite><DadosCategoriasDoSite><CodigoCategoria>175</CodigoCategoria><CodigoCategoriaPai>157</CodigoCategoriaPai><CodigoExternoCategoria
+        /></DadosCategoriasDoSite></Rows></CategoriasDoSite><ProdutosPersonalizacao><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosProdutosPersonalizacao><ClassificacaoPersonalizacao>tpceNenhuma</ClassificacaoPersonalizacao><CodigoProdutoPersonalizacao
+        /><CodigoProdutoPersonalizacaoPai /><ProdutoPersonalizacaoLigacao>tptleIndefinido</ProdutoPersonalizacaoLigacao></DadosProdutosPersonalizacao></Rows></ProdutosPersonalizacao><ComponentesKit><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosComponentesKit><CodigoProdutoComponente
+        /><Quantidade>0</Quantidade><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><CodigoDescritorPreDefinido1 /><CodigoDescritorPreDefinido2
+        /><CodigoDescritorPreDefinido3 /><DescritorSimples1 /><DescritorSimples2 /><DescritorSimples3
+        /><Preco>0</Preco><PrecoPromocional>0</PrecoPromocional><DataInicioPromocao
+        /><DataTerminoPromocao /></DadosComponentesKit></Rows></ComponentesKit><ProdutosAssociados><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosProdutosAssociados><CodigoProdutoAbacos
+        /><CodigoProduto /><CodigoBarras /><OrdemAssociacao /><TipoAssociacao /><TipoAssociacaoNome
+        /><TipoCategoria /><TipoCategoriaNome /></DadosProdutosAssociados></Rows></ProdutosAssociados><DescricaoClasse>Fora
+        de Linha                                     </DescricaoClasse><DescricaoMarca>Sempre
+        Vita                                       </DescricaoMarca><DescricaoFamilia>Pássaros
+        \                                         </DescricaoFamilia><DescricaoGrupo>Alimentos
+        \                                        </DescricaoGrupo><DescricaoSubgrupo>Sementes
+        \                                         </DescricaoSubgrupo><CodigoCategoriaFiscal>3</CodigoCategoriaFiscal><CodigoClassificacaoFiscal>36</CodigoClassificacaoFiscal><ClassificacaoFiscal>2309.90.10</ClassificacaoFiscal><DiasGarantia>0</DiasGarantia><PodeSerBrinde>false</PodeSerBrinde><TipoRastreabilidade>0</TipoRastreabilidade><TipoControleEstoque>tceeControla</TipoControleEstoque><ProdutoKit>false</ProdutoKit><EfetuarCheckOut>true</EfetuarCheckOut><DescricaoNotaFiscal>false</DescricaoNotaFiscal><ClassificacaoPersonalizacao>tpceNenhuma</ClassificacaoPersonalizacao><NaoImprimirEtqEntrada>false</NaoImprimirEtqEntrada><DadosLivros><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosLivros><NomeIdioma
+        /><NomePais /><DataPublicacao /><NumeroPaginas>0</NumeroPaginas><Anopublicacao>0</Anopublicacao><ISBN10
+        /><NumeroVolume>0</NumeroVolume><ImpressaoSobDemanda /><ComplementoEdicao
+        /><NomeEncadernacao /><NumeroEdicao>0</NumeroEdicao><CodigoEdicaoAnterior>0</CodigoEdicaoAnterior><EdicaoAnterior
+        /><DadosColecao><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>0</Codigo><Tipo>tdreIndefinido</Tipo></ResultadoOperacao><Rows><DadosColecao><NomeColecao
+        /></DadosColecao></Rows></DadosColecao><DadosContribuidor><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>0</Codigo><Tipo>tdreIndefinido</Tipo></ResultadoOperacao><Rows><DadosContribuidor><NomeContribuidor
+        /><NomeFuncao /><PrincipalFuncao /></DadosContribuidor></Rows></DadosContribuidor><DadosAcompanhamento><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>0</Codigo><Tipo>tdreIndefinido</Tipo></ResultadoOperacao><Rows><DadosAcompanhamento><NomeAcompanhamento
+        /></DadosAcompanhamento></Rows></DadosAcompanhamento></DadosLivros></Rows></DadosLivros><PrecoTabela1>0</PrecoTabela1><PrecoPromocao1>0</PrecoPromocao1><PrecoTabela2>0</PrecoTabela2><PrecoPromocao2>0</PrecoPromocao2></DadosProdutos><DadosProdutos><ProtocoloProduto>8723F710-F5A2-47E6-9468-0C1C4D248614</ProtocoloProduto><Acao>aieExclusao</Acao><CodigoProdutoAbacos>36075</CodigoProdutoAbacos><CodigoProduto>3107152</CodigoProduto><CodigoProdutoPai
+        /><CodigoBarras>7896792600404</CodigoBarras><TipoProduto>tpreProduto</TipoProduto><NomeProduto>Mistura
+        Coleirinha Sempre Vita - 500gr#</NomeProduto><NomeProdutoReduzido>Mistura
+        Coleirinha Sempre Vita - 500gr</NomeProdutoReduzido><Descricao>Mistura Coleirinha
+        Sempre Vita - 500gr</Descricao><CodigoMarca>392</CodigoMarca><CodigoFabricante>1247</CodigoFabricante><CodigoClasse>704</CodigoClasse><CodigoFamilia>26</CodigoFamilia><CodigoGrupo>7</CodigoGrupo><CodigoSubGrupo>299</CodigoSubGrupo><Peso>0.5</Peso><Largura>18</Largura><Comprimento>18</Comprimento><Profundidade>18</Profundidade><Espessura>5</Espessura><Altura>5</Altura><QtdePorEmbalagem>1</QtdePorEmbalagem><QtdeMinimaEstoque>0</QtdeMinimaEstoque><QtdeMaximaEstoque>0</QtdeMaximaEstoque><UnidadeMedidaNome>UNIDADE
+        \                                          </UnidadeMedidaNome><UnidadeMedidaAbrev>UN
+        </UnidadeMedidaAbrev><UnidadeMedidaQuilo>false</UnidadeMedidaQuilo><ProdutoTemFilhos>false</ProdutoTemFilhos><PrazoEntregaDias>4</PrazoEntregaDias><CampoCfg001
+        /><CampoCfg002 /><CampoCfg003 /><CampoCfg004 /><CampoCfg005 /><CampoCfg006
+        /><CampoCfg007 /><CampoCfg008 /><CampoCfg009 /><CampoCfg010 /><CampoCfg011
+        /><CampoCfg012 /><CampoCfg013 /><CampoCfg014 /><CampoCfg015 /><CampoCfg016
+        /><CampoCfg017 /><CampoCfg018 /><CampoCfg019 /><CampoCfg020 /><CampoCfgInt001
+        /><CampoCfgInt002 /><CampoCfgInt003 /><CampoCfgInt004 /><CampoCfgInt005 /><CampoCfgInt006
+        /><CampoCfgInt007 /><CampoCfgInt008 /><CampoCfgInt009 /><CampoCfgInt010 /><CampoCfgInt011
+        /><CampoCfgInt012 /><CampoCfgInt013 /><CampoCfgInt014 /><CampoCfgInt015 /><CampoCfgInt016
+        /><CampoCfgInt017 /><CampoCfgInt018 /><CampoCfgInt019 /><CampoCfgInt020 /><CampoCfgInt021
+        /><CampoCfgInt022 /><CampoCfgInt023 /><CampoCfgInt024 /><CampoCfgInt025 /><CampoCfgInt026
+        /><CampoCfgInt027 /><CampoCfgInt028 /><CampoCfgInt029 /><CampoCfgInt030 /><CFOPNaoContribuinte>0</CFOPNaoContribuinte><CFOPContribuinte>0</CFOPContribuinte><UnidadeTributavel>0</UnidadeTributavel><CustoDoProduto>0</CustoDoProduto><CodigoExternoFornecedor>550103</CodigoExternoFornecedor><DescontoMaxProduto>0</DescontoMaxProduto><PreVenda>Não</PreVenda><PreVenda_DataInicio
+        /><PreVenda_DataFinal /><CodigoProdutoParceiro /><CodigoProdutoPaiParceiro
+        /><DescritorSimples><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><rows><DadosDescritorSimples><CodigoInterno>0</CodigoInterno><Numero>0</Numero><Descricao
+        /></DadosDescritorSimples></rows></DescritorSimples><DescritorPreDefinido><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosDescritorPreDefinido><CodigoInterno>0</CodigoInterno><Numero>0</Numero><Descricao
+        /><GrupoCodigo>0</GrupoCodigo><GrupoNome /></DadosDescritorPreDefinido></Rows></DescritorPreDefinido><AtributosEstendidos><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosAtributosEstendidos><CodigoAtributo>0</CodigoAtributo><NomeAtributo
+        /><NomeElemento /><TipoDado /><CampoValor /><Ordenacao>0</Ordenacao></DadosAtributosEstendidos></Rows></AtributosEstendidos><CaracteristicasComplementares><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosCaracteristicasComplementares><CodigoInterno>0</CodigoInterno><TipoCodigo>0</TipoCodigo><TipoNome
+        /><TipoGrupoCodigo>0</TipoGrupoCodigo><TipoGrupoNome /><Texto /><NrConfigInterface>0</NrConfigInterface></DadosCaracteristicasComplementares></Rows></CaracteristicasComplementares><ProdutosSubstitutos><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosProdutosSubstitutos><CodigoSubstituto
+        /></DadosProdutosSubstitutos></Rows></ProdutosSubstitutos><CategoriasDoSite><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosCategoriasDoSite><CodigoCategoria>0</CodigoCategoria><CodigoCategoriaPai>0</CodigoCategoriaPai><CodigoExternoCategoria
+        /></DadosCategoriasDoSite></Rows></CategoriasDoSite><ProdutosPersonalizacao><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosProdutosPersonalizacao><ClassificacaoPersonalizacao>tpceNenhuma</ClassificacaoPersonalizacao><CodigoProdutoPersonalizacao
+        /><CodigoProdutoPersonalizacaoPai /><ProdutoPersonalizacaoLigacao>tptleIndefinido</ProdutoPersonalizacaoLigacao></DadosProdutosPersonalizacao></Rows></ProdutosPersonalizacao><ComponentesKit><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao><Rows><DadosComponentesKit><CodigoProdutoComponente
+        /><Quantidade>0</Quantidade><DescritorPreDefinido1 /><DescritorPreDefinido2
+        /><DescritorPreDefinido3 /><CodigoDescritorPreDefinido1 /><CodigoDescritorPreDefinido2
+        /><CodigoDescritorPreDefinido3 /><DescritorSimples1 /><DescritorSimples2 /><DescritorSimples3
+        /><Preco>0</Preco><PrecoPromocional>0</PrecoPromocional><DataInicioPromocao
+        /><DataTerminoPromocao /></DadosComponentesKit></Rows></ComponentesKit><ProdutosAssociados><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>0</Codigo><Tipo>tdreIndefinido</Tipo></ResultadoOperacao></ProdutosAssociados><DescricaoClasse>Fora
+        de Linha                                     </DescricaoClasse><DescricaoMarca>Sempre
+        Vita                                       </DescricaoMarca><DescricaoFamilia>Pássaros
+        \                                         </DescricaoFamilia><DescricaoGrupo>Alimentos
+        \                                        </DescricaoGrupo><DescricaoSubgrupo>Sementes
+        \                                         </DescricaoSubgrupo><CodigoCategoriaFiscal>3</CodigoCategoriaFiscal><CodigoClassificacaoFiscal>36</CodigoClassificacaoFiscal><ClassificacaoFiscal>2309.90.10</ClassificacaoFiscal><DiasGarantia>0</DiasGarantia><PodeSerBrinde>false</PodeSerBrinde><TipoRastreabilidade>0</TipoRastreabilidade><TipoControleEstoque>tceeControla</TipoControleEstoque><ProdutoKit>false</ProdutoKit><EfetuarCheckOut>true</EfetuarCheckOut><DescricaoNotaFiscal>false</DescricaoNotaFiscal><ClassificacaoPersonalizacao>tpceNenhuma</ClassificacaoPersonalizacao><NaoImprimirEtqEntrada>false</NaoImprimirEtqEntrada><DadosLivros><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>0</Codigo><Tipo>tdreIndefinido</Tipo></ResultadoOperacao><Rows><DadosLivros><NomeIdioma
+        /><NomePais /><DataPublicacao /><NumeroPaginas>0</NumeroPaginas><Anopublicacao>0</Anopublicacao><ISBN10
+        /><NumeroVolume>0</NumeroVolume><ImpressaoSobDemanda /><ComplementoEdicao
+        /><NomeEncadernacao /><NumeroEdicao>0</NumeroEdicao><CodigoEdicaoAnterior>0</CodigoEdicaoAnterior><EdicaoAnterior
+        /><DadosColecao><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>0</Codigo><Tipo>tdreIndefinido</Tipo></ResultadoOperacao><Rows><DadosColecao><NomeColecao
+        /></DadosColecao></Rows></DadosColecao><DadosContribuidor><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>0</Codigo><Tipo>tdreIndefinido</Tipo></ResultadoOperacao><Rows><DadosContribuidor><NomeContribuidor
+        /><NomeFuncao /><PrincipalFuncao /></DadosContribuidor></Rows></DadosContribuidor><DadosAcompanhamento><VersaoWebService>5.0B.0079</VersaoWebService><ResultadoOperacao><Codigo>0</Codigo><Tipo>tdreIndefinido</Tipo></ResultadoOperacao><Rows><DadosAcompanhamento><NomeAcompanhamento
+        /></DadosAcompanhamento></Rows></DadosAcompanhamento></DadosLivros></Rows></DadosLivros><PrecoTabela1>0</PrecoTabela1><PrecoPromocao1>0</PrecoPromocao1><PrecoTabela2>0</PrecoTabela2><PrecoPromocao2>0</PrecoPromocao2></DadosProdutos></Rows></ProdutosDisponiveisResult></ProdutosDisponiveisResponse></soap:Body></soap:Envelope>\r\n"
     http_version: 
-  recorded_at: Thu, 12 Feb 2015 14:36:43 GMT
+  recorded_at: Thu, 12 Feb 2015 14:16:11 GMT
 recorded_with: VCR 2.9.3

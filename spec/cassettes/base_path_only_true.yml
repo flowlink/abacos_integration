@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: ABACOS_BASE_URL/AbacosWSProdutos.asmx?wsdl
+    uri: ABACOS_BASE_URL.asmx?wsdl
     body:
       encoding: utf-8
       string: ''
@@ -31,9 +31,9 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Thu, 12 Feb 2015 14:36:20 GMT
+      - Thu, 12 Feb 2015 14:22:45 GMT
       Content-Length:
-      - '19474'
+      - '30614'
     body:
       encoding: utf-8
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<wsdl:definitions xmlns:soap=\"http://schemas.xmlsoap.org/wsdl/soap/\"
@@ -44,12 +44,9 @@ http_interactions:
         xmlns:http=\"http://schemas.xmlsoap.org/wsdl/http/\" targetNamespace=\"http://www.kplsolucoes.com.br/ABACOSWebService\"
         xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">\r\n  <wsdl:documentation
         xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Este WebService destina-se
-        a integração de produtos do sistema ÁBACOS (KPL Soluções) com sistemas externos.
-        Um exemplo seria a atualização dos dados de produtos em um site de e-commerce.
-        A utilização deste WebService permite também a atualização das informações
-        de estoque, preços entre outras informações relacionadas ao produtos comercializados
-        por uma empresa.&lt;br&gt;&lt;br&gt;&lt;b&gt;Versão 5.0B.0079&lt;/b&gt;</wsdl:documentation>\r\n
-        \ <wsdl:types>\r\n    <s:schema elementFormDefault=\"qualified\" targetNamespace=\"http://www.kplsolucoes.com.br/ABACOSWebService\">\r\n
+        a integração entre plataformas de e-commerce e o ÁBACOS.&lt;br&gt;&lt;br&gt;&lt;b&gt;Versão
+        5.0.83.7&lt;/b&gt;</wsdl:documentation>\r\n  <wsdl:types>\r\n    <s:schema
+        elementFormDefault=\"qualified\" targetNamespace=\"http://www.kplsolucoes.com.br/ABACOSWebService\">\r\n
         \     <s:element name=\"ProdutosDisponiveis\">\r\n        <s:complexType>\r\n
         \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
         name=\"ChaveIdentificacao\" type=\"s:string\" />\r\n          </s:sequence>\r\n
@@ -82,71 +79,82 @@ http_interactions:
         value=\"tdreErroDataBase\" />\r\n          <s:enumeration value=\"tdreErroDados\"
         />\r\n          <s:enumeration value=\"tdreErroGeral\" />\r\n          <s:enumeration
         value=\"tdreMensagem\" />\r\n        </s:restriction>\r\n      </s:simpleType>\r\n
-        \     <s:complexType name=\"DadosAcompanhamentoRows\">\r\n        <s:complexContent
+        \     <s:complexType name=\"DadosImagemProdutoRows\">\r\n        <s:complexContent
         mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
-        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosAcompanhamento\"
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosImagemProduto\"
         />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
-        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosAcompanhamento\">\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosImagemProduto\">\r\n
         \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
-        name=\"DadosAcompanhamento\" type=\"tns:DadosAcompanhamento\" />\r\n        </s:sequence>\r\n
-        \     </s:complexType>\r\n      <s:complexType name=\"DadosAcompanhamento\">\r\n
+        name=\"DadosImagemProduto\" type=\"tns:DadosImagemProduto\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosImagemProduto\">\r\n
         \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
-        name=\"NomeAcompanhamento\" type=\"s:string\" />\r\n        </s:sequence>\r\n
-        \     </s:complexType>\r\n      <s:complexType name=\"DadosContribuidorRows\">\r\n
+        name=\"FinalidadeImagem\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"Repositorio\" type=\"s:string\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosAcompanhamentoRows\">\r\n
         \       <s:complexContent mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n
         \           <s:sequence>\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
-        name=\"Rows\" type=\"tns:ArrayOfDadosContribuidor\" />\r\n            </s:sequence>\r\n
+        name=\"Rows\" type=\"tns:ArrayOfDadosAcompanhamento\" />\r\n            </s:sequence>\r\n
         \         </s:extension>\r\n        </s:complexContent>\r\n      </s:complexType>\r\n
-        \     <s:complexType name=\"ArrayOfDadosContribuidor\">\r\n        <s:sequence>\r\n
-        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"DadosContribuidor\"
-        type=\"tns:DadosContribuidor\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
-        \     <s:complexType name=\"DadosContribuidor\">\r\n        <s:sequence>\r\n
-        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NomeContribuidor\"
-        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
-        name=\"NomeFuncao\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
-        maxOccurs=\"1\" name=\"PrincipalFuncao\" type=\"s:string\" />\r\n        </s:sequence>\r\n
-        \     </s:complexType>\r\n      <s:complexType name=\"DadosColecaoRows\">\r\n
-        \       <s:complexContent mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n
-        \           <s:sequence>\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
-        name=\"Rows\" type=\"tns:ArrayOfDadosColecao\" />\r\n            </s:sequence>\r\n
-        \         </s:extension>\r\n        </s:complexContent>\r\n      </s:complexType>\r\n
-        \     <s:complexType name=\"ArrayOfDadosColecao\">\r\n        <s:sequence>\r\n
-        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"DadosColecao\"
-        type=\"tns:DadosColecao\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
-        \     <s:complexType name=\"DadosColecao\">\r\n        <s:sequence>\r\n          <s:element
-        minOccurs=\"0\" maxOccurs=\"1\" name=\"NomeColecao\" type=\"s:string\" />\r\n
-        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType name=\"DadosLivrosRows\">\r\n
-        \       <s:complexContent mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n
-        \           <s:sequence>\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
-        name=\"Rows\" type=\"tns:ArrayOfDadosLivros\" />\r\n            </s:sequence>\r\n
-        \         </s:extension>\r\n        </s:complexContent>\r\n      </s:complexType>\r\n
-        \     <s:complexType name=\"ArrayOfDadosLivros\">\r\n        <s:sequence>\r\n
-        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"DadosLivros\"
-        type=\"tns:DadosLivros\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
-        \     <s:complexType name=\"DadosLivros\">\r\n        <s:sequence>\r\n          <s:element
-        minOccurs=\"0\" maxOccurs=\"1\" name=\"NomeIdioma\" type=\"s:string\" />\r\n
-        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NomePais\" type=\"s:string\"
-        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DataPublicacao\"
-        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
-        name=\"NumeroPaginas\" type=\"s:int\" />\r\n          <s:element minOccurs=\"1\"
-        maxOccurs=\"1\" name=\"Anopublicacao\" type=\"s:int\" />\r\n          <s:element
-        minOccurs=\"0\" maxOccurs=\"1\" name=\"ISBN10\" type=\"s:string\" />\r\n          <s:element
-        minOccurs=\"1\" maxOccurs=\"1\" name=\"NumeroVolume\" type=\"s:int\" />\r\n
-        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ImpressaoSobDemanda\"
-        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
-        name=\"ComplementoEdicao\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
-        maxOccurs=\"1\" name=\"NomeEncadernacao\" type=\"s:string\" />\r\n          <s:element
-        minOccurs=\"1\" maxOccurs=\"1\" name=\"NumeroEdicao\" type=\"s:int\" />\r\n
-        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"CodigoEdicaoAnterior\"
-        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
-        name=\"EdicaoAnterior\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
-        maxOccurs=\"1\" name=\"SituacaoIndisponivel\" type=\"s:string\" />\r\n          <s:element
-        minOccurs=\"0\" maxOccurs=\"1\" name=\"DadosColecao\" type=\"tns:DadosColecaoRows\"
-        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DadosContribuidor\"
-        type=\"tns:DadosContribuidorRows\" />\r\n          <s:element minOccurs=\"0\"
-        maxOccurs=\"1\" name=\"DadosAcompanhamento\" type=\"tns:DadosAcompanhamentoRows\"
+        \     <s:complexType name=\"ArrayOfDadosAcompanhamento\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"DadosAcompanhamento\"
+        type=\"tns:DadosAcompanhamento\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"DadosAcompanhamento\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NomeAcompanhamento\"
+        type=\"s:string\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"DadosContribuidorRows\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosContribuidor\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosContribuidor\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosContribuidor\" type=\"tns:DadosContribuidor\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosContribuidor\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"NomeContribuidor\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"NomeFuncao\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"PrincipalFuncao\" type=\"s:string\"
         />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
-        name=\"DadosProdutosAtributosEstendidosRows\">\r\n        <s:complexContent
+        name=\"DadosColecaoRows\">\r\n        <s:complexContent mixed=\"false\">\r\n
+        \         <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosColecao\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosColecao\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosColecao\" type=\"tns:DadosColecao\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosColecao\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"NomeColecao\" type=\"s:string\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"DadosLivrosRows\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosLivros\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosLivros\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosLivros\" type=\"tns:DadosLivros\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosLivros\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NomeIdioma\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NomePais\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DataPublicacao\" type=\"s:string\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"NumeroPaginas\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"Anopublicacao\" type=\"s:int\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ISBN10\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"NumeroVolume\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ImpressaoSobDemanda\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ComplementoEdicao\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NomeEncadernacao\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"NumeroEdicao\" type=\"s:int\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"CodigoEdicaoAnterior\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"EdicaoAnterior\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"SituacaoIndisponivel\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DadosColecao\" type=\"tns:DadosColecaoRows\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DadosContribuidor\" type=\"tns:DadosContribuidorRows\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DadosAcompanhamento\"
+        type=\"tns:DadosAcompanhamentoRows\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"DadosProdutosAtributosEstendidosRows\">\r\n        <s:complexContent
         mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
         \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosProdutosAtributosEstendidos\"
         />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
@@ -470,16 +478,18 @@ http_interactions:
         name=\"CodigoCategoriaFiscal\" type=\"s:int\" />\r\n          <s:element minOccurs=\"1\"
         maxOccurs=\"1\" name=\"CodigoClassificacaoFiscal\" type=\"s:int\" />\r\n          <s:element
         minOccurs=\"0\" maxOccurs=\"1\" name=\"ClassificacaoFiscal\" type=\"s:string\"
-        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"DiasGarantia\"
-        type=\"s:int\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
-        name=\"PodeSerBrinde\" type=\"s:boolean\" />\r\n          <s:element minOccurs=\"1\"
-        maxOccurs=\"1\" name=\"TipoRastreabilidade\" type=\"s:int\" />\r\n          <s:element
-        minOccurs=\"1\" maxOccurs=\"1\" name=\"TipoControleEstoque\" type=\"tns:TipoControleEstoqueEnum\"
-        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"ProdutoKit\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"HarmonizedCode\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"DiasGarantia\" type=\"s:int\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"PodeSerBrinde\" type=\"s:boolean\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"TipoRastreabilidade\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"TipoControleEstoque\"
+        type=\"tns:TipoControleEstoqueEnum\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"ProdutoKit\" type=\"s:boolean\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"EfetuarCheckOut\" type=\"s:boolean\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"DescricaoNotaFiscal\"
         type=\"s:boolean\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
-        name=\"EfetuarCheckOut\" type=\"s:boolean\" />\r\n          <s:element minOccurs=\"1\"
-        maxOccurs=\"1\" name=\"DescricaoNotaFiscal\" type=\"s:boolean\" />\r\n          <s:element
-        minOccurs=\"1\" maxOccurs=\"1\" name=\"ClassificacaoPersonalizacao\" type=\"tns:TPersonalizacaoClassificacaoEnum\"
+        name=\"ClassificacaoPersonalizacao\" type=\"tns:TPersonalizacaoClassificacaoEnum\"
         />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"NaoImprimirEtqEntrada\"
         type=\"s:boolean\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
         name=\"EstoqueLocalidade01\" type=\"s:string\" />\r\n          <s:element
@@ -491,26 +501,25 @@ http_interactions:
         />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"IdentificadorProduto\"
         type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
         name=\"IdentificadorProdutoPai\" type=\"s:string\" />\r\n          <s:element
-        minOccurs=\"0\" maxOccurs=\"1\" name=\"ListaUnidadeNegocio\" type=\"s:string\"
-        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ProdutosAtributosEstendidos\"
-        type=\"tns:DadosProdutosAtributosEstendidosRows\" />\r\n          <s:element
-        minOccurs=\"0\" maxOccurs=\"1\" name=\"DadosLivros\" type=\"tns:DadosLivrosRows\"
-        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"PrecoTabela1\"
-        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
-        name=\"PrecoPromocao1\" type=\"s:double\" />\r\n          <s:element minOccurs=\"0\"
-        maxOccurs=\"1\" name=\"InicioPromocao1\" type=\"s:string\" />\r\n          <s:element
-        minOccurs=\"0\" maxOccurs=\"1\" name=\"TerminoPromocao1\" type=\"s:string\"
-        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"PrecoTabela2\"
-        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
-        name=\"PrecoPromocao2\" type=\"s:double\" />\r\n          <s:element minOccurs=\"0\"
-        maxOccurs=\"1\" name=\"InicioPromocao2\" type=\"s:string\" />\r\n          <s:element
-        minOccurs=\"0\" maxOccurs=\"1\" name=\"TerminoPromocao2\" type=\"s:string\"
-        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:simpleType
-        name=\"TAcaoIntegracaoEnum\">\r\n        <s:restriction base=\"s:string\">\r\n
-        \         <s:enumeration value=\"aieIndefinido\" />\r\n          <s:enumeration
-        value=\"aieManutencao\" />\r\n          <s:enumeration value=\"aieExclusao\"
-        />\r\n        </s:restriction>\r\n      </s:simpleType>\r\n      <s:simpleType
-        name=\"TipoProdutoEnum\">\r\n        <s:restriction base=\"s:string\">\r\n
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ProdutosAtributosEstendidos\" type=\"tns:DadosProdutosAtributosEstendidosRows\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DadosLivros\"
+        type=\"tns:DadosLivrosRows\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"PrecoTabela1\" type=\"s:double\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"PrecoPromocao1\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"InicioPromocao1\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"TerminoPromocao1\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"PrecoTabela2\" type=\"s:double\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"PrecoPromocao2\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"InicioPromocao2\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"TerminoPromocao2\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DadosImagemProduto\" type=\"tns:DadosImagemProdutoRows\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:simpleType name=\"TAcaoIntegracaoEnum\">\r\n
+        \       <s:restriction base=\"s:string\">\r\n          <s:enumeration value=\"aieIndefinido\"
+        />\r\n          <s:enumeration value=\"aieManutencao\" />\r\n          <s:enumeration
+        value=\"aieExclusao\" />\r\n        </s:restriction>\r\n      </s:simpleType>\r\n
+        \     <s:simpleType name=\"TipoProdutoEnum\">\r\n        <s:restriction base=\"s:string\">\r\n
         \         <s:enumeration value=\"tpreIndefinido\" />\r\n          <s:enumeration
         value=\"tpreProduto\" />\r\n          <s:enumeration value=\"tpreServico\"
         />\r\n        </s:restriction>\r\n      </s:simpleType>\r\n      <s:simpleType
@@ -543,43 +552,78 @@ http_interactions:
         \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
         minOccurs=\"1\" maxOccurs=\"1\" name=\"ConfirmarCategoriaSiteAtualizarCodigoResult\"
         type=\"tns:DadosResultadoOperacao\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
-        \     </s:element>\r\n      <s:element name=\"CategoriasProdutoDisponiveis\">\r\n
-        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
-        minOccurs=\"0\" maxOccurs=\"1\" name=\"ChaveIdentificacao\" type=\"s:string\"
-        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
-        \     <s:element name=\"CategoriasProdutoDisponiveisResponse\">\r\n        <s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"ProdutoExiste\">\r\n        <s:complexType>\r\n
         \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
-        name=\"CategoriasProdutoDisponiveisResult\" type=\"tns:DadosCategoriasProdutoRows\"
+        name=\"ChaveIdentificacao\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ListaDeNumerosDeProdutosRows\" type=\"tns:ArrayOfListaDeNumerosDeProdutos\"
         />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
-        \     <s:complexType name=\"DadosCategoriasProdutoRows\">\r\n        <s:complexContent
-        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
-        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosCategoriasProduto\"
-        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
-        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosCategoriasProduto\">\r\n
-        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
-        name=\"DadosCategoriasProduto\" type=\"tns:DadosCategoriasProduto\" />\r\n
-        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType name=\"DadosCategoriasProduto\">\r\n
-        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
-        name=\"ProtocoloCategoriaProduto\" type=\"s:string\" />\r\n          <s:element
-        minOccurs=\"1\" maxOccurs=\"1\" name=\"Acao\" type=\"tns:TAcaoIntegracaoEnum\"
-        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"CodigoCategoriaProduto\"
-        type=\"s:int\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
-        name=\"CodigoCategoriaProdutoPai\" type=\"s:int\" />\r\n          <s:element
-        minOccurs=\"0\" maxOccurs=\"1\" name=\"Nome\" type=\"s:string\" />\r\n          <s:element
-        minOccurs=\"1\" maxOccurs=\"1\" name=\"Classificacao\" type=\"s:int\" />\r\n
-        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"OrdemSequencial\"
-        type=\"s:int\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
-        name=\"CodigoTipoAbacos\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
-        maxOccurs=\"1\" name=\"CodigoTipo\" type=\"s:string\" />\r\n          <s:element
-        minOccurs=\"0\" maxOccurs=\"1\" name=\"NomeTipo\" type=\"s:string\" />\r\n
-        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoExternoCategoriaProduto\"
+        \     <s:complexType name=\"ArrayOfListaDeNumerosDeProdutos\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"ListaDeNumerosDeProdutos\"
+        type=\"tns:ListaDeNumerosDeProdutos\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"ListaDeNumerosDeProdutos\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoProduto\"
         type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
-        name=\"CodigoExternoCategoriaProdutoPai\" type=\"s:string\" />\r\n        </s:sequence>\r\n
-        \     </s:complexType>\r\n      <s:element name=\"ConfirmarRecebimentoCategoriaProduto\">\r\n
+        name=\"CodigoProdutoAbacos\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoBarras\" type=\"s:string\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:element name=\"ProdutoExisteResponse\">\r\n
         \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
-        minOccurs=\"0\" maxOccurs=\"1\" name=\"ProtocoloCategoriaProduto\" type=\"s:string\"
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ProdutoExisteResult\" type=\"tns:DadosProdutosExistentesRows\"
         />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
-        \     <s:element name=\"ConfirmarRecebimentoCategoriaProdutoResponse\">\r\n
+        \     <s:complexType name=\"DadosProdutosExistentesRows\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosProdutosExistentes\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosProdutosExistentes\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosProdutosExistentes\" type=\"tns:DadosProdutosExistentes\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType name=\"DadosProdutosExistentes\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CodigoProduto\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"CodigoProdutoAbacos\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoBarras\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"UnidadesNegocio\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CodigosInterfaces\" type=\"s:string\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"Existente\" type=\"s:boolean\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"ProdutoAtivo\" type=\"s:boolean\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"Resultado\" type=\"tns:DadosResultadoOperacao\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:element
+        name=\"CategoriasProdutoDisponiveis\">\r\n        <s:complexType>\r\n          <s:sequence>\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ChaveIdentificacao\"
+        type=\"s:string\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"CategoriasProdutoDisponiveisResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CategoriasProdutoDisponiveisResult\"
+        type=\"tns:DadosCategoriasProdutoRows\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:complexType name=\"DadosCategoriasProdutoRows\">\r\n
+        \       <s:complexContent mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n
+        \           <s:sequence>\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Rows\" type=\"tns:ArrayOfDadosCategoriasProduto\" />\r\n            </s:sequence>\r\n
+        \         </s:extension>\r\n        </s:complexContent>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"ArrayOfDadosCategoriasProduto\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"DadosCategoriasProduto\"
+        type=\"tns:DadosCategoriasProduto\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"DadosCategoriasProduto\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ProtocoloCategoriaProduto\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"Acao\" type=\"tns:TAcaoIntegracaoEnum\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"CodigoCategoriaProduto\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"CodigoCategoriaProdutoPai\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Nome\" type=\"s:string\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"Classificacao\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"OrdemSequencial\" type=\"s:int\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"CodigoTipoAbacos\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CodigoTipo\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"NomeTipo\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoExternoCategoriaProduto\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoExternoCategoriaProdutoPai\"
+        type=\"s:string\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:element name=\"ConfirmarRecebimentoCategoriaProduto\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ProtocoloCategoriaProduto\" type=\"s:string\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"ConfirmarRecebimentoCategoriaProdutoResponse\">\r\n
         \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
         minOccurs=\"1\" maxOccurs=\"1\" name=\"ConfirmarRecebimentoCategoriaProdutoResult\"
         type=\"tns:DadosResultadoOperacao\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
@@ -908,7 +952,685 @@ http_interactions:
         maxOccurs=\"1\" name=\"DescontoMaximoProduto\" type=\"s:double\" />\r\n          <s:element
         minOccurs=\"1\" maxOccurs=\"1\" name=\"Resultado\" type=\"tns:DadosResultadoOperacao\"
         />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:element
-        name=\"DadosProdutosRows\" nillable=\"true\" type=\"tns:DadosProdutosRows\"
+        name=\"CadastrarCliente\">\r\n        <s:complexType>\r\n          <s:sequence>\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ChaveIdentificacao\"
+        type=\"s:string\" />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ListaDeClientes\" type=\"tns:ArrayOfDadosClientes\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:complexType name=\"ArrayOfDadosClientes\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosClientes\" nillable=\"true\" type=\"tns:DadosClientes\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType name=\"DadosClientes\">\r\n
+        \       <s:complexContent mixed=\"false\">\r\n          <s:extension base=\"tns:DadosEntidade\">\r\n
+        \           <s:sequence>\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"GrupoCliente\" type=\"s:string\" />\r\n              <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"ClientesAtributosEstendidos\" type=\"tns:DadosClienteAtributosEstendidosRows\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosEntidade\">\r\n
+        \       <s:complexContent mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n
+        \           <s:sequence>\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"EMail\" type=\"s:string\" />\r\n              <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"CPFouCNPJ\" type=\"s:string\" />\r\n              <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Codigo\" type=\"s:string\" />\r\n              <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"TipoPessoa\" type=\"tns:TipoPessoaEnum\"
+        />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Documento\"
+        type=\"s:string\" />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"InscricaoEstadual\" type=\"s:string\" />\r\n              <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"InscricaoMunicipal\" type=\"s:string\"
+        />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Classificacao\"
+        type=\"s:string\" />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Nome\" type=\"s:string\" />\r\n              <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"NomeReduzido\" type=\"s:string\" />\r\n              <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ContatoNome\" type=\"s:string\" />\r\n
+        \             <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"Sexo\" type=\"tns:TipoSexoEnum\"
+        />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DataNascimento\"
+        type=\"s:string\" />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Profissao\" type=\"s:string\" />\r\n              <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"Site\" type=\"s:string\" />\r\n              <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Telefone\" type=\"s:string\" />\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Fax\" type=\"s:string\"
+        />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Celular\"
+        type=\"s:string\" />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DataCadastro\" type=\"s:string\" />\r\n              <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"Endereco\" type=\"tns:DadosEndereco\" />\r\n              <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"EndCobranca\" type=\"tns:DadosEndereco\"
+        />\r\n              <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"EndEntrega\"
+        type=\"tns:DadosEndereco\" />\r\n              <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"SubRegiao\" type=\"s:string\" />\r\n              <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ClienteEstrangeiro\" type=\"s:string\"
+        />\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CategoriaFiscal\"
+        type=\"s:string\" />\r\n            </s:sequence>\r\n          </s:extension>\r\n
+        \       </s:complexContent>\r\n      </s:complexType>\r\n      <s:simpleType
+        name=\"TipoPessoaEnum\">\r\n        <s:restriction base=\"s:string\">\r\n
+        \         <s:enumeration value=\"tpeIndefinido\" />\r\n          <s:enumeration
+        value=\"tpeFisica\" />\r\n          <s:enumeration value=\"tpeJuridica\" />\r\n
+        \       </s:restriction>\r\n      </s:simpleType>\r\n      <s:simpleType name=\"TipoSexoEnum\">\r\n
+        \       <s:restriction base=\"s:string\">\r\n          <s:enumeration value=\"tseIndefinido\"
+        />\r\n          <s:enumeration value=\"tseFeminino\" />\r\n          <s:enumeration
+        value=\"tseMasculino\" />\r\n          <s:enumeration value=\"tseEmpresa\"
+        />\r\n        </s:restriction>\r\n      </s:simpleType>\r\n      <s:complexType
+        name=\"DadosEndereco\">\r\n        <s:sequence>\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"Logradouro\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"NumeroLogradouro\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ComplementoEndereco\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Bairro\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"Municipio\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Estado\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Cep\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"TipoLocalEntrega\" type=\"tns:TTipoLocalEntregaEnum\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ReferenciaEndereco\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Pais\" type=\"s:string\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:simpleType name=\"TTipoLocalEntregaEnum\">\r\n        <s:restriction
+        base=\"s:string\">\r\n          <s:enumeration value=\"tleeDesconhecido\"
+        />\r\n          <s:enumeration value=\"tleeResidencial\" />\r\n          <s:enumeration
+        value=\"tleeComercial\" />\r\n        </s:restriction>\r\n      </s:simpleType>\r\n
+        \     <s:complexType name=\"DadosClienteAtributosEstendidosRows\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosClienteAtributosEstendidos\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosClienteAtributosEstendidos\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosClienteAtributosEstendidos\" type=\"tns:DadosClienteAtributosEstendidos\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"DadosClienteAtributosEstendidos\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Acao\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"NomeAtributo\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ValorAtributo\"
+        type=\"s:string\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:element name=\"CadastrarClienteResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CadastrarClienteResult\" type=\"tns:DadosClientesResultadoRows\" />\r\n
+        \         </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:complexType name=\"DadosClientesResultadoRows\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosClientesResultado\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosClientesResultado\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosClientesResultado\" type=\"tns:DadosClientesResultado\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType name=\"DadosClientesResultado\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"EMail\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"CPFouCNPJ\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"TipoPessoa\" type=\"tns:TipoPessoaEnum\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Codigo\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"Resultado\" type=\"tns:DadosResultadoOperacao\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:element name=\"PedidoExiste\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ChaveIdentificacao\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ListaDeNumerosDePedidos\" type=\"tns:ArrayOfString\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"PedidoExisteResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"PedidoExisteResult\" type=\"tns:DadosPedidosExistentesRows\" />\r\n
+        \         </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:complexType name=\"DadosPedidosExistentesRows\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosPedidosExistentes\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosPedidosExistentes\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosPedidosExistentes\" type=\"tns:DadosPedidosExistentes\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType name=\"DadosPedidosExistentes\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"NumeroDoPedido\" type=\"s:string\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"Existente\" type=\"s:boolean\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"StatusAtual\" type=\"tns:TStatusPedidoExistenteEnum\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"StatusPedido\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"Resultado\" type=\"tns:DadosResultadoOperacao\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:simpleType name=\"TStatusPedidoExistenteEnum\">\r\n
+        \       <s:restriction base=\"s:string\">\r\n          <s:enumeration value=\"tspeeNaoEncontrado\"
+        />\r\n          <s:enumeration value=\"tspeeEmAndamento\" />\r\n          <s:enumeration
+        value=\"tspeeFaturado\" />\r\n          <s:enumeration value=\"tspeeDespachado\"
+        />\r\n          <s:enumeration value=\"tspeeEntregue\" />\r\n          <s:enumeration
+        value=\"tspeeCancelado\" />\r\n        </s:restriction>\r\n      </s:simpleType>\r\n
+        \     <s:element name=\"InserirPedido\">\r\n        <s:complexType>\r\n          <s:sequence>\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ChaveIdentificacao\"
+        type=\"s:string\" />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ListaDePedidos\" type=\"tns:ArrayOfDadosPedidos\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:complexType name=\"ArrayOfDadosPedidos\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosPedidos\" type=\"tns:DadosPedidos\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosPedidos\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"NumeroDoPedido\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"EMail\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CPFouCNPJ\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoCliente\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"RepresentanteVendas\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CondicaoPagamento\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorPedido\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"ValorFrete\" type=\"s:double\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"ValorEncargos\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorDesconto\" type=\"s:double\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorEmbalagemPresente\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DataVenda\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"Transportadora\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ServicoEntrega\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Canal\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"SubCanal\" type=\"s:string\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"EmitirNotaSimbolica\" type=\"s:boolean\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorCupomDesconto\" type=\"s:double\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NumeroCupomDesconto\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Lote\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"DestNome\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DestSexo\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DestEmail\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DestTelefone\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DestLogradouro\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"DestNumeroLogradouro\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DestComplementoEndereco\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DestBairro\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DestMunicipio\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"DestEstado\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DestCep\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"DestTipoLocalEntrega\"
+        type=\"tns:TTipoLocalEntregaEnum\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"DestEstrangeiro\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DestPais\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DestCPF\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"DestTipoPessoa\"
+        type=\"tns:TipoPessoaEnum\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DestDocumento\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"DestInscricaoEstadual\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DestInscricaoMunicipal\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DestReferencia\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Anotacao1\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"Anotacao2\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Anotacao3\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"PedidoJaPago\"
+        type=\"s:boolean\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DataDoPagamento\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"FormasDePagamento\" type=\"tns:ArrayOfDadosPedidosFormaPgto\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Itens\"
+        type=\"tns:ArrayOfDadosPedidosItem\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"OptouNFPaulista\" type=\"tns:TBooleanNullEnum\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoCartaoPresente\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"MensagemCartaoPresente\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"AssinaturaCartaoPresente\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorTotalCartaoPresente\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"CartaoPresenteBrinde\" type=\"s:boolean\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"TempoEntregaTransportadora\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DataPrazoEntregaInicial\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DataPrazoEntregaFinal\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"TipoEntrega\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoLocalRetirada\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"SenhaRetirada\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"IPComprador\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"ComercializacaoOutrasSaidas\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"PrazoEntregaPosPagamento\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"NotaRemessa\" type=\"tns:DadosNotaRemessa\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorFretePagar\" type=\"s:double\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CampoUsoLivre\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CodigoListaPresente\" type=\"s:string\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosPedidosFormaPgto\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosPedidosFormaPgto\" type=\"tns:DadosPedidosFormaPgto\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosPedidosFormaPgto\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"FormaPagamentoCodigo\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"Valor\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CartaoNumero\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CartaoCodigoSeguranca\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CartaoValidade\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"CartaoNomeImpresso\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"CartaoQtdeParcelas\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CartaoCodigoAutorizacao\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"BoletoVencimento\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"BoletoNumeroBancario\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CartaoCPFouCNPJTitular\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CartaoDataNascimentoTitular\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DebitoEmContaNumeroBanco\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DebitoEmContaCodigoAgencia\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DebitoEmContaDVCodigoAgencia\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DebitoEmContaContaCorrente\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DebitoEmContaDVContaCorrente\" type=\"s:string\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"ArrayOfDadosPedidosItem\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"DadosPedidosItem\" type=\"tns:DadosPedidosItem\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"DadosPedidosItem\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoProduto\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"QuantidadeProduto\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"PrecoUnitario\" type=\"s:double\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"EmbalagemPresente\" type=\"s:boolean\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"MensagemPresente\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"PrecoUnitarioBruto\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"Brinde\" type=\"s:boolean\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"ValorReferencia\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Personalizacao\" type=\"tns:ArrayOfDadosPedidosItemPersonalizacao\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DescritorSimples1\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DescritorSimples2\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"DescritorSimples3\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DescritorPreDefinido1\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DescritorPreDefinido2\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DescritorPreDefinido3\" type=\"s:string\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosPedidosItemPersonalizacao\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosPedidosItemPersonalizacao\" type=\"tns:DadosPedidosItemPersonalizacao\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"DadosPedidosItemPersonalizacao\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoProdutoPersonalizacao\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"PrecoUnitarioLiquido\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"PrecoUnitarioBruto\" type=\"s:double\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"TextoPersonalizacao\" type=\"s:string\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:simpleType name=\"TBooleanNullEnum\">\r\n
+        \       <s:restriction base=\"s:string\">\r\n          <s:enumeration value=\"tbneNenhum\"
+        />\r\n          <s:enumeration value=\"tbneSim\" />\r\n          <s:enumeration
+        value=\"tbneNao\" />\r\n        </s:restriction>\r\n      </s:simpleType>\r\n
+        \     <s:complexType name=\"DadosNotaRemessa\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"NumeroNotaFiscal\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"SerieNotaFiscal\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"DataEmissaoNotaFiscal\" type=\"s:string\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:element name=\"InserirPedidoResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"InserirPedidoResult\" type=\"tns:DadosPedidosResultadoRows\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:complexType name=\"DadosPedidosResultadoRows\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosPedidosResultado\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosPedidosResultado\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosPedidosResultado\" type=\"tns:DadosPedidosResultado\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosPedidosResultado\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"NumeroDoPedido\" type=\"s:string\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"Resultado\" type=\"tns:DadosResultadoOperacao\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"FormasDePagamentoResultado\"
+        type=\"tns:ArrayOfDadosPedidosFormaPgtoResultado\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ItensResultado\" type=\"tns:ArrayOfDadosPedidosItemResultado\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"ArrayOfDadosPedidosFormaPgtoResultado\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"DadosPedidosFormaPgtoResultado\"
+        type=\"tns:DadosPedidosFormaPgtoResultado\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosPedidosFormaPgtoResultado\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"FormaPagamento\" type=\"s:string\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"Resultado\" type=\"tns:DadosResultadoOperacao\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosPedidosItemResultado\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosPedidosItemResultado\" type=\"tns:DadosPedidosItemResultado\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"DadosPedidosItemResultado\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoProduto\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"Resultado\" type=\"tns:DadosResultadoOperacao\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:element
+        name=\"InserirListaPresente\">\r\n        <s:complexType>\r\n          <s:sequence>\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ChaveIdentificacao\"
+        type=\"s:string\" />\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ListaDePresentes\" type=\"tns:ArrayOfDadosListaPresente\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:complexType name=\"ArrayOfDadosListaPresente\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosListaPresente\" type=\"tns:DadosListaPresente\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosListaPresente\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"CodigoInterface\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"CodigoListaPresente\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"TipoListaPresente\" type=\"tns:TTipoListaPresenteEnum\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NomeListaPresente\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CodigoValePresente\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"DataInicialLista\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DataFinalLista\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DataEvento\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CPFouCNPJ\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"CodigoCliente\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DataValidadeVale\" type=\"s:string\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:simpleType
+        name=\"TTipoListaPresenteEnum\">\r\n        <s:restriction base=\"s:string\">\r\n
+        \         <s:enumeration value=\"tlpeFinanceira\" />\r\n          <s:enumeration
+        value=\"tlpeProdutos\" />\r\n        </s:restriction>\r\n      </s:simpleType>\r\n
+        \     <s:element name=\"InserirListaPresenteResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"InserirListaPresenteResult\" type=\"tns:DadosListaPresenteResultadoRows\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:complexType name=\"DadosListaPresenteResultadoRows\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosListaPresenteResultado\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosListaPresenteResultado\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosListaPresenteResultado\" type=\"tns:DadosListaPresenteResultado\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"DadosListaPresenteResultado\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoListaPresente\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"Resultado\"
+        type=\"tns:DadosResultadoOperacao\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:element name=\"StatusPedidoDisponiveis\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ChaveIdentificacao\" type=\"s:string\" />\r\n          </s:sequence>\r\n
+        \       </s:complexType>\r\n      </s:element>\r\n      <s:element name=\"StatusPedidoDisponiveisResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"StatusPedidoDisponiveisResult\" type=\"tns:DadosStatusPedidoRows\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:complexType name=\"DadosStatusPedidoRows\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosStatusPedido\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosStatusPedido\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosStatusPedido\" type=\"tns:DadosStatusPedido\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosStatusPedido\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ProtocoloStatusPedido\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"NumeroPedido\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"CodigoPedidoAbacos\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CodigoStatus\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"StatusPedido\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DataHora\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"SerieNota\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"NumeroNota\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DataEmissaoNota\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"NumeroObjeto\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"QuantidadeVolumes\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoMotivoCancelamento\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"MotivoCancelamento\" type=\"s:string\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:element name=\"ConfirmarRecebimentoStatusPedido\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ProtocoloStatusPedido\" type=\"s:string\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"ConfirmarRecebimentoStatusPedidoResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"ConfirmarRecebimentoStatusPedidoResult\" type=\"tns:DadosResultadoOperacao\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"ConfirmarPagamentosPedidos\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ChaveIdentificacao\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ListaDePagamentos\" type=\"tns:ArrayOfDadosPgtoPedido\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:complexType name=\"ArrayOfDadosPgtoPedido\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"DadosPgtoPedido\"
+        type=\"tns:DadosPgtoPedido\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"DadosPgtoPedido\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NumeroPedido\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DataPagamento\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"CartaoCodigoAutorizacao\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CartaoNSU\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CartaoTID\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CartaoCodigoRetorno\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CartaoMensagemRetorno\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"StatusPagamento\"
+        type=\"tns:TStatusPgtoPedidoEnum\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:simpleType name=\"TStatusPgtoPedidoEnum\">\r\n        <s:restriction
+        base=\"s:string\">\r\n          <s:enumeration value=\"speNenhum\" />\r\n
+        \         <s:enumeration value=\"speRecusado\" />\r\n          <s:enumeration
+        value=\"speConfirmado\" />\r\n        </s:restriction>\r\n      </s:simpleType>\r\n
+        \     <s:element name=\"ConfirmarPagamentosPedidosResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ConfirmarPagamentosPedidosResult\" type=\"tns:DadosPgtoPedidoResultadoRows\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:complexType name=\"DadosPgtoPedidoResultadoRows\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosPgtoPedidoResultado\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosPgtoPedidoResultado\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosPgtoPedidoResultado\" type=\"tns:DadosPgtoPedidoResultado\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType name=\"DadosPgtoPedidoResultado\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"NumeroPedido\" type=\"s:string\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"Resultado\" type=\"tns:DadosResultadoOperacao\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:element name=\"StatusPedidoTraking\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ChaveIdentificacao\" type=\"s:string\"
+        />\r\n            <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"Pedidos\"
+        type=\"tns:StatusPedidoRows\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:complexType name=\"StatusPedidoRows\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CodigoPedido\" type=\"s:string\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:element name=\"StatusPedidoTrakingResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"StatusPedidoTrakingResult\" type=\"tns:DadosStatusPedidoTrakingRows\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:complexType name=\"DadosStatusPedidoTrakingRows\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosStatusPedidoTraking\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosStatusPedidoTraking\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosStatusPedidoTraking\" type=\"tns:DadosStatusPedidoTraking\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType name=\"DadosStatusPedidoTraking\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ProtocoloStatusTraking\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"CodigoPedidoInterno\" type=\"s:double\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoPedido\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"CodigoStatusPedido\" type=\"s:double\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"StatusPedido\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DataOcorrencia\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoStatusTraking\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CodigoSubStatusTraking\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"StatusTraking\" type=\"s:string\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:element name=\"ConfirmarRecebimentoStatusTraking\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ProtocoloStatusTraking\" type=\"s:string\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"ConfirmarRecebimentoStatusTrakingResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"ConfirmarRecebimentoStatusTrakingResult\" type=\"tns:DadosResultadoOperacao\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"AlterarItemPedidoFrete\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"ChaveIdentificacao\" type=\"s:string\" />\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ListaDeDadosItemPedidoFrete\" type=\"tns:ArrayOfDadosItemPedidoFrete\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:complexType name=\"ArrayOfDadosItemPedidoFrete\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"DadosItemPedidoFrete\"
+        type=\"tns:DadosItemPedidoFrete\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"DadosItemPedidoFrete\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoPedido\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"ValorFrete\" type=\"s:double\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"ValorFrete_specified\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorDesconto\" type=\"s:double\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ValorDesconto_specified\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Produtos\" type=\"tns:ArrayOfDadosProdutosItemPedidoFrete\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosProdutosItemPedidoFrete\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosProdutosItemPedidoFrete\" type=\"tns:DadosProdutosItemPedidoFrete\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"DadosProdutosItemPedidoFrete\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoProduto\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"QuantidadeReduzir\"
+        type=\"s:string\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:element name=\"AlterarItemPedidoFreteResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"AlterarItemPedidoFreteResult\" type=\"tns:DadosItemPedidoFreteResultadoRows\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:complexType name=\"DadosItemPedidoFreteResultadoRows\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosItemPedidoFreteResultado\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosItemPedidoFreteResultado\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosItemPedidoFreteResultado\" type=\"tns:DadosItemPedidoFreteResultado\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"DadosItemPedidoFreteResultado\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoPedido\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"Resultado\" type=\"tns:DadosResultadoOperacao\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:element
+        name=\"PedidosDisponiveis\">\r\n        <s:complexType>\r\n          <s:sequence>\r\n
+        \           <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"ChaveIdentificacao\"
+        type=\"s:string\" />\r\n          </s:sequence>\r\n        </s:complexType>\r\n
+        \     </s:element>\r\n      <s:element name=\"PedidosDisponiveisResponse\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"PedidosDisponiveisResult\" type=\"tns:DadosPedidosDisponiveisWebRows\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:complexType name=\"DadosPedidosDisponiveisWebRows\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosPedidosDisponiveisWeb\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosPedidosDisponiveisWeb\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosPedidosDisponiveisWeb\" type=\"tns:DadosPedidosDisponiveisWeb\"
+        />\r\n        </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType
+        name=\"DadosPedidosDisponiveisWeb\">\r\n        <s:sequence>\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"CodigoPedidoAbacos\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NumeroDoPedido\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"SequencialNumeroPedido\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ProtocoloPedido\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Comercializacao\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"GrupoComercializacao\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"StatusPedido\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"Acao\" type=\"tns:TAcaoIntegracaoEnum\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"PedidoWeb\"
+        type=\"tns:DadosPedidoWebRows\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"PedidoItens\" type=\"tns:DadosPedidoItensWebRows\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"PedidoPagamento\"
+        type=\"tns:DadosPedidoPagamentoWebRows\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"DadosPedidoWebRows\">\r\n        <s:complexContent
+        mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n            <s:sequence>\r\n
+        \             <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"Rows\" type=\"tns:ArrayOfDadosPedidoWeb\"
+        />\r\n            </s:sequence>\r\n          </s:extension>\r\n        </s:complexContent>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"ArrayOfDadosPedidoWeb\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"0\" maxOccurs=\"unbounded\"
+        name=\"DadosPedidoWeb\" type=\"tns:DadosPedidoWeb\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosPedidoWeb\">\r\n
+        \       <s:sequence>\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"CodigoPedido\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"NumeroPedido\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"CodigoUnidadeNegocio\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"EMail\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"CodigoCliente\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"ClienteCPFouCNPJ\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"RepresentanteVendas\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorPedido\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"ValorFrete\" type=\"s:double\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"ValorEncargos\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"ValorDesconto\" type=\"s:double\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DataVenda\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoTransportadora\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Transportadora\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"ServicoEntrega\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoLocalRetirada\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"SenhaRetirada\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"TransportadoraCNPJ\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"Canal\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"SubCanal\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DestNome\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DestEndereco\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DestEnderecoLogradouro\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DestEnderecoNumero\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DestEnderecoComplemento\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DestBairro\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"DestCep\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DestMunicipio\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DestEstado\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DestPais\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DestSexo\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"DestEmail\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DestTelefone\" type=\"s:string\" />\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DestTipoPessoa\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DestCPFouCNPJ\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"DestInscricaoEstadual\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DestInscricaoMunicipal\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DestCodigoIBGE\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"PreVenda\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"TipoFrete\" type=\"s:string\" />\r\n        </s:sequence>\r\n
+        \     </s:complexType>\r\n      <s:complexType name=\"DadosPedidoItensWebRows\">\r\n
+        \       <s:complexContent mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n
+        \           <s:sequence>\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Rows\" type=\"tns:ArrayOfDadosPedidoItensWeb\" />\r\n            </s:sequence>\r\n
+        \         </s:extension>\r\n        </s:complexContent>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"ArrayOfDadosPedidoItensWeb\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"DadosPedidoItensWeb\"
+        type=\"tns:DadosPedidoItensWeb\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"DadosPedidoItensWeb\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"CodigoItem\" type=\"s:int\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"CodigoProdutoAbacos\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"CodigoProduto\" type=\"s:string\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"Quantidade\" type=\"s:int\" />\r\n          <s:element
+        minOccurs=\"1\" maxOccurs=\"1\" name=\"PrecoUnitarioLiquido\" type=\"s:double\"
+        />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"PrecoUnitarioBruto\"
+        type=\"s:double\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"QuantidadeReservada\" type=\"s:int\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"PersonalizacaoNome\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"PersonalizacaoTexto\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"NomeProduto\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"NomeComposto\" type=\"s:string\" />\r\n          <s:element minOccurs=\"0\"
+        maxOccurs=\"1\" name=\"CodigoBarras\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"Classe\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"CodigoRastreabilidade\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"DataValidade\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"DataVencimentoGarantia\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"PreVenda\" type=\"s:string\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:complexType name=\"DadosPedidoPagamentoWebRows\">\r\n
+        \       <s:complexContent mixed=\"false\">\r\n          <s:extension base=\"tns:TDadosRows\">\r\n
+        \           <s:sequence>\r\n              <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"Rows\" type=\"tns:ArrayOfDadosPedidoPagamentoWeb\" />\r\n            </s:sequence>\r\n
+        \         </s:extension>\r\n        </s:complexContent>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"ArrayOfDadosPedidoPagamentoWeb\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"0\" maxOccurs=\"unbounded\" name=\"DadosPedidoPagamentoWeb\"
+        type=\"tns:DadosPedidoPagamentoWeb\" />\r\n        </s:sequence>\r\n      </s:complexType>\r\n
+        \     <s:complexType name=\"DadosPedidoPagamentoWeb\">\r\n        <s:sequence>\r\n
+        \         <s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"CodigoPagamentoAbacos\"
+        type=\"s:int\" />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\"
+        name=\"FormaPagamentoCodigo\" type=\"s:string\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"FormaPagamento\" type=\"s:string\"
+        />\r\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"TipoFormaPagamentoSigla\"
+        type=\"s:string\" />\r\n          <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"Valor\" type=\"s:double\" />\r\n          <s:element minOccurs=\"1\"
+        maxOccurs=\"1\" name=\"ValorPago\" type=\"s:double\" />\r\n          <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"DataPagamento\" type=\"s:string\" />\r\n
+        \       </s:sequence>\r\n      </s:complexType>\r\n      <s:element name=\"ConfirmarRecebimentoPedido\">\r\n
+        \       <s:complexType>\r\n          <s:sequence>\r\n            <s:element
+        minOccurs=\"0\" maxOccurs=\"1\" name=\"ProtocoloPedido\" type=\"s:string\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"ConfirmarRecebimentoPedidoResponse\">\r\n        <s:complexType>\r\n
+        \         <s:sequence>\r\n            <s:element minOccurs=\"1\" maxOccurs=\"1\"
+        name=\"ConfirmarRecebimentoPedidoResult\" type=\"tns:DadosResultadoOperacao\"
+        />\r\n          </s:sequence>\r\n        </s:complexType>\r\n      </s:element>\r\n
+        \     <s:element name=\"DadosProdutosRows\" nillable=\"true\" type=\"tns:DadosProdutosRows\"
         />\r\n      <s:element name=\"DadosResultadoOperacao\" type=\"tns:DadosResultadoOperacao\"
         />\r\n      <s:element name=\"DadosCategoriasProdutoRows\" nillable=\"true\"
         type=\"tns:DadosCategoriasProdutoRows\" />\r\n      <s:element name=\"DadosMarcasProdutosRows\"
@@ -924,8 +1646,12 @@ http_interactions:
         />\r\n      <s:element name=\"DadosEstoqueResultadoRows\" nillable=\"true\"
         type=\"tns:DadosEstoqueResultadoRows\" />\r\n      <s:element name=\"DadosPrecoRows\"
         nillable=\"true\" type=\"tns:DadosPrecoRows\" />\r\n      <s:element name=\"DadosPrecoResultadoRows\"
-        nillable=\"true\" type=\"tns:DadosPrecoResultadoRows\" />\r\n    </s:schema>\r\n
-        \   <s:schema targetNamespace=\"http://www.kplsolucoes.com.br/ABACOSWebService/AbstractTypes\">\r\n
+        nillable=\"true\" type=\"tns:DadosPrecoResultadoRows\" />\r\n      <s:element
+        name=\"DadosPedidosExistentesRows\" nillable=\"true\" type=\"tns:DadosPedidosExistentesRows\"
+        />\r\n      <s:element name=\"DadosStatusPedidoRows\" nillable=\"true\" type=\"tns:DadosStatusPedidoRows\"
+        />\r\n      <s:element name=\"DadosPedidosDisponiveisWebRows\" nillable=\"true\"
+        type=\"tns:DadosPedidosDisponiveisWebRows\" />\r\n    </s:schema>\r\n    <s:schema
+        targetNamespace=\"http://www.kplsolucoes.com.br/ABACOSWebService/AbstractTypes\">\r\n
         \     <s:import namespace=\"http://schemas.xmlsoap.org/soap/encoding/\" />\r\n
         \     <s:complexType name=\"StringArray\">\r\n        <s:complexContent mixed=\"false\">\r\n
         \         <s:restriction base=\"soapenc:Array\">\r\n            <s:sequence>\r\n
@@ -948,13 +1674,17 @@ http_interactions:
         \   <wsdl:part name=\"parameters\" element=\"tns:ConfirmarCategoriaSiteAtualizarCodigo\"
         />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"ConfirmarCategoriaSiteAtualizarCodigoSoapOut\">\r\n
         \   <wsdl:part name=\"parameters\" element=\"tns:ConfirmarCategoriaSiteAtualizarCodigoResponse\"
-        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"CategoriasProdutoDisponiveisSoapIn\">\r\n
-        \   <wsdl:part name=\"parameters\" element=\"tns:CategoriasProdutoDisponiveis\"
-        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"CategoriasProdutoDisponiveisSoapOut\">\r\n
-        \   <wsdl:part name=\"parameters\" element=\"tns:CategoriasProdutoDisponiveisResponse\"
-        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"ConfirmarRecebimentoCategoriaProdutoSoapIn\">\r\n
-        \   <wsdl:part name=\"parameters\" element=\"tns:ConfirmarRecebimentoCategoriaProduto\"
-        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"ConfirmarRecebimentoCategoriaProdutoSoapOut\">\r\n
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"ProdutoExisteSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:ProdutoExiste\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"ProdutoExisteSoapOut\">\r\n    <wsdl:part name=\"parameters\"
+        element=\"tns:ProdutoExisteResponse\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"CategoriasProdutoDisponiveisSoapIn\">\r\n    <wsdl:part name=\"parameters\"
+        element=\"tns:CategoriasProdutoDisponiveis\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"CategoriasProdutoDisponiveisSoapOut\">\r\n    <wsdl:part name=\"parameters\"
+        element=\"tns:CategoriasProdutoDisponiveisResponse\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"ConfirmarRecebimentoCategoriaProdutoSoapIn\">\r\n    <wsdl:part
+        name=\"parameters\" element=\"tns:ConfirmarRecebimentoCategoriaProduto\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"ConfirmarRecebimentoCategoriaProdutoSoapOut\">\r\n
         \   <wsdl:part name=\"parameters\" element=\"tns:ConfirmarRecebimentoCategoriaProdutoResponse\"
         />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"MarcasDisponiveisSoapIn\">\r\n
         \   <wsdl:part name=\"parameters\" element=\"tns:MarcasDisponiveis\" />\r\n
@@ -1031,9 +1761,56 @@ http_interactions:
         \   <wsdl:part name=\"parameters\" element=\"tns:PrecoOnLine\" />\r\n  </wsdl:message>\r\n
         \ <wsdl:message name=\"PrecoOnLineSoapOut\">\r\n    <wsdl:part name=\"parameters\"
         element=\"tns:PrecoOnLineResponse\" />\r\n  </wsdl:message>\r\n  <wsdl:message
-        name=\"ProdutosDisponiveisHttpGetIn\">\r\n    <wsdl:part name=\"ChaveIdentificacao\"
-        type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"ProdutosDisponiveisHttpGetOut\">\r\n
-        \   <wsdl:part name=\"Body\" element=\"tns:DadosProdutosRows\" />\r\n  </wsdl:message>\r\n
+        name=\"CadastrarClienteSoapIn\">\r\n    <wsdl:part name=\"parameters\" element=\"tns:CadastrarCliente\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"CadastrarClienteSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:CadastrarClienteResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"PedidoExisteSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:PedidoExiste\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"PedidoExisteSoapOut\">\r\n    <wsdl:part name=\"parameters\"
+        element=\"tns:PedidoExisteResponse\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"InserirPedidoSoapIn\">\r\n    <wsdl:part name=\"parameters\" element=\"tns:InserirPedido\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"InserirPedidoSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:InserirPedidoResponse\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"InserirListaPresenteSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:InserirListaPresente\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"InserirListaPresenteSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:InserirListaPresenteResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"StatusPedidoDisponiveisSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:StatusPedidoDisponiveis\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"StatusPedidoDisponiveisSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:StatusPedidoDisponiveisResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"ConfirmarRecebimentoStatusPedidoSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:ConfirmarRecebimentoStatusPedido\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"ConfirmarRecebimentoStatusPedidoSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:ConfirmarRecebimentoStatusPedidoResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"ConfirmarPagamentosPedidosSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:ConfirmarPagamentosPedidos\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"ConfirmarPagamentosPedidosSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:ConfirmarPagamentosPedidosResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"StatusPedidoTrakingSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:StatusPedidoTraking\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"StatusPedidoTrakingSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:StatusPedidoTrakingResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"ConfirmarRecebimentoStatusTrakingSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:ConfirmarRecebimentoStatusTraking\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"ConfirmarRecebimentoStatusTrakingSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:ConfirmarRecebimentoStatusTrakingResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"AlterarItemPedidoFreteSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:AlterarItemPedidoFrete\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"AlterarItemPedidoFreteSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:AlterarItemPedidoFreteResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"PedidosDisponiveisSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:PedidosDisponiveis\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"PedidosDisponiveisSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:PedidosDisponiveisResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"ConfirmarRecebimentoPedidoSoapIn\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:ConfirmarRecebimentoPedido\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"ConfirmarRecebimentoPedidoSoapOut\">\r\n
+        \   <wsdl:part name=\"parameters\" element=\"tns:ConfirmarRecebimentoPedidoResponse\"
+        />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"ProdutosDisponiveisHttpGetIn\">\r\n
+        \   <wsdl:part name=\"ChaveIdentificacao\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"ProdutosDisponiveisHttpGetOut\">\r\n    <wsdl:part
+        name=\"Body\" element=\"tns:DadosProdutosRows\" />\r\n  </wsdl:message>\r\n
         \ <wsdl:message name=\"ConfirmarRecebimentoProdutoHttpGetIn\">\r\n    <wsdl:part
         name=\"ProtocoloProduto\" type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
         name=\"ConfirmarRecebimentoProdutoHttpGetOut\">\r\n    <wsdl:part name=\"Body\"
@@ -1127,10 +1904,33 @@ http_interactions:
         name=\"ChaveIdentificacao\" type=\"s:string\" />\r\n    <wsdl:part name=\"ListaDeCodigosProdutos\"
         type=\"s1:StringArray\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"PrecoOnLineHttpGetOut\">\r\n
         \   <wsdl:part name=\"Body\" element=\"tns:DadosPrecoResultadoRows\" />\r\n
-        \ </wsdl:message>\r\n  <wsdl:message name=\"ProdutosDisponiveisHttpPostIn\">\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"PedidoExisteHttpGetIn\">\r\n    <wsdl:part
+        name=\"ChaveIdentificacao\" type=\"s:string\" />\r\n    <wsdl:part name=\"ListaDeNumerosDePedidos\"
+        type=\"s1:StringArray\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"PedidoExisteHttpGetOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DadosPedidosExistentesRows\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"StatusPedidoDisponiveisHttpGetIn\">\r\n
         \   <wsdl:part name=\"ChaveIdentificacao\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
-        \ <wsdl:message name=\"ProdutosDisponiveisHttpPostOut\">\r\n    <wsdl:part
-        name=\"Body\" element=\"tns:DadosProdutosRows\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"StatusPedidoDisponiveisHttpGetOut\">\r\n    <wsdl:part
+        name=\"Body\" element=\"tns:DadosStatusPedidoRows\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"ConfirmarRecebimentoStatusPedidoHttpGetIn\">\r\n    <wsdl:part
+        name=\"ProtocoloStatusPedido\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"ConfirmarRecebimentoStatusPedidoHttpGetOut\">\r\n    <wsdl:part
+        name=\"Body\" element=\"tns:DadosResultadoOperacao\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"ConfirmarRecebimentoStatusTrakingHttpGetIn\">\r\n    <wsdl:part
+        name=\"ProtocoloStatusTraking\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"ConfirmarRecebimentoStatusTrakingHttpGetOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DadosResultadoOperacao\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"PedidosDisponiveisHttpGetIn\">\r\n
+        \   <wsdl:part name=\"ChaveIdentificacao\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"PedidosDisponiveisHttpGetOut\">\r\n    <wsdl:part name=\"Body\"
+        element=\"tns:DadosPedidosDisponiveisWebRows\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"ConfirmarRecebimentoPedidoHttpGetIn\">\r\n    <wsdl:part
+        name=\"ProtocoloPedido\" type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"ConfirmarRecebimentoPedidoHttpGetOut\">\r\n    <wsdl:part name=\"Body\"
+        element=\"tns:DadosResultadoOperacao\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"ProdutosDisponiveisHttpPostIn\">\r\n    <wsdl:part name=\"ChaveIdentificacao\"
+        type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"ProdutosDisponiveisHttpPostOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DadosProdutosRows\" />\r\n  </wsdl:message>\r\n
         \ <wsdl:message name=\"ConfirmarRecebimentoProdutoHttpPostIn\">\r\n    <wsdl:part
         name=\"ProtocoloProduto\" type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
         name=\"ConfirmarRecebimentoProdutoHttpPostOut\">\r\n    <wsdl:part name=\"Body\"
@@ -1225,8 +2025,32 @@ http_interactions:
         name=\"ChaveIdentificacao\" type=\"s:string\" />\r\n    <wsdl:part name=\"ListaDeCodigosProdutos\"
         type=\"s1:StringArray\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"PrecoOnLineHttpPostOut\">\r\n
         \   <wsdl:part name=\"Body\" element=\"tns:DadosPrecoResultadoRows\" />\r\n
-        \ </wsdl:message>\r\n  <wsdl:portType name=\"AbacosWSProdutosSoap\">\r\n    <wsdl:operation
-        name=\"ProdutosDisponiveis\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Deve
+        \ </wsdl:message>\r\n  <wsdl:message name=\"PedidoExisteHttpPostIn\">\r\n
+        \   <wsdl:part name=\"ChaveIdentificacao\" type=\"s:string\" />\r\n    <wsdl:part
+        name=\"ListaDeNumerosDePedidos\" type=\"s1:StringArray\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"PedidoExisteHttpPostOut\">\r\n    <wsdl:part name=\"Body\"
+        element=\"tns:DadosPedidosExistentesRows\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"StatusPedidoDisponiveisHttpPostIn\">\r\n    <wsdl:part name=\"ChaveIdentificacao\"
+        type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message name=\"StatusPedidoDisponiveisHttpPostOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DadosStatusPedidoRows\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"ConfirmarRecebimentoStatusPedidoHttpPostIn\">\r\n
+        \   <wsdl:part name=\"ProtocoloStatusPedido\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"ConfirmarRecebimentoStatusPedidoHttpPostOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DadosResultadoOperacao\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"ConfirmarRecebimentoStatusTrakingHttpPostIn\">\r\n
+        \   <wsdl:part name=\"ProtocoloStatusTraking\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"ConfirmarRecebimentoStatusTrakingHttpPostOut\">\r\n
+        \   <wsdl:part name=\"Body\" element=\"tns:DadosResultadoOperacao\" />\r\n
+        \ </wsdl:message>\r\n  <wsdl:message name=\"PedidosDisponiveisHttpPostIn\">\r\n
+        \   <wsdl:part name=\"ChaveIdentificacao\" type=\"s:string\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"PedidosDisponiveisHttpPostOut\">\r\n    <wsdl:part
+        name=\"Body\" element=\"tns:DadosPedidosDisponiveisWebRows\" />\r\n  </wsdl:message>\r\n
+        \ <wsdl:message name=\"ConfirmarRecebimentoPedidoHttpPostIn\">\r\n    <wsdl:part
+        name=\"ProtocoloPedido\" type=\"s:string\" />\r\n  </wsdl:message>\r\n  <wsdl:message
+        name=\"ConfirmarRecebimentoPedidoHttpPostOut\">\r\n    <wsdl:part name=\"Body\"
+        element=\"tns:DadosResultadoOperacao\" />\r\n  </wsdl:message>\r\n  <wsdl:portType
+        name=\"AbacosWSPlataformaSoap\">\r\n    <wsdl:operation name=\"ProdutosDisponiveis\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Deve
         ser utilizado para obter as informações de produtos que estão disponíveis
         para a integração. A informação se torna disponível para integração quando
         ocorre uma inclusão, alteração de alguma informação ou exclusão.</wsdl:documentation>\r\n
@@ -1256,14 +2080,19 @@ http_interactions:
         Caso a confirmação não ocorra a mesma irá permanecer na lista indefinidamente.</wsdl:documentation>\r\n
         \     <wsdl:input message=\"tns:ConfirmarCategoriaSiteAtualizarCodigoSoapIn\"
         />\r\n      <wsdl:output message=\"tns:ConfirmarCategoriaSiteAtualizarCodigoSoapOut\"
-        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"CategoriasProdutoDisponiveis\">\r\n
-        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Deve
-        ser utilizado para obter as informações de categorias de produtos para o site
-        que estão disponíveis para a integração. A informação se torna disponível
-        para integração quando ocorre uma inclusão, alteração de alguma informação
-        ou exclusão.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:CategoriasProdutoDisponiveisSoapIn\"
-        />\r\n      <wsdl:output message=\"tns:CategoriasProdutoDisponiveisSoapOut\"
-        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"ConfirmarRecebimentoCategoriaProduto\">\r\n
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"ProdutoExiste\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Este
+        método deve ser usado para identificar se um produto existe na base de dados
+        do ÁBACOS.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:ProdutoExisteSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:ProdutoExisteSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"CategoriasProdutoDisponiveis\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Deve ser utilizado para obter
+        as informações de categorias de produtos para o site que estão disponíveis
+        para a integração. A informação se torna disponível para integração quando
+        ocorre uma inclusão, alteração de alguma informação ou exclusão.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:CategoriasProdutoDisponiveisSoapIn\" />\r\n
+        \     <wsdl:output message=\"tns:CategoriasProdutoDisponiveisSoapOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"ConfirmarRecebimentoCategoriaProduto\">\r\n
         \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Quando
         uma categoria de produto se torna disponível para integração ela se torna
         um item de uma lista até que seja retirada da mesma. Para retirá-la da lista
@@ -1413,7 +2242,75 @@ http_interactions:
         na solicitação são apresentados com os seus respectivos resultados (sucesso
         ou erro).</wsdl:documentation>\r\n      <wsdl:input message=\"tns:PrecoOnLineSoapIn\"
         />\r\n      <wsdl:output message=\"tns:PrecoOnLineSoapOut\" />\r\n    </wsdl:operation>\r\n
-        \ </wsdl:portType>\r\n  <wsdl:portType name=\"AbacosWSProdutosHttpGet\">\r\n
+        \   <wsdl:operation name=\"CadastrarCliente\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Permite a inclusão dos clientes
+        diretamente no sistema ÁBACOS. Podem ser enviados vários clientes de uma única
+        vez se assim for desejado.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:CadastrarClienteSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:CadastrarClienteSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"PedidoExiste\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Este
+        método deve ser usado para identificar se um pedido já foi incluído na base
+        de dados do ÁBACOS.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:PedidoExisteSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:PedidoExisteSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"InserirPedido\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Permite
+        a inclusão dos pedidos diretamente no sistema ÁBACOS. Podem ser enviados vários
+        pedidos de uma única vez se assim for desejado.</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:InserirPedidoSoapIn\" />\r\n      <wsdl:output message=\"tns:InserirPedidoSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"InserirListaPresente\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Permite
+        a inclusão de listas de presente diretamente no sistema ÁBACOS. Podem ser
+        enviadas várias listas uma única vez se assim for desejado.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:InserirListaPresenteSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:InserirListaPresenteSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"StatusPedidoDisponiveis\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Deve ser utilizado para obter
+        as informações de status de pedidos que estão disponíveis para a integração.
+        A informação se torna disponível para integração quando ocorre alguma alteração
+        no status do pedido.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:StatusPedidoDisponiveisSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:StatusPedidoDisponiveisSoapOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"ConfirmarRecebimentoStatusPedido\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Quando
+        um status de pedido se torna disponível para integração ele se torna um item
+        de uma lista até que seja retirada da mesma. Para retirá-lo da lista é necessário
+        informar que a sua integração foi bem sucedida. Este método deve ser usado
+        para isso. Caso a confirmação não ocorra o mesmo irá permanecer na lista indefinidamente.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:ConfirmarRecebimentoStatusPedidoSoapIn\" />\r\n
+        \     <wsdl:output message=\"tns:ConfirmarRecebimentoStatusPedidoSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"ConfirmarPagamentosPedidos\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Permite
+        a baixa do pagamento do pedido diretamente no sistema ÁBACOS. Podem ser enviados
+        vários pagamentos de pedidos de uma única vez se assim for desejado.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:ConfirmarPagamentosPedidosSoapIn\" />\r\n
+        \     <wsdl:output message=\"tns:ConfirmarPagamentosPedidosSoapOut\" />\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"StatusPedidoTraking\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Permite
+        consultar o(s) status do(s) pedido(s) durante o traking.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:StatusPedidoTrakingSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:StatusPedidoTrakingSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"ConfirmarRecebimentoStatusTraking\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Confirmar a integrção do status
+        do pedido durante o traking</wsdl:documentation>\r\n      <wsdl:input message=\"tns:ConfirmarRecebimentoStatusTrakingSoapIn\"
+        />\r\n      <wsdl:output message=\"tns:ConfirmarRecebimentoStatusTrakingSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"AlterarItemPedidoFrete\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Este
+        método deve ser usado para alterar o numero de itens e o valor do frete de
+        um pedido na base de dados do ÁBACOS.</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:AlterarItemPedidoFreteSoapIn\" />\r\n      <wsdl:output message=\"tns:AlterarItemPedidoFreteSoapOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"PedidosDisponiveis\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Deve
+        ser utilizado para obter as informações de pedidos que estão disponíveis para
+        a integração. A informação se torna disponível para integração quando ocorre
+        uma inclusão, alteração de alguma informação ou exclusão.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:PedidosDisponiveisSoapIn\" />\r\n      <wsdl:output
+        message=\"tns:PedidosDisponiveisSoapOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"ConfirmarRecebimentoPedido\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Quando um pedido se torna
+        disponível para integração ele se torna um item de uma lista até que seja
+        retirado da mesma. Para retirá-lo da lista é necessário informar que a sua
+        integração foi bem sucedida. Este método deve ser usado para isso. Caso a
+        confirmação não ocorra a mesma irá permanecer na lista indefinidamente.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:ConfirmarRecebimentoPedidoSoapIn\" />\r\n
+        \     <wsdl:output message=\"tns:ConfirmarRecebimentoPedidoSoapOut\" />\r\n
+        \   </wsdl:operation>\r\n  </wsdl:portType>\r\n  <wsdl:portType name=\"AbacosWSPlataformaHttpGet\">\r\n
         \   <wsdl:operation name=\"ProdutosDisponiveis\">\r\n      <wsdl:documentation
         xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Deve ser utilizado para obter
         as informações de produtos que estão disponíveis para a integração. A informação
@@ -1603,20 +2500,58 @@ http_interactions:
         retorno todos os produtos que estavam presentes na solicitação são apresentados
         com os seus respectivos resultados (sucesso ou erro).</wsdl:documentation>\r\n
         \     <wsdl:input message=\"tns:PrecoOnLineHttpGetIn\" />\r\n      <wsdl:output
-        message=\"tns:PrecoOnLineHttpGetOut\" />\r\n    </wsdl:operation>\r\n  </wsdl:portType>\r\n
-        \ <wsdl:portType name=\"AbacosWSProdutosHttpPost\">\r\n    <wsdl:operation
-        name=\"ProdutosDisponiveis\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Deve
-        ser utilizado para obter as informações de produtos que estão disponíveis
-        para a integração. A informação se torna disponível para integração quando
-        ocorre uma inclusão, alteração de alguma informação ou exclusão.</wsdl:documentation>\r\n
-        \     <wsdl:input message=\"tns:ProdutosDisponiveisHttpPostIn\" />\r\n      <wsdl:output
-        message=\"tns:ProdutosDisponiveisHttpPostOut\" />\r\n    </wsdl:operation>\r\n
-        \   <wsdl:operation name=\"ConfirmarRecebimentoProduto\">\r\n      <wsdl:documentation
-        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Quando um produto se torna
-        disponível para integração elE se torna um item de uma lista até que seja
+        message=\"tns:PrecoOnLineHttpGetOut\" />\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"PedidoExiste\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Este
+        método deve ser usado para identificar se um pedido já foi incluído na base
+        de dados do ÁBACOS.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:PedidoExisteHttpGetIn\"
+        />\r\n      <wsdl:output message=\"tns:PedidoExisteHttpGetOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"StatusPedidoDisponiveis\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Deve ser utilizado para obter
+        as informações de status de pedidos que estão disponíveis para a integração.
+        A informação se torna disponível para integração quando ocorre alguma alteração
+        no status do pedido.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:StatusPedidoDisponiveisHttpGetIn\"
+        />\r\n      <wsdl:output message=\"tns:StatusPedidoDisponiveisHttpGetOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"ConfirmarRecebimentoStatusPedido\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Quando
+        um status de pedido se torna disponível para integração ele se torna um item
+        de uma lista até que seja retirada da mesma. Para retirá-lo da lista é necessário
+        informar que a sua integração foi bem sucedida. Este método deve ser usado
+        para isso. Caso a confirmação não ocorra o mesmo irá permanecer na lista indefinidamente.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:ConfirmarRecebimentoStatusPedidoHttpGetIn\"
+        />\r\n      <wsdl:output message=\"tns:ConfirmarRecebimentoStatusPedidoHttpGetOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"ConfirmarRecebimentoStatusTraking\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Confirmar
+        a integrção do status do pedido durante o traking</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:ConfirmarRecebimentoStatusTrakingHttpGetIn\"
+        />\r\n      <wsdl:output message=\"tns:ConfirmarRecebimentoStatusTrakingHttpGetOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"PedidosDisponiveis\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Deve
+        ser utilizado para obter as informações de pedidos que estão disponíveis para
+        a integração. A informação se torna disponível para integração quando ocorre
+        uma inclusão, alteração de alguma informação ou exclusão.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:PedidosDisponiveisHttpGetIn\" />\r\n      <wsdl:output
+        message=\"tns:PedidosDisponiveisHttpGetOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"ConfirmarRecebimentoPedido\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Quando um pedido se torna
+        disponível para integração ele se torna um item de uma lista até que seja
         retirado da mesma. Para retirá-lo da lista é necessário informar que a sua
         integração foi bem sucedida. Este método deve ser usado para isso. Caso a
         confirmação não ocorra a mesma irá permanecer na lista indefinidamente.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:ConfirmarRecebimentoPedidoHttpGetIn\" />\r\n
+        \     <wsdl:output message=\"tns:ConfirmarRecebimentoPedidoHttpGetOut\" />\r\n
+        \   </wsdl:operation>\r\n  </wsdl:portType>\r\n  <wsdl:portType name=\"AbacosWSPlataformaHttpPost\">\r\n
+        \   <wsdl:operation name=\"ProdutosDisponiveis\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Deve ser utilizado para obter
+        as informações de produtos que estão disponíveis para a integração. A informação
+        se torna disponível para integração quando ocorre uma inclusão, alteração
+        de alguma informação ou exclusão.</wsdl:documentation>\r\n      <wsdl:input
+        message=\"tns:ProdutosDisponiveisHttpPostIn\" />\r\n      <wsdl:output message=\"tns:ProdutosDisponiveisHttpPostOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"ConfirmarRecebimentoProduto\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Quando
+        um produto se torna disponível para integração elE se torna um item de uma
+        lista até que seja retirado da mesma. Para retirá-lo da lista é necessário
+        informar que a sua integração foi bem sucedida. Este método deve ser usado
+        para isso. Caso a confirmação não ocorra a mesma irá permanecer na lista indefinidamente.</wsdl:documentation>\r\n
         \     <wsdl:input message=\"tns:ConfirmarRecebimentoProdutoHttpPostIn\" />\r\n
         \     <wsdl:output message=\"tns:ConfirmarRecebimentoProdutoHttpPostOut\"
         />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"ConfirmarProdutoAtualizarCodigo\">\r\n
@@ -1794,10 +2729,48 @@ http_interactions:
         retorno todos os produtos que estavam presentes na solicitação são apresentados
         com os seus respectivos resultados (sucesso ou erro).</wsdl:documentation>\r\n
         \     <wsdl:input message=\"tns:PrecoOnLineHttpPostIn\" />\r\n      <wsdl:output
-        message=\"tns:PrecoOnLineHttpPostOut\" />\r\n    </wsdl:operation>\r\n  </wsdl:portType>\r\n
-        \ <wsdl:binding name=\"AbacosWSProdutosSoap\" type=\"tns:AbacosWSProdutosSoap\">\r\n
-        \   <soap:binding transport=\"http://schemas.xmlsoap.org/soap/http\" />\r\n
-        \   <wsdl:operation name=\"ProdutosDisponiveis\">\r\n      <soap:operation
+        message=\"tns:PrecoOnLineHttpPostOut\" />\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"PedidoExiste\">\r\n      <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Este
+        método deve ser usado para identificar se um pedido já foi incluído na base
+        de dados do ÁBACOS.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:PedidoExisteHttpPostIn\"
+        />\r\n      <wsdl:output message=\"tns:PedidoExisteHttpPostOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"StatusPedidoDisponiveis\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Deve ser utilizado para obter
+        as informações de status de pedidos que estão disponíveis para a integração.
+        A informação se torna disponível para integração quando ocorre alguma alteração
+        no status do pedido.</wsdl:documentation>\r\n      <wsdl:input message=\"tns:StatusPedidoDisponiveisHttpPostIn\"
+        />\r\n      <wsdl:output message=\"tns:StatusPedidoDisponiveisHttpPostOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"ConfirmarRecebimentoStatusPedido\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Quando
+        um status de pedido se torna disponível para integração ele se torna um item
+        de uma lista até que seja retirada da mesma. Para retirá-lo da lista é necessário
+        informar que a sua integração foi bem sucedida. Este método deve ser usado
+        para isso. Caso a confirmação não ocorra o mesmo irá permanecer na lista indefinidamente.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:ConfirmarRecebimentoStatusPedidoHttpPostIn\"
+        />\r\n      <wsdl:output message=\"tns:ConfirmarRecebimentoStatusPedidoHttpPostOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"ConfirmarRecebimentoStatusTraking\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Confirmar
+        a integrção do status do pedido durante o traking</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:ConfirmarRecebimentoStatusTrakingHttpPostIn\"
+        />\r\n      <wsdl:output message=\"tns:ConfirmarRecebimentoStatusTrakingHttpPostOut\"
+        />\r\n    </wsdl:operation>\r\n    <wsdl:operation name=\"PedidosDisponiveis\">\r\n
+        \     <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Deve
+        ser utilizado para obter as informações de pedidos que estão disponíveis para
+        a integração. A informação se torna disponível para integração quando ocorre
+        uma inclusão, alteração de alguma informação ou exclusão.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:PedidosDisponiveisHttpPostIn\" />\r\n      <wsdl:output
+        message=\"tns:PedidosDisponiveisHttpPostOut\" />\r\n    </wsdl:operation>\r\n
+        \   <wsdl:operation name=\"ConfirmarRecebimentoPedido\">\r\n      <wsdl:documentation
+        xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Quando um pedido se torna
+        disponível para integração ele se torna um item de uma lista até que seja
+        retirado da mesma. Para retirá-lo da lista é necessário informar que a sua
+        integração foi bem sucedida. Este método deve ser usado para isso. Caso a
+        confirmação não ocorra a mesma irá permanecer na lista indefinidamente.</wsdl:documentation>\r\n
+        \     <wsdl:input message=\"tns:ConfirmarRecebimentoPedidoHttpPostIn\" />\r\n
+        \     <wsdl:output message=\"tns:ConfirmarRecebimentoPedidoHttpPostOut\" />\r\n
+        \   </wsdl:operation>\r\n  </wsdl:portType>\r\n  <wsdl:binding name=\"AbacosWSPlataformaSoap\"
+        type=\"tns:AbacosWSPlataformaSoap\">\r\n    <soap:binding transport=\"http://schemas.xmlsoap.org/soap/http\"
+        />\r\n    <wsdl:operation name=\"ProdutosDisponiveis\">\r\n      <soap:operation
         soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/ProdutosDisponiveis\"
         style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
         />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
@@ -1811,6 +2784,10 @@ http_interactions:
         />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
         />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
         name=\"ConfirmarCategoriaSiteAtualizarCodigo\">\r\n      <soap:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/ConfirmarCategoriaSiteAtualizarCodigo\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"ProdutoExiste\">\r\n      <soap:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/ProdutoExiste\"
         style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
         />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
         />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
@@ -1898,8 +2875,56 @@ http_interactions:
         name=\"PrecoOnLine\">\r\n      <soap:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/PrecoOnLine\"
         style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
         />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"CadastrarCliente\">\r\n      <soap:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/CadastrarCliente\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"PedidoExiste\">\r\n      <soap:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/PedidoExiste\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"InserirPedido\">\r\n      <soap:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/InserirPedido\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"InserirListaPresente\">\r\n      <soap:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/InserirListaPresente\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"StatusPedidoDisponiveis\">\r\n      <soap:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/StatusPedidoDisponiveis\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"ConfirmarRecebimentoStatusPedido\">\r\n      <soap:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/ConfirmarRecebimentoStatusPedido\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"ConfirmarPagamentosPedidos\">\r\n      <soap:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/ConfirmarPagamentosPedidos\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"StatusPedidoTraking\">\r\n      <soap:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/StatusPedidoTraking\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"ConfirmarRecebimentoStatusTraking\">\r\n      <soap:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/ConfirmarRecebimentoStatusTraking\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"AlterarItemPedidoFrete\">\r\n      <soap:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/AlterarItemPedidoFrete\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"PedidosDisponiveis\">\r\n      <soap:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/PedidosDisponiveis\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"ConfirmarRecebimentoPedido\">\r\n      <soap:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/ConfirmarRecebimentoPedido\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap:body use=\"literal\"
         />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n  </wsdl:binding>\r\n
-        \ <wsdl:binding name=\"AbacosWSProdutosSoap12\" type=\"tns:AbacosWSProdutosSoap\">\r\n
+        \ <wsdl:binding name=\"AbacosWSPlataformaSoap12\" type=\"tns:AbacosWSPlataformaSoap\">\r\n
         \   <soap12:binding transport=\"http://schemas.xmlsoap.org/soap/http\" />\r\n
         \   <wsdl:operation name=\"ProdutosDisponiveis\">\r\n      <soap12:operation
         soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/ProdutosDisponiveis\"
@@ -1916,6 +2941,10 @@ http_interactions:
         />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
         name=\"ConfirmarCategoriaSiteAtualizarCodigo\">\r\n      <soap12:operation
         soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/ConfirmarCategoriaSiteAtualizarCodigo\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"ProdutoExiste\">\r\n      <soap12:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/ProdutoExiste\"
         style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
         />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
         />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
@@ -2004,8 +3033,56 @@ http_interactions:
         name=\"PrecoOnLine\">\r\n      <soap12:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/PrecoOnLine\"
         style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
         />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"CadastrarCliente\">\r\n      <soap12:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/CadastrarCliente\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"PedidoExiste\">\r\n      <soap12:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/PedidoExiste\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"InserirPedido\">\r\n      <soap12:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/InserirPedido\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"InserirListaPresente\">\r\n      <soap12:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/InserirListaPresente\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"StatusPedidoDisponiveis\">\r\n      <soap12:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/StatusPedidoDisponiveis\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"ConfirmarRecebimentoStatusPedido\">\r\n      <soap12:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/ConfirmarRecebimentoStatusPedido\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"ConfirmarPagamentosPedidos\">\r\n      <soap12:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/ConfirmarPagamentosPedidos\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"StatusPedidoTraking\">\r\n      <soap12:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/StatusPedidoTraking\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"ConfirmarRecebimentoStatusTraking\">\r\n      <soap12:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/ConfirmarRecebimentoStatusTraking\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"AlterarItemPedidoFrete\">\r\n      <soap12:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/AlterarItemPedidoFrete\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"PedidosDisponiveis\">\r\n      <soap12:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/PedidosDisponiveis\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"ConfirmarRecebimentoPedido\">\r\n      <soap12:operation soapAction=\"http://www.kplsolucoes.com.br/ABACOSWebService/ConfirmarRecebimentoPedido\"
+        style=\"document\" />\r\n      <wsdl:input>\r\n        <soap12:body use=\"literal\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <soap12:body use=\"literal\"
         />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n  </wsdl:binding>\r\n
-        \ <wsdl:binding name=\"AbacosWSProdutosHttpGet\" type=\"tns:AbacosWSProdutosHttpGet\">\r\n
+        \ <wsdl:binding name=\"AbacosWSPlataformaHttpGet\" type=\"tns:AbacosWSPlataformaHttpGet\">\r\n
         \   <http:binding verb=\"GET\" />\r\n    <wsdl:operation name=\"ProdutosDisponiveis\">\r\n
         \     <http:operation location=\"/ProdutosDisponiveis\" />\r\n      <wsdl:input>\r\n
         \       <http:urlEncoded />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
@@ -2099,22 +3176,44 @@ http_interactions:
         \   <wsdl:operation name=\"PrecoOnLine\">\r\n      <http:operation location=\"/PrecoOnLine\"
         />\r\n      <wsdl:input>\r\n        <http:urlEncoded />\r\n      </wsdl:input>\r\n
         \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
-        \   </wsdl:operation>\r\n  </wsdl:binding>\r\n  <wsdl:binding name=\"AbacosWSProdutosHttpPost\"
-        type=\"tns:AbacosWSProdutosHttpPost\">\r\n    <http:binding verb=\"POST\"
-        />\r\n    <wsdl:operation name=\"ProdutosDisponiveis\">\r\n      <http:operation
-        location=\"/ProdutosDisponiveis\" />\r\n      <wsdl:input>\r\n        <mime:content
-        type=\"application/x-www-form-urlencoded\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"PedidoExiste\">\r\n      <http:operation
+        location=\"/PedidoExiste\" />\r\n      <wsdl:input>\r\n        <http:urlEncoded
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"StatusPedidoDisponiveis\">\r\n      <http:operation location=\"/StatusPedidoDisponiveis\"
+        />\r\n      <wsdl:input>\r\n        <http:urlEncoded />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"ConfirmarRecebimentoStatusPedido\">\r\n
+        \     <http:operation location=\"/ConfirmarRecebimentoStatusPedido\" />\r\n
+        \     <wsdl:input>\r\n        <http:urlEncoded />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"ConfirmarRecebimentoStatusTraking\">\r\n
+        \     <http:operation location=\"/ConfirmarRecebimentoStatusTraking\" />\r\n
+        \     <wsdl:input>\r\n        <http:urlEncoded />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"PedidosDisponiveis\">\r\n
+        \     <http:operation location=\"/PedidosDisponiveis\" />\r\n      <wsdl:input>\r\n
+        \       <http:urlEncoded />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
         \       <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
-        \   <wsdl:operation name=\"ConfirmarRecebimentoProduto\">\r\n      <http:operation
-        location=\"/ConfirmarRecebimentoProduto\" />\r\n      <wsdl:input>\r\n        <mime:content
-        type=\"application/x-www-form-urlencoded\" />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n
-        \       <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n
-        \   <wsdl:operation name=\"ConfirmarProdutoAtualizarCodigo\">\r\n      <http:operation
-        location=\"/ConfirmarProdutoAtualizarCodigo\" />\r\n      <wsdl:input>\r\n
+        \   <wsdl:operation name=\"ConfirmarRecebimentoPedido\">\r\n      <http:operation
+        location=\"/ConfirmarRecebimentoPedido\" />\r\n      <wsdl:input>\r\n        <http:urlEncoded
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n  </wsdl:binding>\r\n
+        \ <wsdl:binding name=\"AbacosWSPlataformaHttpPost\" type=\"tns:AbacosWSPlataformaHttpPost\">\r\n
+        \   <http:binding verb=\"POST\" />\r\n    <wsdl:operation name=\"ProdutosDisponiveis\">\r\n
+        \     <http:operation location=\"/ProdutosDisponiveis\" />\r\n      <wsdl:input>\r\n
         \       <mime:content type=\"application/x-www-form-urlencoded\" />\r\n      </wsdl:input>\r\n
         \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
-        \   </wsdl:operation>\r\n    <wsdl:operation name=\"ConfirmarCategoriaSiteAtualizarCodigo\">\r\n
-        \     <http:operation location=\"/ConfirmarCategoriaSiteAtualizarCodigo\"
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"ConfirmarRecebimentoProduto\">\r\n
+        \     <http:operation location=\"/ConfirmarRecebimentoProduto\" />\r\n      <wsdl:input>\r\n
+        \       <mime:content type=\"application/x-www-form-urlencoded\" />\r\n      </wsdl:input>\r\n
+        \     <wsdl:output>\r\n        <mime:mimeXml part=\"Body\" />\r\n      </wsdl:output>\r\n
+        \   </wsdl:operation>\r\n    <wsdl:operation name=\"ConfirmarProdutoAtualizarCodigo\">\r\n
+        \     <http:operation location=\"/ConfirmarProdutoAtualizarCodigo\" />\r\n
+        \     <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"ConfirmarCategoriaSiteAtualizarCodigo\">\r\n      <http:operation location=\"/ConfirmarCategoriaSiteAtualizarCodigo\"
         />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
         />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
         part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
@@ -2201,39 +3300,59 @@ http_interactions:
         name=\"PrecoOnLine\">\r\n      <http:operation location=\"/PrecoOnLine\" />\r\n
         \     <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
         />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"PedidoExiste\">\r\n      <http:operation location=\"/PedidoExiste\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"StatusPedidoDisponiveis\">\r\n      <http:operation location=\"/StatusPedidoDisponiveis\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"ConfirmarRecebimentoStatusPedido\">\r\n      <http:operation location=\"/ConfirmarRecebimentoStatusPedido\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"ConfirmarRecebimentoStatusTraking\">\r\n      <http:operation location=\"/ConfirmarRecebimentoStatusTraking\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"PedidosDisponiveis\">\r\n      <http:operation location=\"/PedidosDisponiveis\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
+        part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n    <wsdl:operation
+        name=\"ConfirmarRecebimentoPedido\">\r\n      <http:operation location=\"/ConfirmarRecebimentoPedido\"
+        />\r\n      <wsdl:input>\r\n        <mime:content type=\"application/x-www-form-urlencoded\"
+        />\r\n      </wsdl:input>\r\n      <wsdl:output>\r\n        <mime:mimeXml
         part=\"Body\" />\r\n      </wsdl:output>\r\n    </wsdl:operation>\r\n  </wsdl:binding>\r\n
-        \ <wsdl:service name=\"AbacosWSProdutos\">\r\n    <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Este
-        WebService destina-se a integração de produtos do sistema ÁBACOS (KPL Soluções)
-        com sistemas externos. Um exemplo seria a atualização dos dados de produtos
-        em um site de e-commerce. A utilização deste WebService permite também a atualização
-        das informações de estoque, preços entre outras informações relacionadas ao
-        produtos comercializados por uma empresa.&lt;br&gt;&lt;br&gt;&lt;b&gt;Versão
-        5.0B.0079&lt;/b&gt;</wsdl:documentation>\r\n    <wsdl:port name=\"AbacosWSProdutosSoap\"
-        binding=\"tns:AbacosWSProdutosSoap\">\r\n      <soap:address location=\"ABACOS_BASE_URL/AbacosWSProdutos.asmx\"
-        />\r\n    </wsdl:port>\r\n    <wsdl:port name=\"AbacosWSProdutosSoap12\" binding=\"tns:AbacosWSProdutosSoap12\">\r\n
-        \     <soap12:address location=\"ABACOS_BASE_URL/AbacosWSProdutos.asmx\" />\r\n
-        \   </wsdl:port>\r\n    <wsdl:port name=\"AbacosWSProdutosHttpGet\" binding=\"tns:AbacosWSProdutosHttpGet\">\r\n
-        \     <http:address location=\"ABACOS_BASE_URL/AbacosWSProdutos.asmx\" />\r\n
-        \   </wsdl:port>\r\n    <wsdl:port name=\"AbacosWSProdutosHttpPost\" binding=\"tns:AbacosWSProdutosHttpPost\">\r\n
-        \     <http:address location=\"ABACOS_BASE_URL/AbacosWSProdutos.asmx\" />\r\n
-        \   </wsdl:port>\r\n  </wsdl:service>\r\n</wsdl:definitions>"
+        \ <wsdl:service name=\"AbacosWSPlataforma\">\r\n    <wsdl:documentation xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">Este
+        WebService destina-se a integração entre plataformas de e-commerce e o ÁBACOS.&lt;br&gt;&lt;br&gt;&lt;b&gt;Versão
+        5.0.83.7&lt;/b&gt;</wsdl:documentation>\r\n    <wsdl:port name=\"AbacosWSPlataformaSoap\"
+        binding=\"tns:AbacosWSPlataformaSoap\">\r\n      <soap:address location=\"ABACOS_BASE_URL.asmx\"
+        />\r\n    </wsdl:port>\r\n    <wsdl:port name=\"AbacosWSPlataformaSoap12\"
+        binding=\"tns:AbacosWSPlataformaSoap12\">\r\n      <soap12:address location=\"ABACOS_BASE_URL.asmx\"
+        />\r\n    </wsdl:port>\r\n    <wsdl:port name=\"AbacosWSPlataformaHttpGet\"
+        binding=\"tns:AbacosWSPlataformaHttpGet\">\r\n      <http:address location=\"ABACOS_BASE_URL.asmx\"
+        />\r\n    </wsdl:port>\r\n    <wsdl:port name=\"AbacosWSPlataformaHttpPost\"
+        binding=\"tns:AbacosWSPlataformaHttpPost\">\r\n      <http:address location=\"ABACOS_BASE_URL.asmx\"
+        />\r\n    </wsdl:port>\r\n  </wsdl:service>\r\n</wsdl:definitions>"
     http_version: 
-  recorded_at: Thu, 12 Feb 2015 14:36:23 GMT
+  recorded_at: Thu, 12 Feb 2015 14:22:46 GMT
 - request:
     method: post
-    uri: ABACOS_BASE_URL/AbacosWSProdutos.asmx
+    uri: ABACOS_BASE_URL.asmx
     body:
       encoding: utf-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://www.kplsolucoes.com.br/ABACOSWebService"
-        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ins0="http://www.kplsolucoes.com.br/ABACOSWebService/AbstractTypes"><env:Body><tns:ConfirmarRecebimentoEstoque><tns:ProtocoloEstoque>bdcec9fb-f0f5-4223-8fc6-f369cb19ab05</tns:ProtocoloEstoque></tns:ConfirmarRecebimentoEstoque></env:Body></env:Envelope>
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ins0="http://www.kplsolucoes.com.br/ABACOSWebService/AbstractTypes"><env:Body><tns:ProdutosDisponiveis><tns:ChaveIdentificacao>ABACOS_KEY</tns:ChaveIdentificacao></tns:ProdutosDisponiveis></env:Body></env:Envelope>
     headers:
       Soapaction:
-      - '"http://www.kplsolucoes.com.br/ABACOSWebService/ConfirmarRecebimentoEstoque"'
+      - '"http://www.kplsolucoes.com.br/ABACOSWebService/ProdutosDisponiveis"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '522'
+      - '510'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -2258,18 +3377,15 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Thu, 12 Feb 2015 14:36:43 GMT
+      - Thu, 12 Feb 2015 14:22:50 GMT
       Content-Length:
-      - '594'
+      - '453'
     body:
       encoding: utf-8
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"
-        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><ConfirmarRecebimentoEstoqueResponse
-        xmlns=\"http://www.kplsolucoes.com.br/ABACOSWebService\"><ConfirmarRecebimentoEstoqueResult><Codigo>300005</Codigo><Descricao>A
-        execução da rotina gerou uma crítica. Detalhes: * Origem: Confirmar a inclusão
-        dos dados de estoque * Linha em que ocorreu o erro: 53 * Nome do objeto onde
-        ocorreu o erro: PGEN_P_RAISERROR * Código de erro do banco de dados: 50000</Descricao><Tipo>tdreErroDataBase</Tipo><ExceptionMessage>Protocolo
-        inexistente</ExceptionMessage></ConfirmarRecebimentoEstoqueResult></ConfirmarRecebimentoEstoqueResponse></soap:Body></soap:Envelope>\r\n"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><ProdutosDisponiveisResponse
+        xmlns=\"http://www.kplsolucoes.com.br/ABACOSWebService\"><ProdutosDisponiveisResult><VersaoWebService>5.0.83.7</VersaoWebService><ResultadoOperacao><Codigo>200003</Codigo><Descricao>OK,
+        porém não há dados.</Descricao><Tipo>tdreSucessoSemDados</Tipo></ResultadoOperacao></ProdutosDisponiveisResult></ProdutosDisponiveisResponse></soap:Body></soap:Envelope>\r\n"
     http_version: 
-  recorded_at: Thu, 12 Feb 2015 14:36:43 GMT
+  recorded_at: Thu, 12 Feb 2015 14:22:51 GMT
 recorded_with: VCR 2.9.3
