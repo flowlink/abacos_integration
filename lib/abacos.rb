@@ -298,7 +298,7 @@ class Abacos
     private
 
     # TODO Look into how httpi could be updated to support socket proxies.
-    #   
+    #
     #   e.g. proxy: 'socks5h://localhost:2222',
     #
     def client
@@ -335,7 +335,7 @@ class Abacos
 
       # NOTE Check if there's a exception_message key here
       if result[:tipo] != "tdreSucesso"
-        raise ResponseError, "Could not confirm record was received. Cod. #{result[:codigo]}, #{result[:descricao]}"
+        raise ResponseError, "Could not confirm record was received with protocol '#{protocol}'. Cod. #{result[:codigo]}, #{result[:descricao]}, (Tipo: #{result[:tipo]})"
       end
 
       true
