@@ -1,11 +1,16 @@
 module AbacosIntegration
   class Product < Base
-    attr_reader :product_payload, :variants_payload
+    attr_reader :product_payload, :variants_payload, :pending_protocols,
+      :confirmed_protocols
 
     def initialize(config = {}, payload = {})
       super config
+
       @product_payload = payload[:product] || {}
       @variants_payload = product_payload[:variants] || {}
+
+      @pending_protocols = []
+      @confirmed_protocols = []
     end
 
     # Confirm product (if product.abacos info exists) and its variants. A
@@ -14,6 +19,28 @@ module AbacosIntegration
     def confirm!
       confirm_integration product_payload
       variants_payload.each { |key, v| confirm_integration v }
+      clean_up_protocols
+    end
+
+    def clean_up_protocols
+      payload_update = { variants: {} }
+
+      master_protocol = product_payload[:abacos].to_h[:protocolo_produto]
+      if master_protocol && confirmed_protocols.include?(master_protocol)
+        payload_update[:abacos] = { protocolo_produto: nil }
+      end
+
+      variants_payload.each do |sku, variant|
+        protocol = variant[:abacos].to_h[:protocolo_produto]
+
+        if protocol && confirmed_protocols.include?(protocol)
+          payload_update[:variants] = {
+            sku => { abacos: { protocolo_produto: nil } }
+          }
+        end
+      end
+
+      payload_update
     end
 
     # Abacos return product children (variants) as regular product records
@@ -138,10 +165,14 @@ module AbacosIntegration
       end
 
       def confirm_integration(payload)
-        if payload[:abacos]
+        if payload[:abacos].to_h[:protocolo_produto]
           protocol = payload[:abacos][:protocolo_produto]
+
           Abacos.confirm_product_received protocol
+          confirmed_protocols.push protocol
         end
+      rescue Abacos::ResponseError => e
+        pending_protocols.push payload[:abacos][:protocolo_produto]
       end
 
       def useless_keys

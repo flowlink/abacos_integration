@@ -6,6 +6,42 @@ module AbacosIntegration
 
     subject { described_class.new config }
 
+    it "still allows other products from" do
+      payload = {
+        product: {
+          abacos: { protocolo_produto: "p" },
+          variants: {
+            sku1: {
+              abacos: { protocolo_produto: "sku1" }
+            },
+            sku2: {
+              abacos: { protocolo_produto: "sku2" }
+            }
+          }
+        }
+      }
+
+      subject = described_class.new config, payload
+      expect(Abacos).to receive(:confirm_product_received).with("p").once
+      expect(Abacos).to receive(:confirm_product_received).with("sku1").once.and_raise Abacos::ResponseError
+      expect(Abacos).to receive(:confirm_product_received).with("sku2").once
+
+      product_update = subject.confirm!
+      expect(subject.pending_protocols).to eq ["sku1"]
+      expect(subject.confirmed_protocols).to eq ["p", "sku2"]
+
+      expected_return = {
+        abacos: { protocolo_produto: nil },
+        variants: {
+          sku2: {
+            abacos: { protocolo_produto: nil }
+          }
+        }
+      }
+
+      expect(product_update).to eq expected_return
+    end
+
     it "variants have a parent id", broken: true do
       VCR.use_cassette "products_available_1413298752" do
         products = subject.fetch
